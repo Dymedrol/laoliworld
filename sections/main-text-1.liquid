@@ -1,19 +1,4 @@
-<div class="laoli-home-text1">LAOLI transports its collectors to a sweeter, better-than-real world, offering casually elegant pieces that reconnect you with who you are.</div>
-
-{% schema %}
-{
-  "name": "main page text 1",
-  "settings": [
-    {
-      "type": "text",
-      "id": "image_banner_title_text",
-      "label": "image-banner button text",
-      "default": "discover our new collection"
-    },
-  ]
-}
-
-{% endschema %}
+<div class="laoli-home-text1">{{ section.settings.image_banner_title_text }}</div>
 
 {% schema %}
   {
@@ -23,12 +8,13 @@
         "type": "text",
         "id": "image_banner_title_text",
         "label": "image-banner button text",
-        "default": "discover our new collection"
+        "default": "text"
       }
     ],
     "presets": [
       {
         "name": "main page text 1",
+        "category": "Custom"
       }
     ]
   }
