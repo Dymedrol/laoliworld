@@ -191,28 +191,42 @@
     <div class="container">
         <div class="laoli-grid-controls">
             <div class="laoli-grid-controls-list">
-                <!-- <a href="/collections/all" class="laoli-grid-controls-list-item laoli-grid-controls-list-item_active">all</a> -->
-                {%- for collection in collections -%}
-                  <a href="{{ collection.url }}" class="laoli-grid-controls-list-item">{{ collection.title }}</a>
+                {%- for child_collection in collections -%}
+                  <a href="{{ child_collection.url }}" class="laoli-grid-controls-list-item {% if collection.title == child_collection.title %}laoli-grid-controls-list-item_active{% endif %}">{{ child_collection.title }}</a>
                 {%- endfor -%}
+
             </div>
             <div class="laoli-grid-controls-filters">
-                <div class="laoli-grid-controls-filters-filter laoli-grid-controls-filters-filter_active">in stock</div>
-                <div class="laoli-grid-controls-filters-filter">made to order</div>
+                <div class="laoli-grid-controls-filters-filter laoli-grid-controls-filters-filter_active" id="filter-in-stock">in stock</div>
+                <div class="laoli-grid-controls-filters-filter" id="filter-made-to-order">made to order</div>
             </div>
         </div>
     </div>
-    <div class="laoli-grid-items">
+
+    <div class="laoli-grid-items" id="in-stock">
         {%- for product in collection.products -%}
-          {% render 'card-product',
-            card_product: product,
-          %}
+          {%- if product.available %}
+            {% render 'card-product',
+              card_product: product,
+            %}
+          {% endif %}
         {%- endfor -%}
+        <div class="laoli-grid-item-dummy"></div>
+        <div class="laoli-grid-item-dummy"></div>
+        <div class="laoli-grid-item-dummy"></div>
+    </div>
 
+    <div class="laoli-grid-items" id="made-to-order">
+        {%- for product in collection.products -%}
+          {%- if product.available == false %}
+            {% render 'card-product',
+              card_product: product,
+            %}
+          {% endif %}
+        {%- endfor -%}
         <div class="laoli-grid-item-dummy"></div>
         <div class="laoli-grid-item-dummy"></div>
         <div class="laoli-grid-item-dummy"></div>
-
     </div>
 </div>
 

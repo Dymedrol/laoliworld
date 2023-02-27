@@ -121,6 +121,18 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 
 /***/ }),
 
+/***/ "./source/js/grid.js":
+/*!***************************!*\
+  !*** ./source/js/grid.js ***!
+  \***************************/
+/*! exports provided: initGrid */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initGrid\", function() { return initGrid; });\nconst initGrid = () => {\n  const filters = $('.laoli-grid-controls-filters');\n\n  if (!filters.length) {\n    return;\n  }\n\n  const inStockFilter = filters.find('#filter-in-stock');\n  const madeToOrderFilter = filters.find('#filter-made-to-order');\n  const inStock = $('#in-stock');\n  const madeToOrder = $('#made-to-order');\n  inStockFilter.click(function () {\n    inStock.css('display', 'flex');\n    madeToOrder.css('display', 'none');\n    inStockFilter.addClass('laoli-grid-controls-filters-filter_active');\n    madeToOrderFilter.removeClass('laoli-grid-controls-filters-filter_active');\n  });\n  madeToOrderFilter.click(function () {\n    inStock.css('display', 'none');\n    madeToOrder.css('display', 'flex');\n    madeToOrderFilter.addClass('laoli-grid-controls-filters-filter_active');\n    inStockFilter.removeClass('laoli-grid-controls-filters-filter_active');\n  });\n};\n\n//# sourceURL=webpack:///./source/js/grid.js?");
+
+/***/ }),
+
 /***/ "./source/js/menu.js":
 /*!***************************!*\
   !*** ./source/js/menu.js ***!
@@ -141,7 +153,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n// import { initWishList } from './wishlist';\n// import { initCheckUpload } from './checkUpload';\n// import { initProductPage } from './productPage';\n// import { initCollectionPage } from './collection-page';\n// import { initCart } from './cart';\n// import { initMobileMenuAccordion } from './mobileMenuAccordion';\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
 
 /***/ }),
 
