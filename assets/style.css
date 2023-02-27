@@ -444,7 +444,7 @@ body {
   content: '';
   width: 50%;
   height: 40px;
-  background: url('./img/button-red.svg');
+  background: url('./button-red.svg');
   z-index: -1;
 }
 .button-red:after {
@@ -455,7 +455,7 @@ body {
   content: '';
   width: 50%;
   height: 40px;
-  background: url('./img/button-red.svg');
+  background: url('./button-red.svg');
   z-index: -1;
   background-position-x: right;
 }
@@ -487,7 +487,7 @@ body {
   content: '';
   width: 50%;
   height: 40px;
-  background: url('./img/button-white.svg');
+  background: url('./button-white.svg');
   z-index: -1;
 }
 .button-white:after {
@@ -498,7 +498,51 @@ body {
   content: '';
   width: 50%;
   height: 40px;
-  background: url('./img/button-white.svg');
+  background: url('./button-white.svg');
+  z-index: -1;
+  background-position-x: right;
+}
+.button-white-footer {
+  display: block;
+  position: relative;
+  height: 30px;
+  width: 100%;
+  padding: 0 24px;
+  font-family: 'TT Hoves';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 30px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFBF4;
+  white-space: nowrap;
+  text-decoration: none;
+  border: none;
+  background: transparent;
+  z-index: 1;
+  cursor: pointer;
+}
+.button-white-footer:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 30px;
+  background: url('./button-white-footer.svg');
+  z-index: -1;
+}
+.button-white-footer:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 30px;
+  background: url('./button-white-footer.svg');
   z-index: -1;
   background-position-x: right;
 }
@@ -862,7 +906,7 @@ body {
   }
 }
 .laoli-footer-info-wrapper {
-  background: url('./img/footer-back.png');
+  background: url('./footer-back.png');
 }
 .laoli-footer-info {
   display: flex;
@@ -943,7 +987,7 @@ body {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
-  width: 175px;
+  width: 195px;
 }
 .laoli-footer-switches {
   display: flex;
@@ -983,7 +1027,7 @@ body {
   text-align: center;
   text-transform: uppercase;
   color: #FFFBF4;
-  background: url('./img/negative-corner-back.svg');
+  background: url('./negative-corner-back.svg');
 }
 .container-home {
   width: 100%;

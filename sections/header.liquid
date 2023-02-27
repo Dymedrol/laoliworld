@@ -125,11 +125,11 @@
             </div>
             <div class="laoli-menu-content-pic-wrapper">
                 <picture>
-                  <source srcset="{{ section.settings.manu_image | img_url: '520x300', crop: 'center' }}" media="(min-width: 1920px)" />
-                  <source srcset="{{ section.settings.manu_image | img_url: '470x300', crop: 'center' }}" media="(min-width: 1440px)" />
-                  <source srcset="{{ section.settings.manu_image | img_url: '300x300', crop: 'center' }}" media="(min-width: 1200px)" />
-                  <source srcset="{{ section.settings.manu_image | img_url: '200x300', crop: 'center' }}" media="(min-width: 960px)" />
-                  <img src="{{ section.settings.manu_image | img_url: '520x300', crop: 'center' }}" alt="" />
+                  <source srcset="{{ section.settings.menu_image | img_url: '520x300', crop: 'center' }}" media="(min-width: 1920px)" />
+                  <source srcset="{{ section.settings.menu_image | img_url: '470x300', crop: 'center' }}" media="(min-width: 1440px)" />
+                  <source srcset="{{ section.settings.menu_image | img_url: '300x300', crop: 'center' }}" media="(min-width: 1200px)" />
+                  <source srcset="{{ section.settings.menu_image | img_url: '200x300', crop: 'center' }}" media="(min-width: 960px)" />
+                  <img src="{{ section.settings.menu_image | img_url: '520x300', crop: 'center' }}" alt="" />
                 </picture>
             </div>
 
@@ -143,12 +143,6 @@
   "name": "t:sections.header.name",
   "class": "section-header",
   "settings": [
-    {
-      "type": "link_list",
-      "id": "menu",
-      "default": "main-menu",
-      "label": "t:sections.header.settings.menu.label"
-    },
     {
       "type": "text",
       "id": "menu_shop_title",
@@ -169,7 +163,7 @@
     },
     {
       "type": "image_picker",
-      "id": "manu_image",
+      "id": "menu_image",
       "label": "menu image_picker"
     }
   ]
