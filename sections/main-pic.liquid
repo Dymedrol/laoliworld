@@ -1,0 +1,20 @@
+<img src="{{ section.settings.main_image | img_url: '275x294', crop: 'center' }}" alt="" class="laoli-home-pic">
+
+{% schema %}
+  {
+    "name": "main page pic",
+    "settings": [
+    {
+      "type": "image_picker",
+      "id": "main_image",
+      "label": "main image"
+    }
+    ],
+    "presets": [
+      {
+        "name": "main page pic",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
