@@ -19,11 +19,26 @@
       "settings": {
         "image_banner_title_text": "Founded by creative director and designer Olivia Ball, LAOLI was created for the aesthetes of the world who celebrate the fine things in life. A delicate balance between sophistication and ease, our pieces embrace refinement, poise and the poetic in equal measure."
       }
+    },
+    "11e7aaaf-536c-4cbb-a9cb-24cbaafb9bf5": {
+      "type": "main-button",
+      "settings": {
+        "button_text": "discover laoli",
+        "button_link": "\/"
+      }
+    },
+    "dc400eca-c8aa-4954-990c-851d09ab8bd2": {
+      "type": "main-pic",
+      "settings": {
+        "main_image": "shopify:\/\/shop_images\/image_9.png"
+      }
     }
   },
   "order": [
     "image_banner",
     "85d25305-81ad-4cc7-ac1e-75704ab79edf",
-    "c7a55a79-d2ec-4889-90c4-ea672a86842d"
+    "c7a55a79-d2ec-4889-90c4-ea672a86842d",
+    "11e7aaaf-536c-4cbb-a9cb-24cbaafb9bf5",
+    "dc400eca-c8aa-4954-990c-851d09ab8bd2"
   ]
 }
