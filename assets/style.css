@@ -1379,7 +1379,7 @@ body {
   }
 }
 .laoli-grid-item-dummy {
-  display: block;
+  display: block !important;
   width: 160px;
 }
 @media ((min-width: 720px)) {
@@ -1387,17 +1387,17 @@ body {
     width: 360px;
   }
 }
-.laoli-grid-item:hover .laoli-grid-item-pic {
+.laoli-grid-item_with-hover:hover .laoli-grid-item-pic {
   display: none;
 }
-.laoli-grid-item:hover .laoli-grid-item-hover-pic {
+.laoli-grid-item_with-hover:hover .laoli-grid-item-hover-pic {
   display: block;
   opacity: 1;
 }
-.laoli-grid-item:hover .laoli-grid-item-title {
+.laoli-grid-item_with-hover:hover .laoli-grid-item-title {
   color: #fff;
 }
-.laoli-grid-item:hover .laoli-grid-item-price {
+.laoli-grid-item_with-hover:hover .laoli-grid-item-price {
   color: #fff;
 }
 .laoli-grid-item-pic {

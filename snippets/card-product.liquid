@@ -18,6 +18,9 @@
   {% render 'card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 
+{% comment %}
+
+
 {{ 'component-rating.css' | asset_url | stylesheet_tag }}
 
 {%- if card_product and card_product != empty -%}
@@ -52,7 +55,6 @@
         {%- if card_product.featured_media -%}
           <div class="card__media">
             <div class="media media--transparent media--hover-effect">
-              {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
               <img
                 srcset="
                   {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -73,7 +75,6 @@
                 width="{{ card_product.featured_media.width }}"
                 height="{{ card_product.featured_media.height }}"
               >
-              {% comment %}theme-check-enable ImgLazyLoading{% endcomment %}
 
               {%- if card_product.media[1] != null and show_secondary_image -%}
                 <img
@@ -380,3 +381,14 @@
     </div>
   </div>
 {%- endif -%}
+
+{% endcomment %}
+
+<a href="{{ card_product.url }}" class="laoli-grid-item {% if card_product.images.size > 1 %}laoli-grid-item_with-hover{% endif %}">
+    <img src="{{ card_product.featured_image | img_url: '360x420' }}" alt="" class="laoli-grid-item-pic">
+    {% if card_product.images.size > 1 %}s
+      <img src="{{card_product.images[1] | img_url: '360x420' }}" alt="" class="laoli-grid-item-hover-pic">
+    {% endif %}
+    <div class="laoli-grid-item-title">{{ card_product.title }}</div>
+    <div class="laoli-grid-item-price">{{ card_product.price }}</div>
+</a>

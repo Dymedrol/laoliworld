@@ -1,3 +1,5 @@
+{% comment %}
+
 {{ 'template-collection.css' | asset_url | stylesheet_tag }}
 {{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
 {{ 'component-card.css' | asset_url | stylesheet_tag }}
@@ -32,7 +34,7 @@
 {%- endstyle -%}
 
 <div class="section-{{ section.id }}-padding">
-  {% comment %} Sort is the first tabbable element when filter type is vertical {% endcomment %}
+
   {%- if section.settings.enable_sorting and section.settings.filter_type == 'vertical' -%}
     <facet-filters-form class="facets facets-vertical-sort page-width small-hide no-js-hidden">
       <form class="facets-vertical-form" id="FacetSortForm">
@@ -179,6 +181,39 @@
       {%- endpaginate -%}
     </div>
   </div>
+</div>
+
+
+
+{% endcomment %}
+
+<div class="laoli-grid">
+    <div class="container">
+        <div class="laoli-grid-controls">
+            <div class="laoli-grid-controls-list">
+                <!-- <a href="/collections/all" class="laoli-grid-controls-list-item laoli-grid-controls-list-item_active">all</a> -->
+                {%- for collection in collections -%}
+                  <a href="{{ collection.url }}" class="laoli-grid-controls-list-item">{{ collection.title }}</a>
+                {%- endfor -%}
+            </div>
+            <div class="laoli-grid-controls-filters">
+                <div class="laoli-grid-controls-filters-filter laoli-grid-controls-filters-filter_active">in stock</div>
+                <div class="laoli-grid-controls-filters-filter">made to order</div>
+            </div>
+        </div>
+    </div>
+    <div class="laoli-grid-items">
+        {%- for product in collection.products -%}
+          {% render 'card-product',
+            card_product: product,
+          %}
+        {%- endfor -%}
+
+        <div class="laoli-grid-item-dummy"></div>
+        <div class="laoli-grid-item-dummy"></div>
+        <div class="laoli-grid-item-dummy"></div>
+
+    </div>
 </div>
 
 {% schema %}
