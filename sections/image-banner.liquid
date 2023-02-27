@@ -1,4 +1,5 @@
 <section class="laoli-home-jumbo">
+
     <picture class="laoli-home-jumbo-pic">
       <source srcset="{{ section.settings.banner_image | img_url: '1820x840', crop: 'center' }}" media="(min-width: 1920px)" />
       <source srcset="{{ section.settings.banner_image | img_url: '1340x680', crop: 'center' }}" media="(min-width: 1440px)" />
@@ -8,7 +9,9 @@
       <source srcset="{{ section.settings.banner_image | img_url: '480x390', crop: 'center' }}" media="(min-width: 480px)" />
       <img src="{{ section.settings.banner_image | img_url: '360x600', crop: 'center' }}" alt="{{ section.settings.banner_image.alt }}" />
     </picture>
+
     <a href="{{ section.settings.image_banner_title_link }}" class="laoli-home-jumbo-button button-red">{{ section.settings.image_banner_title_text }}</a>
+
 </section>
 
 {% schema %}
