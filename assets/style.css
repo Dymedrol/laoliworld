@@ -348,6 +348,9 @@ body {
   color: #494540;
   opacity: 0.3;
 }
+.section-header.shopify-section-group-header-group {
+  z-index: unset;
+}
 @font-face {
   font-family: 'TT Hoves';
   src: url('./TTHoves-Thin.eot');
@@ -574,6 +577,9 @@ body {
     padding-top: 35px;
     padding-bottom: 40px;
   }
+}
+.laoli-menu.open {
+  mix-blend-mode: normal;
 }
 .laoli-menu.open .laoli-menu-inner {
   display: flex;
