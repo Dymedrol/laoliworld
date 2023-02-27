@@ -1,0 +1,387 @@
+.laoli-menu {
+    position: relative;
+    padding-top: 25px;
+    padding-bottom: 40px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 100%;
+
+    z-index: 3;
+    mix-blend-mode: difference;
+
+    @media (@S) {
+        padding-top: 20px;
+    }
+
+    @media (@M) {
+    }
+
+    @media (@L) {
+        padding-bottom: 55px;
+    }
+
+    @media (@XL) {
+        padding-top: 35px;
+        padding-bottom: 40px;
+    }
+
+    @media (@XXL) {
+
+    }
+
+    @media (@XXXL) {
+
+    }
+}
+
+.laoli-menu.open {
+    & .laoli-menu-inner {
+        display: flex;
+    }
+}
+
+.laoli-menu-wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.laoli-menu__logo {
+    display: block;
+}
+
+.laoli-menu-mobile-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+
+    @media (@M) {
+        display: none;
+    }
+}
+
+.laoli-menu-mobile-cart {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #FFF;
+
+    cursor: pointer;
+}
+
+.laoli-menu-mobile-burger {
+    cursor: pointer;
+}
+
+.laoli-menu-controls {
+    display: none;
+
+    @media (@M) {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+.laoli-menu-controls-burger {
+    cursor: pointer;
+}
+
+.laoli-menu-controls-text-left {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #ffffff;
+
+    text-decoration: none;
+}
+
+.laoli-menu-controls-text-right {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #FFF;
+
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.laoli-menu-inner {
+    display: flex;
+    display: none;
+    flex-direction: column;
+
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+
+    top: 0;
+    left: 0;
+
+    background: #92857E;
+    padding-top: 25px;
+    padding-bottom: 20px;
+
+    @media (@S) {
+        padding-top: 20px;
+    }
+
+    @media (@M) {
+        padding-top: 20px;
+        padding-bottom: 50px;
+        height: auto;
+
+        border: 1px solid rgba(223, 223, 223, 0.5);
+        box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+        border-radius: 0px 0px 15px 15px;
+    }
+
+
+    @media (@XL) {
+        padding-top: 35px;
+    }
+}
+
+.laoli-menu-wrapper__inner {
+    margin-bottom: 50px;
+
+}
+
+.laoli-menu-controls-text__white {
+    color: #fff;
+}
+
+.laoli-menu__logo__white {
+    mix-blend-mode: unset !important;
+
+    g {
+        mix-blend-mode: unset !important;
+    }
+
+    svg path {
+        fill: #fff;
+    }
+}
+
+.laoli-menu-content-mobile {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: column;
+    flex-grow: 1;
+    height: 100%;
+
+    @media (@M) {
+        display: none;
+    }
+}
+
+.laoli-menu-content-mobile-cols {
+    display: flex;
+    justify-content: space-between;
+    width: 320px;
+}
+
+.laoli-menu-content-mobile-col {
+
+}
+
+.laoli-menu-content-mobile-cols2 {
+    width: 320px;
+}
+
+.laoli-menu-content-mobile-item {
+    margin-bottom: 55px;
+}
+
+.laoli-menu-content-mobile-title {
+    font-family: 'GoudyOlSt BT';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    opacity: 0.5;
+
+    margin-bottom: 30px;
+}
+
+.laoli-menu-content-mobile-link {
+    display: block;
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    margin-bottom: 15px;
+    text-decoration: none;
+}
+
+.laoli-menu-content-mobile-search {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+
+    margin-bottom: 40px;
+}
+
+.laoli-menu-content-mobile-row {
+    display: flex;
+    gap: 10px;
+}
+
+.laoli-menu-content-mobile-switch {
+    border: 0.5px solid #FFFFFF;
+    border-radius: 20px;
+    padding: 0 7px;
+}
+
+.laoli-menu-content-mobile-switch__text {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.5)
+}
+
+.laoli-menu-content-mobile-switch__text_active {
+    color: rgba(255, 255, 255, 1)
+}
+
+.laoli-menu-content-desktop {
+    display: none;
+
+    @media (@M) {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    @media (@L) {
+        gap: 40px;
+    }
+
+    @media (@XL) {
+        gap: 90px;
+    }
+
+    @media (@XXL) {
+        gap: 100px;
+    }
+
+    @media (@XXXL) {
+        gap: 410px;
+    }
+}
+
+.laoli-menu-content-cols {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 1;
+    width: 100%;
+
+    @media (@L) {
+        width: 620px;
+    }
+
+    @media (@XL) {
+        width: 710px;
+    }
+
+    @media (@XXL) {
+        width: 770px;
+    }
+
+    @media (@XXXL) {
+        width: 890px;
+    }
+}
+
+.laoli-menu-content-col {
+}
+
+.laoli-menu-content-col2 {
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.laoli-menu-content-title {
+    font-family: 'GoudyOlSt BT';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    opacity: 0.5;
+
+    margin-bottom: 30px;
+}
+
+.laoli-menu-content-link {
+    display: block;
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 100;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #FFFFFF;
+    text-decoration: none;
+
+    margin-bottom: 15px;
+}
+
+.laoli-menu-content-pic-wrapper {
+    display: none;
+
+    @media (@L) {
+        display: block;
+        border-radius: 12px;
+        overflow: hidden;
+        width: 200px;
+    }
+
+    @media (@XL) {
+        width: 300px;
+    }
+
+    @media (@XXL) {
+        width: 470px;
+    }
+
+    @media (@XXXL) {
+        width: 520px;
+    }
+
+    & img {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+.laoli-menu-content-pic {
+}

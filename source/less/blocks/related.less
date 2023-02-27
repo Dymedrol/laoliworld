@@ -1,0 +1,60 @@
+.laoli-related {
+    border-top: 1px dashed #B0B0B0;
+    padding-top: 40px;
+
+    @media (@M) {
+        padding-top: 35px;
+    }
+}
+
+.laoli-related-title {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #888888;
+
+    margin-bottom: 40px;
+
+    @media (@L) {
+        margin-bottom: 60px;
+    }
+}
+
+.laoli-related-items {
+    display: flex;
+    justify-content: space-between;
+    width: 355px;
+    margin: 0 auto;
+
+    @media (@M) {
+        width: 675px;
+    }
+
+    @media (@L) {
+        width: 755px;
+    }
+
+    @media (@XL) {
+        width: 1150px;
+    }
+
+    @media (@XXL) {
+
+    }
+
+    @media (@XXXL) {
+
+    }
+}
+
+.laoli-related-item:nth-child(3) {
+    display: none;
+
+    @media (@XL) {
+        display: block;
+    }
+}

@@ -1,0 +1,406 @@
+.laoli-pdp {
+    padding-bottom: 80px;
+
+    @media (@L) {
+        padding-bottom: 140px;
+    }
+}
+
+.laoli-pdp-mobile {
+    @media (@L) {
+        display: none;
+    }
+}
+
+.laoli-pdp-mobile-goback {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: #888888;
+
+    cursor: pointer;
+
+    margin-bottom: 20px;
+}
+
+.laoli-pdp-mobile-carousel-wrapper {
+    margin-bottom: 40px;
+}
+
+.laoli-pdp-mobile-carousel-control {
+    position: relative;
+    height: 4px;
+    background: #A09B8E;
+    opacity: 0.3;
+    border-radius: 2px;
+    overflow: hidden;
+
+    margin-bottom: 20px;
+}
+
+.laoli-pdp-mobile-carousel-control-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 25%;
+    height: 100%;
+
+    background: #494540;
+    border-radius: 2px;
+}
+
+.laoli-pdp-mobile-carousel {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    overflow: hidden;
+}
+
+.laoli-pdp-mobile-carousel-item {
+    width: 320px;
+    height: 480px;
+    flex-shrink: 0;
+
+    @media (@S) {
+        width: 420px;
+        height: 630px;
+
+    }
+
+    @media (@M) {
+        width: 650px;
+        height: 750px;
+    }
+}
+
+.laoli-pdp-mobile-carousel-item-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.laoli-pdp-mobile-info {
+    position: relative;
+    padding-bottom: 35px;
+    border-bottom: 1px solid #B0B0B0;
+    margin-bottom: 35px;
+}
+
+.laoli-pdp-mobile-info-status {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: #B0B0B0;
+}
+
+.laoli-pdp-mobile-info-title {
+   font-family: 'TT Hoves';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 12px;
+   text-transform: uppercase;
+   color: #000000;
+
+   margin-bottom: 10px;
+}
+
+.laoli-pdp-mobile-info-price {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: #888888;
+
+    margin-bottom: 35px;
+}
+
+.laoli-pdp-mobile-info-text {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+
+    margin-bottom: 35px;
+}
+
+.laoli-pdp-mobile-info-buttons {
+    display: flex;
+}
+
+.laoli-pdp-mobile-info-buttons-sizes {
+    height: 32px;
+    padding: 0 17px;
+    border: 0.5px solid #B0B0B0;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.laoli-pdp-mobile-info-buttons-add {
+    height: 32px;
+    padding: 0 17px;
+    border: 0.5px solid #B0B0B0;
+    border-left: none;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.laoli-pdp-mobile-details {
+    margin-bottom: 40px;
+}
+
+.laoli-pdp-mobile-details-controls {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+.laoli-pdp-mobile-details-controls-item {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #B0B0B0;
+}
+
+.laoli-pdp-mobile-details-controls-item_active {
+    color: #000000;
+}
+
+.laoli-pdp-mobile-details-content {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+}
+
+.laoli-pdp-desktop {
+    position: relative;
+    display: none;
+
+    @media (@L) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+
+.laoli-pdp-desktop-goback {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: #888888;
+
+    cursor: pointer;
+}
+
+.laoli-pdp-desktop-col1 {
+    display: none;
+
+    @media (@XL) {
+        display: block;
+        width: 300px;
+        padding-bottom: 30px;
+    }
+
+    @media (@XXL) {
+
+    }
+
+    @media (@XXXL) {
+
+    }
+}
+
+.laoli-pdp-desktop-col2 {
+    width: 500px;
+}
+
+.laoli-pdp-desktop-col3 {
+    width: 300px;
+    padding-bottom: 30px;
+}
+
+.laoli-pdp-desktop-pic {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+
+    @media (@XL) {
+        margin-bottom: 35px;
+    }
+}
+
+.laoli-pdp-desktop-info {
+    position: sticky;
+    top: 109px;
+    margin-bottom: 160px;
+
+    @media (@XL) {
+        margin-bottom: 0;
+    }
+}
+
+.laoli-pdp-desktop-info-status {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: #B0B0B0;
+}
+
+.laoli-pdp-desktop-info-title {
+   font-family: 'TT Hoves';
+   font-style: normal;
+   font-weight: 400;
+   font-size: 12px;
+   line-height: 12px;
+   text-transform: uppercase;
+   color: #000000;
+
+   margin-bottom: 10px;
+}
+
+.laoli-pdp-desktop-info-price {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: #888888;
+
+    margin-bottom: 35px;
+}
+
+.laoli-pdp-desktop-info-text {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+
+    margin-bottom: 35px;
+}
+
+.laoli-pdp-desktop-info-buttons {
+    display: flex;
+}
+
+.laoli-pdp-desktop-info-buttons-sizes {
+    height: 32px;
+    padding: 0 17px;
+    border: 0.5px solid #B0B0B0;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.laoli-pdp-desktop-info-buttons-add {
+    height: 32px;
+    padding: 0 17px;
+    border: 0.5px solid #B0B0B0;
+    border-left: none;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.laoli-pdp-desktop-details {
+
+}
+
+.laoli-pdp-desktop-details_right {
+    position: sticky;
+    top: 640px;
+    @media (@XL) {
+        display: none;
+    }
+}
+
+.laoli-pdp-desktop-details_left {
+    position: sticky;
+    top: 646px;
+}
+
+.laoli-pdp-desktop-details-controls {
+    display: flex;
+    gap: 35px;
+    margin-bottom: 35px;
+}
+
+.laoli-pdp-desktop-details-controls-item {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #B0B0B0;
+}
+
+.laoli-pdp-desktop-details-controls-item_active {
+    color: #000000;
+}
+
+.laoli-pdp-desktop-details-content {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #000000;
+}

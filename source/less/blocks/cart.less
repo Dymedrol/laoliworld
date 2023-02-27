@@ -1,0 +1,233 @@
+.laoli-cart {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+    width: 100%;
+    height: 100%;
+    padding-top: 20px;
+    padding-bottom: 40px;
+    background: #FFFBF4;
+    overflow: hidden;
+
+    z-index: 10;
+
+
+    @media (@M) {
+        top: 0;
+        right: 0;
+        bottom: unset;
+        left: unset;
+
+        width: 360px;
+        height: 100vh;
+
+        box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 15px 0px 0px 15px;
+    }
+}
+
+.laoli-cart-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.laoli-cart-title {
+    font-family: 'GoudyOlSt BT';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 40px;
+    text-transform: uppercase;
+    color: #494540;
+
+    padding: 0 20px;
+    margin-bottom: 65px;
+}
+
+.laoli-cart-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    flex-grow: 1;
+    overflow: scroll;
+}
+
+.laoli-cart-content::-webkit-scrollbar {
+  display: none;
+}
+
+.laoli-cart-items {
+    margin: 0 auto;
+    width: 320px;
+}
+
+.laoli-cart-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+.laoli-cart-item-pic-wrapper {
+    position: relative;
+    width: 100px;
+    height: 120px;
+    border: 1px solid #DFDFDF;
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.laoli-cart-item-pic-lavel {
+    position: absolute;
+    top: 9px;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: fit-content;
+
+    border: 0.5px solid #DFDFDF;
+    border-radius: 20px;
+    padding: 4px 7px;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 8px;
+    line-height: 10px;
+    text-transform: uppercase;
+    color: #000000;
+}
+
+.laoli-cart-item-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.laoli-cart-item-info {
+    position: relative;
+    width: 205px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.laoli-cart-item-info-price {
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 12px;
+    text-transform: uppercase;
+    color: #494540;
+}
+
+.laoli-cart-item-info-upperblock {
+}
+
+.laoli-cart-item-info-title {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #494540;
+    margin-bottom: 15px;
+
+    max-width: 150px;
+}
+
+.laoli-cart-item-info-size {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #888888;
+}
+
+.laoli-cart-item-info-loweblock {
+    display: flex;
+    justify-content: space-between;
+}
+
+.laoli-cart-item-info-quantity {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    height: 18px;
+    border: 0.5px solid #DFDFDF;
+    border-radius: 20px;
+    padding: 0 7px;
+
+    & span {
+        font-family: 'TT Hoves';
+        font-style: normal;
+        font-weight: 300;
+        font-size: 12px;
+        line-height: 18px;
+        text-transform: uppercase;
+        color: #888888;
+    }
+}
+
+.laoli-cart-footer {
+    width: 320px;
+    margin: 0 auto;
+    border-top: 1px solid #CCC9c3;
+    padding-top: 17px;
+    padding-bottom: 40px;
+}
+
+.laoli-cart-footer-upperblock {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+}
+
+.laoli-cart-footer-total {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 23px;
+    text-transform: uppercase;
+    color: #B82C36;
+}
+
+.laoli-cart-footer-duration {
+    width: 250px;
+    margin: 0 auto;
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 10px;
+    line-height: 18px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #494540;
+
+    margin-bottom: 22px;
+
+    & span {
+        text-decoration: underline;
+    }
+}
+
+.laoli-cart-footer-checkout {
+    width: 250px;
+    margin: 0 auto;
+}

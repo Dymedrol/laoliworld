@@ -1,0 +1,202 @@
+.laoli-registration {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+    width: 360px;
+    height: fit-content;
+    background: #FFFBF4;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px 10px 0px 0px;
+
+    overflow: hidden;
+
+    z-index: 10;
+
+    @media (@S) {
+        width: 480px;
+        border-radius: 0;
+    }
+
+    @media (@M) {
+        bottom: 0;
+        top: unset;
+        left: unset;
+        right: 40px;
+
+        width: 360px;
+
+        border-radius: 10px 10px 0px 0px;
+    }
+
+    @media (@L) {
+        right: 40px;
+    }
+
+    @media (@XL) {
+        right: 70px;
+    }
+
+    @media (@XXL) {
+        right: 70px;
+    }
+
+    @media (@XXXL) {
+        right: 70px;
+    }
+}
+
+.laoli-registration-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.laoli-registration-pic-wrapper {
+    width: 100%;
+    height: 220px;
+    border-radius: 10px;
+    overflow: hidden;
+
+    @media (@S) {
+        border-radius: 0px 0px 10px 10px;
+    }
+
+    @media (@M) {
+
+        border-radius: 10px;
+    }
+}
+
+.laoli-registration-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.laoli-registration-content {
+    width: 320px;
+    margin: 0 auto;
+    padding: 30px 0 40px;
+}
+
+.laoli-registration-title {
+    font-family: 'GoudyOlSt BT';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    text-transform: uppercase;
+    color: #494540;
+
+    width: 240px;
+    margin-bottom: 10px;
+}
+
+.laoli-registration-subtitle {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 24px;
+    text-align: right;
+    text-transform: uppercase;
+    color: #494540;
+
+    margin-bottom: 41px;
+}
+
+.laoli-registration-form {
+}
+
+.laoli-registration-input {
+    width: 100%;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    text-transform: uppercase;
+
+    color: #A09B8E;
+
+    opacity: 0.5;
+
+    margin-bottom: 20px;
+    outline: none;
+    border: none;
+    border-bottom: 1px dashed #A09B8E;
+}
+
+.laoli-registration-input:last-child {
+    margin-bottom: 15px;
+}
+
+.laoli-registration-checkbox-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 40px;
+}
+
+.laoli-registration-checkbox-label {
+    position: relative;
+    display: block;
+}
+
+.laoli-registration-checkbox {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.laoli-registration-checkbox-squar {
+    width: 12px;
+    height: 12px;
+    border: 0.75px solid #494540;
+}
+
+.laoli-registration-checkbox:checked  ~ .laoli-registration-checkbox-squar {
+    position: relative;
+
+    &:after {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        content: '';
+        width: 6px;
+        height: 6px;
+        background: #494540;
+        opacity: 0.5;
+    }
+}
+
+.laoli-registration-checkbox-text {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 24px;
+    text-transform: uppercase;
+    color: #494540;
+
+    & a {
+        color: #494540;
+    }
+}
+
+.laoli-registration-button {
+    display: block;
+    margin: 0 auto;
+}
