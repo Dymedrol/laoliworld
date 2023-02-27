@@ -1,0 +1,27 @@
+<a href="{{ section.settings.button_link }}" class="laoli-home-button button-white">{{ section.settings.button_text }}</a>
+
+{% schema %}
+  {
+    "name": "main page button",
+    "settings": [
+      {
+        "type": "text",
+        "id": "button_text",
+        "label": "button text",
+        "default": "discover laoli"
+      },
+      {
+        "type": "link",
+        "id": "button_link",
+        "label": "button link",
+        "default": "/"
+      }
+    ],
+    "presets": [
+      {
+        "name": "main page button",
+        "category": "Custom"
+      }
+    ]
+  }
+{% endschema %}
