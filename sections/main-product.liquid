@@ -19,20 +19,25 @@
                 <div class="laoli-pdp-mobile-info-title">{{ product.title }}</div>
                 <div class="laoli-pdp-mobile-info-price">{{ product.price | money_without_trailing_zeros }}</div>
                 <div class="laoli-pdp-mobile-info-text">{{ product.description }}</div>
-                <div class="laoli-pdp-mobile-info-buttons">
+                <form method="post" action="/cart/add">
+                  <input name="id" value="{{ product.variants.first.id }}" type="hidden" />
+                  <div class="laoli-pdp-mobile-info-buttons">
 
-                    <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper">
-                      <div class="laoli-pdp-mobile-info-buttons-sizes">
-                        size: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{product.options_by_name['Size'].values[0]}}</span>
+                      <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper">
+                        <input type="hidden" name="size" id="size" value="{{product.options_by_name['Size'].values[0]}}">
+                        <div class="laoli-pdp-mobile-info-buttons-sizes">
+                          size: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{product.options_by_name['Size'].values[0]}}</span>
+                        </div>
+                        <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
+                          {% for size_option in product.options_by_name['Size'].values %}
+                            <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item">{{ size_option }}</div>
+                          {% endfor %}
+
+                        </div>
                       </div>
-                      <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
-                        {% for size_option in product.options_by_name['Size'].values %}
-                          <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item">{{ size_option }}</div>
-                        {% endfor %}
-                      </div>
-                    </div>
-                    <div class="laoli-pdp-mobile-info-buttons-add">add to cart</div>
-                </div>
+                      <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add" value="add to cart">
+                  </div>
+                </form>
 
             </div>
             <div class="laoli-pdp-mobile-details">
