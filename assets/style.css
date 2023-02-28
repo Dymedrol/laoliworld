@@ -1817,6 +1817,7 @@ body {
   height: 32px;
   padding: 0 17px;
   border: 0.5px solid #B0B0B0;
+  border-right: none;
   font-family: 'TT Hoves';
   font-style: normal;
   font-weight: 300;
@@ -1855,7 +1856,6 @@ body {
   height: 32px;
   padding: 0 17px;
   border: 0.5px solid #B0B0B0;
-  border-left: none;
   font-family: 'TT Hoves';
   font-style: normal;
   font-weight: 300;
@@ -2010,7 +2010,6 @@ body {
   height: 32px;
   padding: 0 17px;
   border: 0.5px solid #B0B0B0;
-  border-left: none;
   font-family: 'TT Hoves';
   font-style: normal;
   font-weight: 300;

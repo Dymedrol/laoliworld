@@ -18,7 +18,7 @@ export const initPdpSelect = () => {
         menu.click(function(e) {
             if ($(event.target).hasClass("laoli-pdp-mobile-info-buttons-sizes-menu-item")) {
                 selectedValue.text($(event.target).text());
-                input.val($(event.target).text());
+                input.val($(event.target).attr('data-id'));
                 menu.hide();
             }
         });
