@@ -5,24 +5,50 @@ export const initGrid = () => {
         return
     }
 
+    const items = $('.laoli-grid-items');
+
     const inStockFilter = filters.find('#filter-in-stock');
     const madeToOrderFilter = filters.find('#filter-made-to-order');
-    const inStock = $('#in-stock');
-    const madeToOrder = $('#made-to-order');
+
+    const inStock = items.find('.in-stock');
+    const madeToOrder = items.find('.made-to-order');
+
+    const active = 'laoli-grid-controls-filters-filter_active';
 
 
     inStockFilter.click(function() {
-        inStock.css('display', 'flex');
-        madeToOrder.css('display', 'none');
-        inStockFilter.addClass('laoli-grid-controls-filters-filter_active');
-        madeToOrderFilter.removeClass('laoli-grid-controls-filters-filter_active')
+
+        if (!inStockFilter.hasClass(active)) {
+            if (madeToOrderFilter.hasClass(active)) {
+                madeToOrderFilter.removeClass(active)
+                inStock.show()
+                inStockFilter.addClass(active)
+                madeToOrder.hide()
+            } else {
+                inStockFilter.addClass(active)
+                madeToOrder.hide()
+            }
+        } else {
+            inStockFilter.removeClass(active)
+            madeToOrder.show()
+        }
     });
 
     madeToOrderFilter.click(function() {
-        inStock.css('display', 'none');
-        madeToOrder.css('display', 'flex');
-        madeToOrderFilter.addClass('laoli-grid-controls-filters-filter_active');
-        inStockFilter.removeClass('laoli-grid-controls-filters-filter_active');
+        if (!madeToOrderFilter.hasClass(active)) {
+            if (inStockFilter.hasClass(active)) {
+                inStockFilter.removeClass(active)
+                inStock.hide()
+                madeToOrderFilter.addClass(active)
+                madeToOrder.show()
+            } else {
+            madeToOrderFilter.addClass(active)
+            inStock.hide()
+            }
+        } else {
+            madeToOrderFilter.removeClass(active)
+            inStock.show()
+        }
     });
 }
 
