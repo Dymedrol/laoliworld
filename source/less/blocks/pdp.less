@@ -34,9 +34,12 @@
 
 .laoli-pdp-mobile-carousel-control {
     position: absolute !important;
-    width: 100%;
     top: 0;
     left: 0;
+
+    background: #A09B8E;
+    opacity: 0.3;
+    border-radius: 2px;
 }
 
 .laoli-pdp-mobile-carousel-control-indicator {
@@ -132,6 +135,10 @@
     display: flex;
 }
 
+.laoli-pdp-mobile-info-buttons-sizes-wrapper {
+    position: relative;
+}
+
 .laoli-pdp-mobile-info-buttons-sizes {
     height: 32px;
     padding: 0 17px;
@@ -144,6 +151,36 @@
     line-height: 32px;
     text-transform: uppercase;
     color: #000000;
+}
+
+.laoli-pdp-mobile-info-buttons-sizes-value {
+    width: 15px;
+}
+
+.laoli-pdp-mobile-info-buttons-sizes-menu {
+    display: none;
+    width: 100%;
+    position: absolute;
+    border: 0.5px dashed #B0B0B0;
+    border-top: none;
+    padding: 7px 0;
+    background: #FFFBF0;
+}
+
+.laoli-pdp-mobile-info-buttons-sizes-menu-item {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 32px;
+    text-align: right;
+    text-transform: uppercase;
+    color: #000000;
+    padding: 0 15px;
+
+    &:hover {
+        background: #FFFBF0;
+    }
 }
 
 .laoli-pdp-mobile-info-buttons-add {

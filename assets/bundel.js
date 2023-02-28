@@ -145,6 +145,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./source/js/pdp-select.js":
+/*!*********************************!*\
+  !*** ./source/js/pdp-select.js ***!
+  \*********************************/
+/*! exports provided: initPdpSelect */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initPdpSelect\", function() { return initPdpSelect; });\nconst initPdpSelect = () => {\n  const pdpWrapper = $('.laoli-pdp');\n\n  if (!pdpWrapper.length) {\n    return;\n  }\n\n  const selects = $('.laoli-pdp-mobile-info-buttons-sizes');\n  selects.click(function () {\n    const select = $(this).closest('.laoli-pdp-mobile-info-buttons-sizes-wrapper');\n    const menu = select.find('.laoli-pdp-mobile-info-buttons-sizes-menu');\n    const selectedValue = select.find('.laoli-pdp-mobile-info-buttons-sizes-value');\n    menu.toggle();\n    menu.click(function (e) {\n      if ($(event.target).hasClass(\"laoli-pdp-mobile-info-buttons-sizes-menu-item\")) {\n        selectedValue.text($(event.target).text());\n        menu.hide();\n      }\n    });\n  });\n};\n\n//# sourceURL=webpack:///./source/js/pdp-select.js?");
+
+/***/ }),
+
 /***/ "./source/js/pdp.js":
 /*!**************************!*\
   !*** ./source/js/pdp.js ***!
@@ -165,7 +177,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n/* harmony import */ var _pdp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pdp */ \"./source/js/pdp.js\");\n\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n  Object(_pdp__WEBPACK_IMPORTED_MODULE_2__[\"initPdp\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n/* harmony import */ var _pdp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pdp */ \"./source/js/pdp.js\");\n/* harmony import */ var _pdp_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pdp-select */ \"./source/js/pdp-select.js\");\n\n\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n  Object(_pdp__WEBPACK_IMPORTED_MODULE_2__[\"initPdp\"])();\n  Object(_pdp_select__WEBPACK_IMPORTED_MODULE_3__[\"initPdpSelect\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
 
 /***/ }),
 
