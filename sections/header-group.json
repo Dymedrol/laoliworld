@@ -27,7 +27,8 @@
       "settings": {
         "menu_shop_title": "shop",
         "menu_cart_title": "cart",
-        "menu_search_title": "search"
+        "menu_search_title": "search",
+        "menu_image": "shopify:\/\/shop_images\/burger.jpg"
       }
     }
   },
