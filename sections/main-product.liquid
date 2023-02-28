@@ -1,3 +1,101 @@
+<div class="laoli-pdp">
+    <div class="container">
+        <div class="laoli-pdp-mobile">
+            <div class="laoli-pdp-mobile-goback" onclick="history.back()">go back</div>
+            <div class="laoli-pdp-mobile-carousel-wrapper">
+                <div class="laoli-pdp-mobile-carousel owl-carousel">
+                    {%- for media in product.media -%}
+                      <div class="laoli-pdp-mobile-carousel-item">
+                          <img src="{{ media.preview_image | image_url: width: 420 }}" alt="" class="laoli-pdp-mobile-carousel-item-pic">
+                      </div>
+                    {%- endfor -%}
+                </div>
+
+            </div>
+            <div class="laoli-pdp-mobile-info">
+                <div class="laoli-pdp-mobile-info-status">in stock</div>
+                <div class="laoli-pdp-mobile-info-title">{{ product.title }}</div>
+                <div class="laoli-pdp-mobile-info-price">{{ product.price | money_without_trailing_zeros }}</div>
+                <div class="laoli-pdp-mobile-info-text">{{ product.description }}</div>
+                <div class="laoli-pdp-mobile-info-buttons">
+                    <div class="laoli-pdp-mobile-info-buttons-sizes">size: 9</div>
+                    <div class="laoli-pdp-mobile-info-buttons-add">add to cart</div>
+                </div>
+            </div>
+            <div class="laoli-pdp-mobile-details">
+                <div class="laoli-pdp-mobile-details-controls">
+                    <div class="laoli-pdp-mobile-details-controls-item controls-item-active js-details-button">Details</div>
+                    <div class="laoli-pdp-mobile-details-controls-item js-care-button">Care</div>
+                </div>
+                <div class="laoli-pdp-mobile-details-content js-details-wrapper">{{ product.metafields.custom.details }}</div>
+                <div class="laoli-pdp-mobile-details-content js-care-wrapper">{{ product.metafields.custom.care }}</div>
+            </div>
+        </div>
+        <div class="laoli-pdp-desktop">
+            <div class="laoli-pdp-desktop-goback" onclick="history.back()">go back</div>
+            <div class="laoli-pdp-desktop-col1">
+                <div class="laoli-pdp-desktop-details laoli-pdp-desktop-details_left">
+                    <div class="laoli-pdp-desktop-details-controls">
+                        <div class="laoli-pdp-desktop-details-controls-item controls-item-active js-details-button">Details</div>
+                        <div class="laoli-pdp-desktop-details-controls-item js-care-button">Care</div>
+                    </div>
+                    <div class="laoli-pdp-desktop-details-content js-details-wrapper">{{ product.metafields.custom.details }}</div>
+                    <div class="laoli-pdp-desktop-details-content js-care-wrapper">{{ product.metafields.custom.care }}</div>
+                </div>
+            </div>
+            <div class="laoli-pdp-desktop-col2">
+              {%- for media in product.media -%}
+                <img src="{{ media.preview_image | image_url: width: 760 }}" alt="" class="laoli-pdp-desktop-pic">
+              {%- endfor -%}
+            </div>
+            <div class="laoli-pdp-desktop-col3">
+                <div class="laoli-pdp-desktop-info">
+                    <div class="laoli-pdp-desktop-info-status">in stock</div>
+                    <div class="laoli-pdp-desktop-info-title">Demain coin ring</div>
+                    <div class="laoli-pdp-desktop-info-price">$ 2,800</div>
+                    <div class="laoli-pdp-desktop-info-text">With it's reeded edges, this ring is inspired by the coins of the 1790s. Solid in the inside, giving it a substantial yet comfortable weight that feels perfectly secure on the finger. A forever piece.</div>
+                    <div class="laoli-pdp-desktop-info-buttons">
+                        <div class="laoli-pdp-desktop-info-buttons-sizes">size: 9</div>
+                        <div class="laoli-pdp-desktop-info-buttons-add">add to cart</div>
+                    </div>
+                </div>
+                <div class="laoli-pdp-desktop-details laoli-pdp-desktop-details_right">
+                    <div class="laoli-pdp-desktop-details-controls">
+                        <div class="laoli-pdp-desktop-details-controls-item controls-item-active js-details-button">Details</div>
+                        <div class="laoli-pdp-desktop-details-controls-item js-care-button">Care</div>
+                    </div>
+                    <div class="laoli-pdp-desktop-details-content js-details-wrapper">{{ product.metafields.custom.details }}</div>
+                    <div class="laoli-pdp-desktop-details-content js-care-wrapper">{{ product.metafields.custom.care }}</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="laoli-related">
+        <div class="laoli-related-title">related items</div>
+        <div class="laoli-related-items">
+            <a href="/" class="laoli-grid-item laoli-related-item">
+                <img src="build/img/grid1.png" alt="" class="laoli-grid-item-pic">
+                <img src="build/img/grid-hover.png" alt="" class="laoli-grid-item-hover-pic">
+                <div class="laoli-grid-item-title">Moon ring</div>
+                <div class="laoli-grid-item-price">$ 2800</div>
+            </a>
+            <a href="/" class="laoli-grid-item laoli-related-item">
+                <img src="build/img/grid2.png" alt="" class="laoli-grid-item-pic">
+                <img src="build/img/grid-hover.png" alt="" class="laoli-grid-item-hover-pic">
+                <div class="laoli-grid-item-title">Moon ring</div>
+                <div class="laoli-grid-item-price">$ 2800</div>
+            </a>
+            <a href="/" class="laoli-grid-item laoli-related-item">
+                <img src="build/img/grid3.png" alt="" class="laoli-grid-item-pic">
+                <img src="build/img/grid-hover.png" alt="" class="laoli-grid-item-hover-pic">
+                <div class="laoli-grid-item-title">Moon ring</div>
+                <div class="laoli-grid-item-price">$ 2800</div>
+            </a>
+        </div>
+    </div>
+</div>
+
 <section
   id="MainProduct-{{ section.id }}"
   class="page-width section-{{ section.id }}-padding"

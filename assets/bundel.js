@@ -145,6 +145,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./source/js/pdp.js":
+/*!**************************!*\
+  !*** ./source/js/pdp.js ***!
+  \**************************/
+/*! exports provided: initPdp */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initPdp\", function() { return initPdp; });\nconst initPdp = () => {\n  const pdpWrapper = $('.laoli-pdp');\n\n  if (!pdpWrapper.length) {\n    return;\n  }\n\n  const detailsButton = $('.js-details-button');\n  const detailsWrapper = $('.js-details-wrapper');\n  const careButton = $('.js-care-button');\n  const careWrapper = $('.js-care-wrapper');\n  detailsButton.click(function () {\n    detailsButton.addClass('controls-item-active');\n    careButton.removeClass('controls-item-active');\n    detailsWrapper.show();\n    careWrapper.hide();\n  });\n  careButton.click(function () {\n    detailsButton.removeClass('controls-item-active');\n    careButton.addClass('controls-item-active');\n    detailsWrapper.hide();\n    careWrapper.show();\n  });\n  $(\".laoli-pdp-mobile-carousel\").owlCarousel({\n    margin: 15,\n    items: 1\n  });\n  $('.owl-carousel').owlCarouselProgressBar({\n    size: '4px',\n    transitionInterval: .3,\n    progressBarClassName: 'laoli-pdp-mobile-carousel-control',\n    scrollerClassName: 'laoli-pdp-mobile-carousel-control-indicator'\n  });\n};\n\n//# sourceURL=webpack:///./source/js/pdp.js?");
+
+/***/ }),
+
 /***/ "./source/js/script.js":
 /*!*****************************!*\
   !*** ./source/js/script.js ***!
@@ -153,7 +165,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n/* harmony import */ var _pdp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pdp */ \"./source/js/pdp.js\");\n\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n  Object(_pdp__WEBPACK_IMPORTED_MODULE_2__[\"initPdp\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
 
 /***/ }),
 
