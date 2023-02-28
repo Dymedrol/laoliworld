@@ -290,6 +290,9 @@ body {
   min-height: 100vh;
   margin: 0;
 }
+a {
+  text-decoration: none;
+}
 .container {
   width: calc(100% - 20px);
   margin: 0 auto;
@@ -1787,6 +1790,7 @@ body {
   text-transform: uppercase;
   color: #000000;
   margin-bottom: 10px;
+  max-width: 180px;
 }
 .laoli-pdp-mobile-info-price {
   font-family: 'TT Hoves';
@@ -2127,10 +2131,12 @@ body {
 .laoli-related {
   border-top: 1px dashed #B0B0B0;
   padding-top: 40px;
+  padding-bottom: 80px;
 }
 @media (min-width: 720px) {
   .laoli-related {
     padding-top: 35px;
+    padding-bottom: 140px;
   }
 }
 .laoli-related-title {
