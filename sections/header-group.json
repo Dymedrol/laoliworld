@@ -4,22 +4,30 @@
   "sections": {
     "announcement-bar": {
       "type": "announcement-bar",
+      "disabled": true,
+      "blocks": {
+        "8f2b29db-d37f-4f5b-ba9d-662261214d5e": {
+          "type": "announcement",
+          "settings": {
+            "text": "Welcome to our store",
+            "text_alignment": "center",
+            "color_scheme": "accent-1",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "8f2b29db-d37f-4f5b-ba9d-662261214d5e"
+      ],
       "settings": {
       }
     },
     "header": {
       "type": "header",
       "settings": {
-        "logo_position": "middle-left",
-        "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
-        "sticky_header_type": "on-scroll-up",
-        "show_line_separator": true,
-        "color_scheme": "background-1",
-        "mobile_logo_position": "center",
-        "margin_bottom": 0,
-        "padding_top": 20,
-        "padding_bottom": 20
+        "menu_shop_title": "shop",
+        "menu_cart_title": "cart",
+        "menu_search_title": "search"
       }
     }
   },
