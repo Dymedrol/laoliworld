@@ -1,13 +1,14 @@
 <section class="laoli-home-jumbo">
 
-    <picture class="laoli-home-jumbo-pic">
-      <source srcset="{{ section.settings.banner_image | img_url: '1820x840', crop: 'center' }}" media="(min-width: 1920px)" />
-      <source srcset="{{ section.settings.banner_image | img_url: '1340x680', crop: 'center' }}" media="(min-width: 1440px)" />
-      <source srcset="{{ section.settings.banner_image | img_url: '1100x680', crop: 'center' }}" media="(min-width: 1200px)" />
-      <source srcset="{{ section.settings.banner_image | img_url: '920x550', crop: 'center' }}" media="(min-width: 960px)" />
+    <picture class="laoli-home-jumbo-pic" >
+      <source srcset="{{ section.settings.banner_image | img_url: '1820x840', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '3640x1680', crop: 'center' }} 2x" media="(min-width: 1920px)" />
+      <source srcset="{{ section.settings.banner_image | img_url: '1340x680', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '2680x1360', crop: 'center' }} 2x" media="(min-width: 1440px)" />
+      <source srcset="{{ section.settings.banner_image | img_url: '1100x680', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '2200x1360', crop: 'center' }} 2x" media="(min-width: 1200px)" />
+      <source srcset="{{ section.settings.banner_image | img_url: '920x550', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '1840x110', crop: 'center' }} 2x" media="(min-width: 960px)" />
       <source srcset="{{ section.settings.banner_image | img_url: '680x500', crop: 'center' }}" media="(min-width: 720px)" />
-      <source srcset="{{ section.settings.banner_image | img_url: '480x390', crop: 'center' }}" media="(min-width: 480px)" />
-      <img src="{{ section.settings.banner_image | img_url: '360x600', crop: 'center' }}" alt="{{ section.settings.banner_image.alt }}" />
+      <source srcset="{{ section.settings.banner_image | img_url: '960x880', crop: 'center' }}" media="(min-width: 480px)" />
+      <source srcset="{{ section.settings.banner_image | img_url: '720x440', crop: 'center' }}" />
+      <img src="{{ section.settings.banner_image | img_url: '360x600', crop: 'center' }}" alt="{{ section.settings.banner_image.alt }}" loading="lazy"/>
     </picture>
 
     <a href="{{ section.settings.image_banner_title_link }}" class="laoli-home-jumbo-button button-red">{{ section.settings.image_banner_title_text }}</a>

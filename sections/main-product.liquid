@@ -1,7 +1,10 @@
 <div class="laoli-pdp-gallery" tabindex="-1">
     <div class="laoli-pdp-gallery-wrapper">
     {%- for media in product.media -%}
-        <img data-index="{{ forloop.index }}" src="{{ media.preview_image | image_url: width: 1100 }}" alt="" class="laoli-pdp-gallery-pic">
+        <picture data-index="{{ forloop.index }}" class="laoli-pdp-gallery-pic">
+          <source srcset="{{ media.preview_image | image_url: width: 1100 }} 1x, {{ media.preview_image | image_url: width: 2200 }} 2x"/>
+          <img src="{{ media.preview_image | image_url: width: 1100 }}" alt="" loading="lazy">
+        </picture>
     {%- endfor -%}
     </div>
 </div>
@@ -15,7 +18,10 @@
                 <div class="laoli-pdp-mobile-carousel owl-carousel">
                     {%- for media in product.media -%}
                       <div class="laoli-pdp-mobile-carousel-item">
-                          <img src="{{ media.preview_image | image_url: width: 420 }}" alt="" class="laoli-pdp-mobile-carousel-item-pic">
+                          <picture class="laoli-pdp-mobile-carousel-item-pic">
+                            <source srcset="{{ media.preview_image | image_url: width: 420 }} 1x, {{ media.preview_image | image_url: width: 840 }} 2x"/>
+                            <img src="{{ media.preview_image | image_url: width: 420 }}" alt="" loading="lazy">
+                          </picture>
                       </div>
                     {%- endfor -%}
                 </div>
