@@ -341,6 +341,10 @@ a {
 .section-header.shopify-section-group-header-group {
   z-index: unset;
 }
+.visualy-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
 @font-face {
   font-family: 'TT Hoves';
   src: url('./TTHoves-Thin.eot');
@@ -1381,6 +1385,11 @@ a {
 @media (min-width: 720px) {
   .laoli-footer-cols {
     width: 443px;
+  }
+}
+@media (min-width: 960px) {
+  .laoli-footer-cols {
+    flex-wrap: nowrap;
   }
 }
 @media (min-width: 1200px) {
