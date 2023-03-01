@@ -679,6 +679,32 @@ a {
   z-index: -1;
   background-position-x: right;
 }
+.button-red:hover {
+  color: #494540;
+}
+.button-red:hover:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 40px;
+  background: url('./button-red-hover.svg');
+  z-index: -1;
+}
+.button-red:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 40px;
+  background: url('./button-red-hover.svg');
+  z-index: -1;
+  background-position-x: right;
+}
 .button-white {
   display: block;
   position: relative;
@@ -719,6 +745,32 @@ a {
   width: 50%;
   height: 40px;
   background: url('./button-white.svg');
+  z-index: -1;
+  background-position-x: right;
+}
+.button-white:hover {
+  color: #fff;
+}
+.button-white:hover:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 40px;
+  background: url('./button-red.svg');
+  z-index: -1;
+}
+.button-white:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 40px;
+  background: url('./button-red.svg');
   z-index: -1;
   background-position-x: right;
 }
@@ -805,6 +857,32 @@ a {
   width: 50%;
   height: 30px;
   background: url('./button-red-banner.svg');
+  z-index: -1;
+  background-position-x: right;
+}
+.button-red-banner:hover {
+  color: #B82C36;
+}
+.button-red-banner:hover:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 30px;
+  background: url('./button-red-banner-hover.svg');
+  z-index: -1;
+}
+.button-red-banner:hover:after {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: block;
+  content: '';
+  width: 50%;
+  height: 30px;
+  background: url('./button-red-banner-hover.svg');
   z-index: -1;
   background-position-x: right;
 }
