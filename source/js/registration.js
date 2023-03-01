@@ -28,7 +28,7 @@ export const initRegistration = () => {
         const options = {
           method: 'POST',
           headers: {Accept: 'application/json', 'Content-Type': 'application/json'},
-          body: JSON.stringify({profiles: [{email: 'kyle@smp.com', name: 'sssss'}]})
+          body: JSON.stringify({profiles: [{email: email, name: name}]})
         };
 
         fetch('https://a.klaviyo.com/api/v2/list/SdcCiU/subscribe?api_key=ShtSDp', options)
