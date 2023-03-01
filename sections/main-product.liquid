@@ -3,7 +3,7 @@
     {%- for media in product.media -%}
         <picture data-index="{{ forloop.index }}" class="laoli-pdp-gallery-pic">
           <source srcset="{{ media.preview_image | image_url: width: 1100 }} 1x, {{ media.preview_image | image_url: width: 2200 }} 2x"/>
-          <img src="{{ media.preview_image | image_url: width: 1100 }}" alt="" loading="lazy">
+          <img src="{{ media.preview_image | image_url: width: 1100 }}" alt="" data-index="{{ forloop.index }}">
         </picture>
     {%- endfor -%}
     </div>
@@ -80,7 +80,7 @@
               {%- for media in product.media -%}
                 <picture class="laoli-pdp-desktop-pic" data-index="{{ forloop.index }}">
                   <source srcset="{{ media.preview_image | image_url: width: 760 }} 1x, {{ media.preview_image | image_url: width: 1520 }} 2x"/>
-                  <img src="{{ media.preview_image | image_url: width: 760 }}" alt="" loading="lazy">
+                  <img src="{{ media.preview_image | image_url: width: 760 }}" alt="" loading="lazy" data-index="{{ forloop.index }}">
                 </picture>
               {%- endfor -%}
             </div>

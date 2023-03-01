@@ -2307,6 +2307,8 @@ a {
   /* Firefox */
 }
 .laoli-pdp-gallery-pic {
+  display: block;
+  object-fit: cover;
   width: 100%;
   margin-bottom: 35px;
   filter: drop-shadow(2px 5px 10px rgba(0, 0, 0, 0.1));
