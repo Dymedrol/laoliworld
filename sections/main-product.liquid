@@ -78,7 +78,10 @@
             </div>
             <div class="laoli-pdp-desktop-col2">
               {%- for media in product.media -%}
-                <img data-index="{{ forloop.index }}" src="{{ media.preview_image | image_url: width: 760 }}" alt="" class="laoli-pdp-desktop-pic">
+                <picture class="laoli-pdp-desktop-pic" data-index="{{ forloop.index }}">
+                  <source srcset="{{ media.preview_image | image_url: width: 760 }} 1x, {{ media.preview_image | image_url: width: 1520 }} 2x"/>
+                  <img src="{{ media.preview_image | image_url: width: 760 }}" alt="" loading="lazy">
+                </picture>
               {%- endfor -%}
             </div>
             <div class="laoli-pdp-desktop-col3">

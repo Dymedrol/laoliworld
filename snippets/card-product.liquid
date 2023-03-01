@@ -20,12 +20,12 @@
 
 <a href="{{ card_product.url }}" class="laoli-grid-item {% if card_product.images.size > 1 %}laoli-grid-item_with-hover{% endif %} {% if available %}in-stock{% else %}made-to-order{% endif %}">
     <picture class="laoli-grid-item-pic">
-      <source srcset="{{ card_product.featured_image | img_url: '360x420', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '720x840', crop: 'center' }} 2x"/>
+      <source srcset="{{ card_product.featured_image | img_url: '360x420', crop: 'center' }} 1x, {{ card_product.featured_image | img_url: '720x840', crop: 'center' }} 2x"/>
       <img src="{{ card_product.featured_image | img_url: '360x420', crop: 'center' }}" alt="" loading="lazy">
     </picture>
     {% if card_product.images.size > 1 %}
       <picture class="laoli-grid-item-hover-pic">
-        <source srcset="{{ card_product.images[1] | img_url: '360x420', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '720x840', crop: 'center' }} 2x"/>
+        <source srcset="{{ card_product.images[1] | img_url: '360x420', crop: 'center' }} 1x, {{ card_product.images[1] | img_url: '720x840', crop: 'center' }} 2x"/>
         <img src="{{ card_product.images[1] | img_url: '360x420', crop: 'center' }}" alt="" loading="lazy">
       </picture>
     {% endif %}
