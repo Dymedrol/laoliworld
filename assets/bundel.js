@@ -181,6 +181,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./source/js/registration.js":
+/*!***********************************!*\
+  !*** ./source/js/registration.js ***!
+  \***********************************/
+/*! exports provided: initRegistration */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initRegistration\", function() { return initRegistration; });\nconst initRegistration = () => {\n  const registration = $('.laoli-registration');\n  const list_id = 'SdcCiU';\n\n  if (!registration.length) {\n    return;\n  }\n\n  const buttons = $('.js-show-subscription');\n  const closeButton = registration.find('.laoli-registration-close');\n  const form = registration.find('form');\n  buttons.click(function () {\n    registration.show();\n  });\n  closeButton.click(function () {\n    registration.hide();\n  });\n  form.submit(function (e) {\n    e.preventDefault();\n    const name = form.find('.laoli-registration-input-name');\n    const email = form.find('.laoli-registration-input-email');\n    var settings = {\n      \"async\": true,\n      \"crossDomain\": true,\n      \"url\": \"https://manage.kmail-lists.com/ajax/subscriptions/subscribe\",\n      \"method\": \"POST\",\n      \"headers\": {\n        \"content-type\": \"application/x-www-form-urlencoded\",\n        \"cache-control\": \"no-cache\"\n      },\n      \"data\": {\n        \"g\": list_id,\n        \"$fields\": \"$first_name\",\n        \"email\": \"ddd@ddd.com\",\n        \"$first_name\": \"name name\"\n      }\n    };\n    $.ajax(settings).done(function (response) {\n      if (response.success) {\n        form.hide();\n        registration.find('.laoli-registration-form-success').show();\n      }\n    });\n  });\n};\n\n//# sourceURL=webpack:///./source/js/registration.js?");
+
+/***/ }),
+
 /***/ "./source/js/script.js":
 /*!*****************************!*\
   !*** ./source/js/script.js ***!
@@ -189,7 +201,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n/* harmony import */ var _pdp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pdp */ \"./source/js/pdp.js\");\n/* harmony import */ var _pdp_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pdp-select */ \"./source/js/pdp-select.js\");\n/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./banner */ \"./source/js/banner.js\");\n\n\n\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n  Object(_pdp__WEBPACK_IMPORTED_MODULE_2__[\"initPdp\"])();\n  Object(_pdp_select__WEBPACK_IMPORTED_MODULE_3__[\"initPdpSelect\"])();\n  Object(_banner__WEBPACK_IMPORTED_MODULE_4__[\"initBanner\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n/* harmony import */ var _pdp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pdp */ \"./source/js/pdp.js\");\n/* harmony import */ var _pdp_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pdp-select */ \"./source/js/pdp-select.js\");\n/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./banner */ \"./source/js/banner.js\");\n/* harmony import */ var _registration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./registration */ \"./source/js/registration.js\");\n\n\n\n\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n  Object(_pdp__WEBPACK_IMPORTED_MODULE_2__[\"initPdp\"])();\n  Object(_pdp_select__WEBPACK_IMPORTED_MODULE_3__[\"initPdpSelect\"])();\n  Object(_banner__WEBPACK_IMPORTED_MODULE_4__[\"initBanner\"])();\n  Object(_registration__WEBPACK_IMPORTED_MODULE_5__[\"initRegistration\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
 
 /***/ }),
 

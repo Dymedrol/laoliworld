@@ -3,6 +3,7 @@ import { initGrid } from './grid';
 import { initPdp } from './pdp';
 import { initPdpSelect } from './pdp-select';
 import { initBanner } from './banner';
+import { initRegistration } from './registration';
 
 $(document).ready(function(){
   initMenu();
@@ -10,6 +11,7 @@ $(document).ready(function(){
   initPdp();
   initPdpSelect();
   initBanner();
+  initRegistration();
 })
 
 

@@ -1,4 +1,5 @@
 .laoli-registration {
+    display: none;
     position: fixed;
     top: 0;
     right: 0;
@@ -115,6 +116,7 @@
 
 .laoli-registration-input {
     width: 100%;
+    background: #fffbf4;
 
     font-family: 'TT Hoves';
     font-style: normal;
@@ -131,6 +133,7 @@
     outline: none;
     border: none;
     border-bottom: 1px dashed #A09B8E;
+
 }
 
 .laoli-registration-input:last-child {
@@ -158,6 +161,7 @@
 }
 
 .laoli-registration-checkbox-squar {
+    display: block !important;
     width: 12px;
     height: 12px;
     border: 0.75px solid #494540;
@@ -193,10 +197,27 @@
 
     & a {
         color: #494540;
+        text-decoration: underline;
     }
 }
 
 .laoli-registration-button {
     display: block;
     margin: 0 auto;
+}
+
+.laoli-registration-form-success {
+    display: none;
+
+    font-family: 'GoudyOlSt BT';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 36px;
+    text-transform: uppercase;
+    color: #494540;
+
+    text-align: center;
+
+    margin-bottom: 10px;
 }

@@ -300,6 +300,33 @@
     </div>
 </div>
 
+<div class="laoli-registration">
+    <svg class="laoli-registration-close" width="19" height="19" viewBox="0 0 19 19" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M18.2081 0.53033L17.6777 0L9.01562 8.66211L0.53033 0.176823L0 0.707153L8.48529 9.19244L6.36578e-05 17.6777L0.530394 18.208L9.01562 9.72277L17.6777 18.3848L18.208 17.8545L9.54595 9.19244L18.2081 0.53033Z" fill="black"/>
+    </svg>
+
+    <div class="laoli-registration-pic-wrapper">
+        <img src="{{ section.settings.menu_image | img_url: '360x220', crop: 'center' }}" alt="" class="laoli-registration-pic">
+    </div>
+    <div class="laoli-registration-content">
+        <div class="laoli-registration-title">{{ section.settings.reg_title }}</div>
+        <div class="laoli-registration-subtitle">{{ section.settings.reg_text }}</div>
+        <form action="." class="laoli-registration-form">
+            <input required type="text" class="laoli-registration-input laoli-registration-input-name" placeholder="{{ section.settings.reg_input_name }}">
+            <input required type="email" class="laoli-registration-input laoli-registration-input-email" placeholder="{{ section.settings.reg_input_email }}">
+            <div class="laoli-registration-checkbox-wrapper">
+                <label class="laoli-registration-checkbox-label">
+                    <input required type="checkbox" class="laoli-registration-checkbox" >
+                    <div class="laoli-registration-checkbox-squar"></div>
+                </label>
+                <span class="laoli-registration-checkbox-text">{{ section.settings.reg_agree }}</span>
+            </div>
+            <button type="submit" class="laoli-registration-button button-white">{{ section.settings.reg_button_text }}</button>
+        </form>
+        <div class="laoli-registration-form-success">Success!</div>
+    </div>
+</div>
+
 
 
 {% schema %}
@@ -328,7 +355,7 @@
     {
       "type": "image_picker",
       "id": "menu_image",
-      "label": "menu image_picker"
+      "label": "menu apicker"
     },
     {
       "type": "checkbox",
@@ -347,6 +374,47 @@
       "id": "banner_text",
       "label": "banner text",
       "default": "text"
+    },
+    {
+      "type": "image_picker",
+      "id": "reg_image",
+      "label": "registration image"
+    },
+    {
+      "type": "text",
+      "id": "reg_title",
+      "label": "registration title",
+      "default": "become a&#160;collector"
+    },
+    {
+      "type": "text",
+      "id": "reg_text",
+      "label": "registration text-decoration",
+      "default": "RECEIVE LAOLI UPDATES, EARLY ACCESSAND 10% OFF YOUR FIRST ORDER"
+    },
+    {
+      "type": "text",
+      "id": "reg_input_name",
+      "label": "name input placeholder",
+      "default": "your name"
+    },
+    {
+      "type": "text",
+      "id": "reg_input_email",
+      "label": "name input placeholder",
+      "default": "e-mail"
+    },
+    {
+      "type": "text",
+      "id": "reg_agree",
+      "label": "registration agree text",
+      "default": "I AGREE WITH TERMS OF <a href='/''>PRIVACY POLICY</a>"
+    },
+    {
+      "type": "text",
+      "id": "reg_button_text",
+      "label": "registration button text",
+      "default": "join us"
     }
   ]
 }
