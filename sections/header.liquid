@@ -40,7 +40,7 @@
         </a>
         <div class="laoli-menu-controls">
             <div href="" class="laoli-menu-controls-text-right laoli-menu-controls-search visualy-hidden">{{ section.settings.menu_search_title}}</div>
-            <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right">{{ section.settings.menu_cart_title}} ({{ cart.item_count}})</a>
+            <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right">{{ section.settings.menu_cart_title}}{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</a>
         </div>
         <div class="laoli-menu-mobile-wrapper">
             <a href="{{ routes.cart_url }} "class="laoli-menu-mobile-cart">{{ section.settings.menu_cart_title}}</a>
@@ -71,7 +71,7 @@
                 </svg>
             </a>
             <div class="laoli-menu-controls">
-                <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right laoli-menu-controls-text__white">{{ section.settings.menu_cart_title}} ({{ cart.item_count}})</a>
+                <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right laoli-menu-controls-text__white">{{ section.settings.menu_cart_title}}{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</a>
             </div>
             <div class="laoli-menu-mobile-wrapper">
                 <div class="laoli-menu-mobile-cart laoli-menu-controls-text__white">{{ section.settings.menu_cart_title}}</div>
@@ -185,7 +185,7 @@
         </a>
         <div class="laoli-menu-controls">
             <div href="" class="laoli-menu-controls-text-right laoli-menu-controls-search visualy-hidden">{{ section.settings.menu_search_title}}</div>
-            <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right">{{ section.settings.menu_cart_title}} ({{ cart.item_count}})</a>
+            <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right">{{ section.settings.menu_cart_title}}{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</a>
         </div>
         <div class="laoli-menu-mobile-wrapper">
             <a href="{{ routes.cart_url }} "class="laoli-menu-mobile-cart">{{ section.settings.menu_cart_title}}</a>
@@ -216,7 +216,7 @@
                 </svg>
             </a>
             <div class="laoli-menu-controls">
-                <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right laoli-menu-controls-text__white">{{ section.settings.menu_cart_title}} ({{ cart.item_count}})</a>
+                <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right laoli-menu-controls-text__white">{{ section.settings.menu_cart_title}}{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</a>
             </div>
             <div class="laoli-menu-mobile-wrapper">
                 <div class="laoli-menu-mobile-cart laoli-menu-controls-text__white">{{ section.settings.menu_cart_title}}</div>
