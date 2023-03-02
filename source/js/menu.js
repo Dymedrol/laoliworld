@@ -19,23 +19,11 @@ export const initMenu = () => {
 
     burger.click(function() {
         menu.addClass('open');
-        menuInner.focus();
     })
 
     close.click(function() {
         menu.removeClass('open');
     });
-
-    menuInner.on('blur',function() {
-
-        if (is_touch_enabled()) {
-            return
-        }
-
-        menu.removeClass('open');
-    });
-
-
 }
 
 
