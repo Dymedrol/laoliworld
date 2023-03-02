@@ -125,6 +125,13 @@
     "show_vendor": false,
     "show_cart_note": false,
     "cart_drawer_collection": "",
+    "checkout_logo_image": "shopify:\/\/shop_images\/logo_b0a28188-e34c-4c28-b5db-0bb517c2f960.png",
+    "checkout_logo_size": "small",
+    "checkout_body_background_color": "#fffbf4",
+    "checkout_sidebar_background_color": "#fffbf4",
+    "checkout_accent_color": "#b82c36",
+    "checkout_button_color": "#b82c36",
+    "checkout_error_color": "#b82c36",
     "sections": {
       "main-password-header": {
         "type": "main-password-header",
