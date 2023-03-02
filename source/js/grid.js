@@ -10,6 +10,8 @@ export const initGrid = () => {
     $(".laoli-grid-controls-list_mobile").owlCarousel({
         margin: 35,
         autoWidth: true,
+        dots: false,
+        nav: false,
     });
 
     const inStockFilter = filters.find('#filter-in-stock');
