@@ -130,18 +130,16 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 330px;
+    width: calc(100% - 20px);
     margin: 0 auto;
     gap: 10px;
 
 
     @media (@S) {
-        width: 355px;
         gap: 35px;
     }
 
     @media (@M) {
-        width: 675px;
         gap: 35px;
     }
 
@@ -172,15 +170,16 @@
     border: 1px dashed #DFDFDF;
     border-radius: 10px;
 
-    width: 160px;
-    height: 200px;
+    aspect-ratio: 160 / 200;
 
-    @media (@M) {
-        width: 320px;
-        height: 374px;
+    width: calc(50% - 5px);
+
+    @media (@S) {
+        width: calc(50% - 17.5px);
     }
 
     @media (@L) {
+        aspect-ratio: unset;
         width: 360px;
         height: 420px
     }
