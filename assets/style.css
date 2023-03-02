@@ -1362,6 +1362,7 @@ a {
   display: block;
   margin: 0 auto;
   width: 200px;
+  height: auto;
   margin-top: -15px;
 }
 @media (min-width: 720px) {
@@ -1880,6 +1881,7 @@ a {
   left: 0;
   right: 0;
   margin: auto;
+  padding: 0 8px;
   font-family: 'TT Hoves';
   font-style: normal;
   font-weight: 400;
