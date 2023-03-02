@@ -239,7 +239,7 @@
     {{ 'style.css' | asset_url | stylesheet_tag }}
   </head>
 
-  <body class="">
+  <body class="{% if template == 'collection' or template == 'product'%}other-color{% endif %}">
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
       {{ "accessibility.skip_to_text" | t }}
     </a>

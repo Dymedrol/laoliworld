@@ -290,6 +290,9 @@ body {
   min-height: 100vh;
   margin: 0;
 }
+body.other-color {
+  background: #FFFAF4 !important;
+}
 a {
   text-decoration: none;
 }
@@ -1539,10 +1542,6 @@ a {
   .laoli-home-jumbo {
     height: calc(100vh - 155px);
   }
-}
-@media (min-width: 1440px) {
-}
-@media (min-width: 1920px) {
 }
 .laoli-home-jumbo-pic {
   display: flex;
