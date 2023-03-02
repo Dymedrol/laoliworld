@@ -7,7 +7,7 @@
       <source srcset="{{ section.settings.banner_image | img_url: '920x550', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '1840x110', crop: 'center' }} 2x" media="(min-width: 960px)" />
       <source srcset="{{ section.settings.banner_image | img_url: '680x500', crop: 'center' }}" media="(min-width: 720px)" />
       <source srcset="{{ section.settings.banner_image | img_url: '960x880', crop: 'center' }}" media="(min-width: 480px)" />
-      <source srcset="{{ section.settings.banner_image | img_url: '720x440', crop: 'center' }}" />
+      <source srcset="{{ section.settings.banner_image_mobile | img_url: '720x440', crop: 'center' }}" />
       <img src="{{ section.settings.banner_image | img_url: '360x600', crop: 'center' }}" alt="{{ section.settings.banner_image.alt }}" loading="lazy"/>
     </picture>
 
@@ -35,6 +35,11 @@
       "type": "image_picker",
       "id": "banner_image",
       "label": "image-banner image"
+    },
+        {
+      "type": "image_picker",
+      "id": "banner_image_mobile",
+      "label": "image-banner image mobile"
     }
   ]
 }

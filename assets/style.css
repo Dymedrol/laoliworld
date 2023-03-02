@@ -1233,6 +1233,14 @@ a {
   opacity: 0;
   pointer-events: none;
 }
+.laoli-menu-dummy-homepage {
+  display: none;
+}
+@media (min-width: 720px) {
+  .laoli-menu-dummy-homepage {
+    display: block;
+  }
+}
 .laoli-banner {
   display: none;
   position: relative;

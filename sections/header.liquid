@@ -160,7 +160,7 @@
     </div>
 {% endif %}
 
-<div class="laoli-menu laoli-menu-dummy">
+<div class="laoli-menu laoli-menu-dummy {% if template == 'index' %}laoli-menu-dummy-homepage{% endif %}">
     <div class="container laoli-menu-wrapper">
         <div class="laoli-menu-controls">
 
@@ -355,7 +355,7 @@
     {
       "type": "image_picker",
       "id": "menu_image",
-      "label": "menu apicker"
+      "label": "menu image"
     },
     {
       "type": "checkbox",
