@@ -8,7 +8,16 @@
         "menu_shop_title": "shop",
         "menu_cart_title": "cart",
         "menu_search_title": "search",
-        "menu_image": "shopify:\/\/shop_images\/news.jpg"
+        "menu_image": "shopify:\/\/shop_images\/news.jpg",
+        "show_banner": false,
+        "banner_button_text": "join us",
+        "banner_text": "text",
+        "reg_title": "become a&#160;collector",
+        "reg_text": "RECEIVE LAOLI UPDATES, EARLY ACCESSAND 10%&#160;OFF YOUR FIRST ORDER",
+        "reg_input_name": "your name",
+        "reg_input_email": "e-mail",
+        "reg_agree": "I AGREE WITH TERMS OF <a href=\"https:\/\/about.laoliworld.com\/pages\/privacy-policy\">PRIVACY POLICY<\/a>",
+        "reg_button_text": "join us"
       }
     }
   },
