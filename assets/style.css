@@ -1600,17 +1600,9 @@ a {
   color: #494540;
   opacity: 0.8;
   margin: 0 auto 40px;
-  width: 280px;
-}
-@media (min-width: 480px) {
-  .laoli-home-text1 {
-    width: 320px;
-  }
-}
-@media (min-width: 720px) {
-  .laoli-home-text1 {
-    width: 680px;
-  }
+  width: 100%;
+  max-width: 920px;
+  padding: 0 20px;
 }
 @media (min-width: 960px) {
   .laoli-home-text1 {
@@ -1620,7 +1612,6 @@ a {
 }
 @media (min-width: 1200px) {
   .laoli-home-text1 {
-    width: 920px;
     margin-bottom: 60px;
   }
 }
