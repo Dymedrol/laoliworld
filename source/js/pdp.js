@@ -28,17 +28,18 @@ export const initPdp = () => {
         careWrapper.show();
     });
 
-    // $(".laoli-pdp-mobile-carousel").owlCarousel({
-    //   margin: 15,
-    //   items: 1,
-    // });
+    $(".laoli-pdp-mobile-carousel").owlCarousel({
+      margin: 15,
+      autoWidth: true,
+      dots: true,
+    });
 
-    // $('.laoli-pdp-mobile-carouse').owlCarouselProgressBar({
-    //     size: '4px',
-    //     transitionInterval: .3,
-    //     progressBarClassName: 'laoli-pdp-mobile-carousel-control',
-    //     scrollerClassName: 'laoli-pdp-mobile-carousel-control-indicator'
-    // });
+    $('.laoli-pdp-mobile-carouse').owlCarouselProgressBar({
+        size: '4px',
+        transitionInterval: .3,
+        progressBarClassName: 'laoli-pdp-mobile-carousel-control',
+        scrollerClassName: 'laoli-pdp-mobile-carousel-control-indicator',
+    });
 
     const showGallery = function() {
         gallery.fadeIn(200);
