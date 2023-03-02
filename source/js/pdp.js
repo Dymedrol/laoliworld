@@ -69,8 +69,12 @@ export const initPdp = () => {
           scrollTop: offset
         }, 0);
 
-        gallery.click(function() {
-            hideGallery();
+
+        gallery.click(function(e) {
+            const target = $(e.target);
+            if (!target.closest('form').length) {
+                hideGallery();
+            }
         });
     });
 

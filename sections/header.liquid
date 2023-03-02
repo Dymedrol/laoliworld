@@ -154,10 +154,10 @@
             </div>
             <div class="laoli-menu-content-pic-wrapper">
                 <picture>
-                  <source srcset="{{ section.settings.menu_image | img_url: '520x300', crop: 'center' }}" media="(min-width: 1920px)" />
-                  <source srcset="{{ section.settings.menu_image | img_url: '470x300', crop: 'center' }}" media="(min-width: 1440px)" />
-                  <source srcset="{{ section.settings.menu_image | img_url: '300x300', crop: 'center' }}" media="(min-width: 1200px)" />
-                  <source srcset="{{ section.settings.menu_image | img_url: '200x300', crop: 'center' }}" media="(min-width: 960px)" />
+                  <source srcset="{{ section.settings.menu_image | img_url: '520x300', crop: 'center' }} 1x, {{ section.settings.menu_image | img_url: '1040x600', crop: 'center' }} 2x" media="(min-width: 1920px)" />
+                  <source srcset="{{ section.settings.menu_image | img_url: '470x300', crop: 'center' }} 1x, {{ section.settings.menu_image | img_url: '940x600', crop: 'center' }} 2x" media="(min-width: 1440px)" />
+                  <source srcset="{{ section.settings.menu_image | img_url: '300x300', crop: 'center' }} 1x, {{ section.settings.menu_image | img_url: '600x600', crop: 'center' }} 2x" media="(min-width: 1200px)" />
+                  <source srcset="{{ section.settings.menu_image | img_url: '200x300', crop: 'center' }} 1x, {{ section.settings.menu_image | img_url: '400x600', crop: 'center' }} 2x" media="(min-width: 960px)" />
                   <img src="{{ section.settings.menu_image | img_url: '520x300', crop: 'center' }}" alt="" />
                 </picture>
             </div>

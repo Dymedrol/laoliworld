@@ -226,7 +226,6 @@
     border: 0.5px dashed transparent;
 
     &:hover {
-        background: #FFFBF0;
         border: 0.5px dashed #B0B0B0;
         cursor: pointer;
     }
@@ -572,6 +571,7 @@
     height: 100%;
     width: 920px;
     margin: 0 auto;
+    padding-bottom: 180px;
 
     @media (@XL) {
         width: 1100px;
@@ -590,19 +590,30 @@
 .laoli-pdp-gallery-pic {
     display: block;
     object-fit: cover;
-    width: 100%;
+    width: 98%;
+    margin: 0 auto;
     margin-bottom: 35px;
-
-    filter: drop-shadow(2px 5px 10px rgba(0, 0, 0, 0.1));
-    border-radius: 10px;
 
     & img {
         width: 100%;
+        filter: drop-shadow(2px 5px 10px rgba(0, 0, 0, 0.1));
+        border-radius: 10px;
     }
 
     &:first-child {
         filter: unset;
+
+        & img {
+            width: 100%;
+            filter: unset;
+            border-radius: 0;
+        }
     }
+}
+
+.laoli-pdp-gallery-form {
+    margin: 0 auto;
+    width: fit-content;
 }
 
 
