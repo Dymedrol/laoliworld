@@ -49,10 +49,32 @@
 .laoli-menu-wrapper {
     display: flex;
     justify-content: space-between;
+    position: relative;
 }
 
 .laoli-menu__logo {
     display: block;
+
+    @media (@M) {
+        opacity: 0;
+        pointer-events: none;
+    }
+}
+
+.laoli-menu__logo_centred {
+    display: none;
+
+    @media (@M) {
+        display: block;
+        width: fit-content;
+
+        position: absolute;
+        top: 0;
+        right: 0;
+        left: 0;
+        margin: auto;
+
+    }
 }
 
 .laoli-menu-mobile-wrapper {
