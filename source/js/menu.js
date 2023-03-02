@@ -1,12 +1,5 @@
 export const initMenu = () => {
 
-
-    function is_touch_enabled() {
-        return ( 'ontouchstart' in window ) ||
-               ( navigator.maxTouchPoints > 0 ) ||
-               ( navigator.msMaxTouchPoints > 0 );
-    }
-
     const menu = $('.laoli-menu')
     const menuInner = $('.laoli-menu-inner')
 
@@ -19,6 +12,14 @@ export const initMenu = () => {
 
     burger.click(function() {
         menu.addClass('open');
+    })
+
+    $(document).click(function(e) {
+        const target = $(e.target);
+
+        if (!target.closest('.laoli-menu').length) {
+            menu.hasClass('open') ? menu.removeClass('open') : null;
+        }
     })
 
     close.click(function() {

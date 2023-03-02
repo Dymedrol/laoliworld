@@ -153,7 +153,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initMenu\", function() { return initMenu; });\nconst initMenu = () => {\n  function is_touch_enabled() {\n    return 'ontouchstart' in window || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;\n  }\n\n  const menu = $('.laoli-menu');\n  const menuInner = $('.laoli-menu-inner');\n\n  if (!menu.length) {\n    return;\n  }\n\n  const burger = $('.js-menu-burger');\n  const close = $('.js-menu-close');\n  burger.click(function () {\n    menu.addClass('open');\n  });\n  close.click(function () {\n    menu.removeClass('open');\n  });\n};\n\n//# sourceURL=webpack:///./source/js/menu.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initMenu\", function() { return initMenu; });\nconst initMenu = () => {\n  const menu = $('.laoli-menu');\n  const menuInner = $('.laoli-menu-inner');\n\n  if (!menu.length) {\n    return;\n  }\n\n  const burger = $('.js-menu-burger');\n  const close = $('.js-menu-close');\n  burger.click(function () {\n    menu.addClass('open');\n  });\n  $(document).click(function (e) {\n    const target = $(e.target);\n\n    if (!target.closest('.laoli-menu').length) {\n      menu.hasClass('open') ? menu.removeClass('open') : null;\n    }\n  });\n  close.click(function () {\n    menu.removeClass('open');\n  });\n};\n\n//# sourceURL=webpack:///./source/js/menu.js?");
 
 /***/ }),
 
