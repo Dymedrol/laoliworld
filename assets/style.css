@@ -2225,6 +2225,9 @@ a {
 .laoli-pdp-desktop-pic img {
   border-radius: 10px;
 }
+.laoli-pdp-desktop-pic:first-child {
+  filter: unset;
+}
 .laoli-pdp-desktop-info {
   position: sticky;
   top: 109px;
@@ -2420,6 +2423,9 @@ a {
 }
 .laoli-pdp-gallery-pic img {
   width: 100%;
+}
+.laoli-pdp-gallery-pic *:first-child {
+  filter: unset;
 }
 .laoli-related {
   border-top: 1px dashed #B0B0B0;
