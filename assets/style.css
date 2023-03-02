@@ -995,7 +995,7 @@ a {
 .laoli-menu-controls-text-left {
   font-family: 'TT Hoves';
   font-style: normal;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 12px;
   line-height: 18px;
   text-transform: uppercase;
@@ -1005,7 +1005,7 @@ a {
 .laoli-menu-controls-text-right {
   font-family: 'TT Hoves';
   font-style: normal;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 12px;
   line-height: 18px;
   text-transform: uppercase;
@@ -1045,6 +1045,9 @@ a {
   .laoli-menu-inner {
     padding-top: 35px;
   }
+}
+.laoli-menu-inner:focus {
+  outline: none;
 }
 .laoli-menu-wrapper__inner {
   margin-bottom: 50px;

@@ -1,6 +1,7 @@
 export const initMenu = () => {
 
     const menu = $('.laoli-menu')
+    const menuInner = $('.laoli-menu-inner')
 
     if (!menu.length) {
         return
@@ -11,9 +12,14 @@ export const initMenu = () => {
 
     burger.click(function() {
         menu.addClass('open');
+        menuInner.focus();
     })
 
     close.click(function() {
+        menu.removeClass('open');
+    });
+
+    menuInner.on('blur',function() {
         menu.removeClass('open');
     });
 }
