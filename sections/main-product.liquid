@@ -1,11 +1,16 @@
 <div class="laoli-pdp-gallery" tabindex="-1">
+    <div class="laoli-pdp-gallery-controls">
+      <div class="container">
+        <div class="laoli-pdp-desktop-back">{{ section.settings.pdp-back }}</div>
+      </div>
+    </div>
     <div class="laoli-pdp-gallery-wrapper">
-    {%- for media in product.media -%}
-        <picture data-index="{{ forloop.index }}" class="laoli-pdp-gallery-pic">
-          <source srcset="{{ media.preview_image | image_url: width: 1100 }} 1x, {{ media.preview_image | image_url: width: 2200 }} 2x"/>
-          <img src="{{ media.preview_image | image_url: width: 1100 }}" alt="" data-index="{{ forloop.index }}">
-        </picture>
-    {%- endfor -%}
+      {%- for media in product.media -%}
+          <picture data-index="{{ forloop.index }}" class="laoli-pdp-gallery-pic">
+            <source srcset="{{ media.preview_image | image_url: width: 1100 }} 1x, {{ media.preview_image | image_url: width: 2200 }} 2x"/>
+            <img src="{{ media.preview_image | image_url: width: 1100 }}" alt="" data-index="{{ forloop.index }}">
+          </picture>
+      {%- endfor -%}
     </div>
 </div>
 
@@ -65,7 +70,6 @@
 
         <div class="laoli-pdp-desktop">
             <div class="laoli-pdp-desktop-goback" onclick="history.back()">{{ section.settings.pdp-goback }}</div>
-            <div class="laoli-pdp-desktop-back">{{ section.settings.pdp-back }}</div>
             <div class="laoli-pdp-desktop-col1">
                 <div class="laoli-pdp-desktop-details laoli-pdp-desktop-details_left">
                     <div class="laoli-pdp-desktop-details-controls">

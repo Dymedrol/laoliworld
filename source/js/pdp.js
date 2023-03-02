@@ -42,18 +42,16 @@ export const initPdp = () => {
     });
 
     const showGallery = function() {
-        goBack.hide();
-        back.show();
+        // goBack.hide();
+        // back.show();
         gallery.fadeIn(200);
-        gallery.focus();
+        // gallery.focus();
     }
 
     const hideGallery = function() {
         galleryWrapper.animate({
           scrollTop: 0
         }, 0);
-        goBack.show();
-        back.hide();
         gallery.fadeOut(200);
     }
 
@@ -75,12 +73,7 @@ export const initPdp = () => {
           scrollTop: offset
         }, 0);
 
-        gallery.on('blur',function() {
-            hideGallery();
-        });
-
-
-        back.click(function() {
+        gallery.click(function() {
             hideGallery();
         });
 
