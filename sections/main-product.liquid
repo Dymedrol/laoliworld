@@ -33,7 +33,7 @@
 
             </div>
             <div class="laoli-pdp-mobile-info">
-                <div class="laoli-pdp-mobile-info-status">{% if current_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock}}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
+                <div class="laoli-pdp-mobile-info-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
                 <div class="laoli-pdp-mobile-info-title">{{ product.title }}</div>
                 <div class="laoli-pdp-mobile-info-price">{{ product.price | money_without_trailing_zeros }}</div>
                 <div class="laoli-pdp-mobile-info-text">{{ product.description }}</div>
@@ -53,7 +53,7 @@
 
                         </div>
                       </div>
-                      <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add" value="{{ section.settings.pdp-addtocart}}">
+                      <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
                   </div>
                 </form>
 
@@ -90,7 +90,7 @@
             </div>
             <div class="laoli-pdp-desktop-col3">
                 <div class="laoli-pdp-desktop-info">
-                    <div class="laoli-pdp-desktop-info-status">{% if current_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
+                    <div class="laoli-pdp-desktop-info-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
                     <div class="laoli-pdp-desktop-info-title">{{ product.title}}</div>
                     <div class="laoli-pdp-desktop-info-price">{{ product.price | money_without_trailing_zeros}}</div>
                     <div class="laoli-pdp-desktop-info-text">{{ product.description}}</div>
@@ -110,7 +110,7 @@
 
                             </div>
                           </div>
-                          <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add" value="{{ section.settings.pdp-addtocart}}">
+                          <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
                       </div>
                     </form>
 
@@ -155,6 +155,12 @@
       "id": "pdp-addtocart",
       "label": "add to cart text",
       "default": "add to cart"
+    },
+    {
+      "type": "text",
+      "id": "pdp-preorder",
+      "label": "pre-order  text",
+      "default": "pre-order"
     },
     {
       "type": "text",
