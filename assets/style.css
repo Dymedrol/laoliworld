@@ -1867,6 +1867,10 @@ a {
   height: 100%;
   object-fit: cover;
 }
+.laoli-grid-item-pic img {
+  height: 100%;
+  width: 100%;
+}
 .laoli-grid-item-hover-pic {
   position: absolute;
   top: 0;
@@ -1876,6 +1880,10 @@ a {
   height: 100%;
   object-fit: cover;
   transition: opacity 0.5s;
+}
+.laoli-grid-item-hover-pic img {
+  height: 100%;
+  width: 100%;
 }
 .laoli-grid-item-title {
   position: absolute;
@@ -2213,6 +2221,9 @@ a {
   .laoli-pdp-desktop-pic {
     margin-bottom: 35px;
   }
+}
+.laoli-pdp-desktop-pic img {
+  border-radius: 10px;
 }
 .laoli-pdp-desktop-info {
   position: sticky;
