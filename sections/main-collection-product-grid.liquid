@@ -2,12 +2,23 @@
 
     <div class="container">
         <div class="laoli-grid-controls">
+
+            {% comment %}
             <div class="laoli-grid-controls-list">
                 {%- for child_collection in collections -%}
                   <a href="{{ child_collection.url }}" class="laoli-grid-controls-list-item {% if collection.title == child_collection.title %}laoli-grid-controls-list-item_active{% endif %}">{{ child_collection.title }}</a>
                 {%- endfor -%}
-
             </div>
+            {% endcomment %}
+
+            <div class="laoli-grid-controls-list">
+                <a href="/collections/all" class="laoli-grid-controls-list-item {% if collection.title == 'all' %}laoli-grid-controls-list-item_active{% endif %}">all</a>
+                <a href="/collections/rings" class="laoli-grid-controls-list-item {% if collection.title == 'rings' %}laoli-grid-controls-list-item_active{% endif %}">rings</a>
+                <a href="/collections/earrings" class="laoli-grid-controls-list-item {% if collection.title == 'earrings' %}laoli-grid-controls-list-item_active{% endif %}">earrings</a>
+                <a href="/collections/necklaces" class="laoli-grid-controls-list-item {% if collection.title == 'necklaces' %}laoli-grid-controls-list-item_active{% endif %}">necklaces</a>
+                <a href="/collections/bracelets" class="laoli-grid-controls-list-item {% if collection.title == 'bracelets' %}laoli-grid-controls-list-item_active{% endif %}">bracelets</a>
+            </div>
+
             <div class="laoli-grid-controls-filters">
                 <div class="laoli-grid-controls-filters-filter" id="filter-in-stock">{{ section.settings.grid_filter_in_stock }}</div>
                 <div class="laoli-grid-controls-filters-filter" id="filter-made-to-order">{{ section.settings.grid_filter_made_to_order}}</div>
