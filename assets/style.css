@@ -2151,6 +2151,7 @@ a {
   height: 32px;
   padding: 0 17px;
   border: 0.5px solid #B0B0B0;
+  border-radius: 0 !important;
   font-family: 'TT Hoves';
   font-style: normal;
   font-weight: 300;
@@ -2325,6 +2326,7 @@ a {
   height: 32px;
   padding: 0 17px;
   border: 0.5px solid #B0B0B0;
+  border-radius: 0 !important;
   font-family: 'TT Hoves';
   font-style: normal;
   font-weight: 300;
