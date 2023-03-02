@@ -48,6 +48,20 @@
     }
 }
 
+.laoli-grid-controls-list_desktop {
+    display: none;
+
+    @media (@L) {
+        display: flex;
+    }
+}
+
+.laoli-grid-controls-list_mobile {
+    @media (@L) {
+        display: none !important;
+    }
+}
+
 .laoli-grid-controls-list-item {
     font-family: 'TT Hoves';
     font-style: normal;
@@ -162,8 +176,8 @@
     height: 200px;
 
     @media (@M) {
-        width: 360px;
-        height: 420px;
+        width: 320px;
+        height: 374px;
     }
 
     @media (@L) {

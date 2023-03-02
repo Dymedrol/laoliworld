@@ -1692,6 +1692,19 @@ a {
     gap: 50px;
   }
 }
+.laoli-grid-controls-list_desktop {
+  display: none;
+}
+@media (min-width: 960px) {
+  .laoli-grid-controls-list_desktop {
+    display: flex;
+  }
+}
+@media (min-width: 960px) {
+  .laoli-grid-controls-list_mobile {
+    display: none !important;
+  }
+}
 .laoli-grid-controls-list-item {
   font-family: 'TT Hoves';
   font-style: normal;
@@ -1794,8 +1807,8 @@ a {
 }
 @media (min-width: 720px) {
   .laoli-grid-item {
-    width: 360px;
-    height: 420px;
+    width: 320px;
+    height: 374px;
   }
 }
 @media (min-width: 960px) {

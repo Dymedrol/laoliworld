@@ -7,6 +7,11 @@ export const initGrid = () => {
 
     const items = $('.laoli-grid-items');
 
+    $(".laoli-grid-controls-list_mobile").owlCarousel({
+        margin: 35,
+        autoWidth: true,
+    });
+
     const inStockFilter = filters.find('#filter-in-stock');
     const madeToOrderFilter = filters.find('#filter-made-to-order');
 

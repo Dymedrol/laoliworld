@@ -34,7 +34,7 @@ export const initPdp = () => {
       items: 1,
     });
 
-    $('.owl-carousel').owlCarouselProgressBar({
+    $('.laoli-pdp-mobile-carouse').owlCarouselProgressBar({
         size: '4px',
         transitionInterval: .3,
         progressBarClassName: 'laoli-pdp-mobile-carousel-control',

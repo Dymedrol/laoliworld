@@ -11,7 +11,15 @@
             </div>
             {% endcomment %}
 
-            <div class="laoli-grid-controls-list">
+            <div class="laoli-grid-controls-list laoli-grid-controls-list_desktop">
+                <a href="/collections/all" class="laoli-grid-controls-list-item {% if collection.title == 'all' %}laoli-grid-controls-list-item_active{% endif %}">all</a>
+                <a href="/collections/rings" class="laoli-grid-controls-list-item {% if collection.title == 'rings' %}laoli-grid-controls-list-item_active{% endif %}">rings</a>
+                <a href="/collections/earrings" class="laoli-grid-controls-list-item {% if collection.title == 'earrings' %}laoli-grid-controls-list-item_active{% endif %}">earrings</a>
+                <a href="/collections/necklaces" class="laoli-grid-controls-list-item {% if collection.title == 'necklaces' %}laoli-grid-controls-list-item_active{% endif %}">necklaces</a>
+                <a href="/collections/bracelets" class="laoli-grid-controls-list-item {% if collection.title == 'bracelets' %}laoli-grid-controls-list-item_active{% endif %}">bracelets</a>
+            </div>
+
+            <div class="laoli-grid-controls-list laoli-grid-controls-list_mobile owl-carousel">
                 <a href="/collections/all" class="laoli-grid-controls-list-item {% if collection.title == 'all' %}laoli-grid-controls-list-item_active{% endif %}">all</a>
                 <a href="/collections/rings" class="laoli-grid-controls-list-item {% if collection.title == 'rings' %}laoli-grid-controls-list-item_active{% endif %}">rings</a>
                 <a href="/collections/earrings" class="laoli-grid-controls-list-item {% if collection.title == 'earrings' %}laoli-grid-controls-list-item_active{% endif %}">earrings</a>
