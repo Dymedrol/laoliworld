@@ -318,7 +318,10 @@
     </svg>
 
     <div class="laoli-registration-pic-wrapper">
-        <img src="{{ section.settings.menu_image | img_url: '360x220', crop: 'center' }}" alt="" class="laoli-registration-pic">
+        <picture class="laoli-registration-pic">
+          <source srcset="{{ section.settings.reg_image | img_url: '360x220', crop: 'center' }} 1x {{ section.settings.reg_image | img_url: '720x440', crop: 'center' }} 2x" media="(min-width: 960px)" />
+           <img src="{{ section.settings.reg_image | img_url: '360x220', crop: 'center' }}" alt="" class="laoli-registration-pic">
+        </picture>
     </div>
     <div class="laoli-registration-content">
         <div class="laoli-registration-title">{{ section.settings.reg_title }}</div>
