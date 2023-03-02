@@ -2192,7 +2192,7 @@ a {
 }
 @media (min-width: 1200px) {
   .laoli-pdp-desktop-col1 {
-    display: block;
+    display: flex;
     width: 300px;
     padding-bottom: 30px;
   }
@@ -2313,7 +2313,8 @@ a {
 }
 .laoli-pdp-desktop-details_left {
   position: sticky;
-  top: 646px;
+  bottom: 50px;
+  align-self: flex-end;
 }
 .laoli-pdp-desktop-details-controls {
   display: flex;
