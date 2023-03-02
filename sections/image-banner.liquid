@@ -8,7 +8,7 @@
       <source srcset="{{ section.settings.banner_image | img_url: '680x500', crop: 'center' }}" media="(min-width: 720px)" />
       <source srcset="{{ section.settings.banner_image | img_url: '960x880', crop: 'center' }}" media="(min-width: 480px)" />
       <source srcset="{{ section.settings.banner_image_mobile | img_url: '720x440', crop: 'center' }}" />
-      <img src="{{ section.settings.banner_image | img_url: '360x600', crop: 'center' }}" alt="{{ section.settings.banner_image.alt }}" loading="lazy"/>
+      <img src="{{ section.settings.banner_image_mobile | img_url: '360x600', crop: 'center' }}" alt="{{ section.settings.banner_image.alt }}" loading="lazy"/>
     </picture>
 
     <a href="{{ section.settings.image_banner_title_link }}" class="laoli-home-jumbo-button button-red">{{ section.settings.image_banner_title_text }}</a>

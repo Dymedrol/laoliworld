@@ -2424,7 +2424,7 @@ a {
 .laoli-pdp-gallery-pic img {
   width: 100%;
 }
-.laoli-pdp-gallery-pic *:first-child {
+.laoli-pdp-gallery-pic:first-child {
   filter: unset;
 }
 .laoli-related {
