@@ -33,62 +33,69 @@
 </div>
 
 <div class="laoli-pdp" data-inStockText="{{ section.settings.pdp-instock }}" data-madeToOrderText="{{ section.settings.pdp-madetoorder }}" data-addToCartText="{{ section.settings.pdp-addtocart }}" data-preOrderText="{{ section.settings.pdp-preorder }}">
-    <div class="container">
-        <div class="laoli-pdp-mobile">
-            <div class="laoli-pdp-mobile-goback" onclick="history.back()">{{ section.settings.pdp-goback}}</div>
-            <div class="laoli-pdp-mobile-carousel-wrapper">
+    <div class="laoli-pdp-mobile">
+      <div class="container">
+        <div class="laoli-pdp-mobile-goback" onclick="history.back()">{{ section.settings.pdp-goback}}</div>
+      </div>
 
-              <div class="laoli-pdp-mobile-carousel-control">
-              </div>
+      <div class="laoli-pdp-mobile-carousel-wrapper">
 
-              <div class="laoli-pdp-mobile-carousel owl-carousel">
-                  {%- for media in product.media -%}
-                    <div class="laoli-pdp-mobile-carousel-item">
-                        <picture class="laoli-pdp-mobile-carousel-item-pic">
-                          <source srcset="{{ media.preview_image | image_url: width: 420 }} 1x, {{ media.preview_image | image_url: width: 840 }} 2x"/>
-                          <img src="{{ media.preview_image | image_url: width: 420 }}" alt="" loading="lazy">
-                        </picture>
-                    </div>
-                  {%- endfor -%}
-              </div>
-
-            </div>
-            <div class="laoli-pdp-mobile-info">
-                <div class="laoli-pdp-mobile-info-status js-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
-                <div class="laoli-pdp-mobile-info-title">{{ product.title }}</div>
-                <div class="laoli-pdp-mobile-info-price">{{ product.price | money_without_trailing_zeros }}</div>
-                <div class="laoli-pdp-mobile-info-text">{{ product.description }}</div>
-
-                <form method="post" action="/cart/add">
-                  <div class="laoli-pdp-mobile-info-buttons">
-
-                    <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
-                      <input type="hidden" name="id" value="{{ product.variants[0].id }}">
-                      <div class="laoli-pdp-mobile-info-buttons-sizes">
-                        {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ product.variants[0].title }}</span>
-                      </div>
-                      <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
-                        {% for variant in product.variants %}
-                          <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
-                        {% endfor %}
-                      </div>
-                    </div>
-
-                    <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
-                  </div>
-                </form>
-
-            </div>
-            <div class="laoli-pdp-mobile-details">
-                <div class="laoli-pdp-mobile-details-controls">
-                    <div class="laoli-pdp-mobile-details-controls-item controls-item-active js-details-button">{{ section.settings.pdp-details}}</div>
-                    <div class="laoli-pdp-mobile-details-controls-item js-care-button">{{ section.settings.pdp-care}}</div>
-                </div>
-                <div class="laoli-pdp-mobile-details-content js-details-wrapper">{{ product.metafields.custom.details | newline_to_br }}</div>
-                <div class="laoli-pdp-mobile-details-content js-care-wrapper">{{ product.metafields.custom.care | newline_to_br }}</div>
-            </div>
+        <div class="laoli-pdp-mobile-carousel-control">
         </div>
 
+        <div class="laoli-pdp-mobile-carousel owl-carousel">
+            {%- for media in product.media -%}
+              <div class="laoli-pdp-mobile-carousel-item{% if forloop.index == 1 %} laoli-pdp-mobile-carousel-item-first{% endif %}">
+                  <picture class="laoli-pdp-mobile-carousel-item-pic">
+                    <source srcset="{{ media.preview_image | image_url: width: 420 }} 1x, {{ media.preview_image | image_url: width: 840 }} 2x"/>
+                    <img src="{{ media.preview_image | image_url: width: 420 }}" alt="" loading="lazy">
+                  </picture>
+              </div>
+            {%- endfor -%}
+        </div>
+
+      </div>
+
+      <div class="container">
+        <div class="laoli-pdp-mobile-info">
+            <div class="laoli-pdp-mobile-info-status js-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
+            <div class="laoli-pdp-mobile-info-title">{{ product.title }}</div>
+            <div class="laoli-pdp-mobile-info-price">{{ product.price | money_without_trailing_zeros }}</div>
+            <div class="laoli-pdp-mobile-info-text">{{ product.description }}</div>
+
+            <form method="post" action="/cart/add">
+              <div class="laoli-pdp-mobile-info-buttons">
+
+                <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
+                  <input type="hidden" name="id" value="{{ product.variants[0].id }}">
+                  <div class="laoli-pdp-mobile-info-buttons-sizes">
+                    {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ product.variants[0].title }}</span>
+                  </div>
+                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
+                    {% for variant in product.variants %}
+                      <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                    {% endfor %}
+                  </div>
+                </div>
+
+                <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
+              </div>
+            </form>
+
+        </div>
+        <div class="laoli-pdp-mobile-details">
+            <div class="laoli-pdp-mobile-details-controls">
+                <div class="laoli-pdp-mobile-details-controls-item controls-item-active js-details-button">{{ section.settings.pdp-details}}</div>
+                <div class="laoli-pdp-mobile-details-controls-item js-care-button">{{ section.settings.pdp-care}}</div>
+            </div>
+            <div class="laoli-pdp-mobile-details-content js-details-wrapper">{{ product.metafields.custom.details | newline_to_br }}</div>
+            <div class="laoli-pdp-mobile-details-content js-care-wrapper">{{ product.metafields.custom.care | newline_to_br }}</div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
         <div class="laoli-pdp-desktop">
             <div class="laoli-pdp-desktop-goback" onclick="history.back()">{{ section.settings.pdp-goback }}</div>
             <div class="laoli-pdp-desktop-col1">
@@ -151,7 +158,6 @@
 
             </div>
         </div>
-
     </div>
 
 </div>

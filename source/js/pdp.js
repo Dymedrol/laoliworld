@@ -29,16 +29,10 @@ export const initPdp = () => {
     });
 
     $(".laoli-pdp-mobile-carousel").owlCarousel({
-      margin: 15,
-      autoWidth: true,
-      dots: true,
-    });
-
-    $('.laoli-pdp-mobile-carouse').owlCarouselProgressBar({
-        size: '4px',
-        transitionInterval: .3,
-        progressBarClassName: 'laoli-pdp-mobile-carousel-control',
-        scrollerClassName: 'laoli-pdp-mobile-carousel-control-indicator',
+        margin: 15,
+        autoWidth: true,
+        dots: true,
+        center: true,
     });
 
     const showGallery = function() {

@@ -32,6 +32,7 @@
 }
 
 .laoli-pdp-mobile-carousel-control {
+    display: none;
     height: 4px;
     background: #A09B8E;
     opacity: 0.3;
@@ -68,6 +69,11 @@
         width: 650px;
         height: 750px;
     }
+}
+
+.laoli-pdp-mobile-carousel-item-first {
+    filter: unset;
+    border-radius: 0;
 }
 
 .laoli-pdp-mobile-carousel-item-pic {
@@ -604,12 +610,18 @@
 
 .laoli-pdp-mobile-carousel {
 
+    .owl-stage-outer {
+        overflow: visible !important;
+    }
+
     .owl-dots {
-        display: flex;
+        display: flex !important;
         position: absolute;
         top: -23px;
         left: 0;
-        width: 100%;
+        right: 0;
+        margin: auto;
+        width: calc(100% - 40px);
         height: 4px;
         background-color: rgba(160, 155, 142, 0.3);
         transition: background-color 0.5s ease-out;
