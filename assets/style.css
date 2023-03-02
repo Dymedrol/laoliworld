@@ -2068,7 +2068,25 @@ a {
   border: 0.5px dashed #B0B0B0;
   border-top: none;
   padding: 7px 0;
-  background: #FFFBF0;
+  background: #FFFAF4;
+  max-height: 160px;
+  overflow-y: scroll;
+}
+.laoli-pdp-mobile-info-buttons-sizes-menu::-webkit-scrollbar {
+  width: 3px;
+  /* width of the entire scrollbar */
+}
+.laoli-pdp-mobile-info-buttons-sizes-menu::-webkit-scrollbar-track {
+  background: transparent;
+  /* color of the tracking area */
+}
+.laoli-pdp-mobile-info-buttons-sizes-menu::-webkit-scrollbar-thumb {
+  background-color: #B0B0B0;
+  /* color of the scroll thumb */
+  border-radius: 5px;
+  /* roundness of the scroll thumb */
+  border: 1px solid #B0B0B0;
+  /* creates padding around scroll thumb */
 }
 .laoli-pdp-mobile-info-buttons-sizes-menu-item {
   font-family: 'TT Hoves';
@@ -2083,6 +2101,8 @@ a {
 }
 .laoli-pdp-mobile-info-buttons-sizes-menu-item:hover {
   background: #FFFBF0;
+  border: 0.5px dashed #B0B0B0;
+  cursor: pointer;
 }
 .laoli-pdp-mobile-info-buttons-add {
   height: 32px;
