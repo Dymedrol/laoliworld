@@ -348,6 +348,24 @@ a {
   opacity: 0;
   pointer-events: none;
 }
+@media (max-width: 719px) {
+  .cart-item {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    border-top: 1px solid grey !;
+    padding-top: 60px !;
+  }
+}
+@media (max-width: 719px) {
+  .cart-item:first-child {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    border-top: none;
+    padding-top: 0 !important;
+  }
+}
 @font-face {
   font-family: 'TT Hoves';
   src: url('./TTHoves-Thin.eot');

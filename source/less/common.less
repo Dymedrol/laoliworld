@@ -77,5 +77,28 @@ a {
     pointer-events: none;
 }
 
+// fix for temp cart
+.cart-item {
+    @media (max-width: 719px) {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        border-top: 1px solid grey !;
+        padding-top: 60px !;
+    }
+}
+
+.cart-item:first-child {
+    @media (max-width: 719px) {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        border-top: none;
+        padding-top: 0 !important;
+    }
+}
+
+
+
 
 
