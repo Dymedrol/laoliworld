@@ -5,7 +5,17 @@ export const initPdpSelect = () => {
         return
     }
 
-    const selects = $('.laoli-pdp-mobile-info-buttons-sizes')
+    const selects = $('.laoli-pdp-mobile-info-buttons-sizes');
+
+    const status = $('.js-status');
+    const addButton = $('.js-add');
+
+    const inStockText = pdpWrapper.attr('data-inStockText');
+    const madeToOrderText = pdpWrapper.attr('data-madeToOrderText');
+    const addToCartText = pdpWrapper.attr('data-addToCartText');
+    const preOrderText = pdpWrapper.attr('data-preOrderText');
+
+
 
     selects.click(function() {
         const select = $(this).closest('.laoli-pdp-mobile-info-buttons-sizes-wrapper');
@@ -16,7 +26,16 @@ export const initPdpSelect = () => {
         menu.toggle();
 
         menu.click(function(e) {
-            if ($(event.target).hasClass("laoli-pdp-mobile-info-buttons-sizes-menu-item")) {
+            const target = $(event.target)
+            if (target.hasClass("laoli-pdp-mobile-info-buttons-sizes-menu-item")) {
+                if (target.hasClass('laoli-pdp-mobile-info-buttons-sizes-menu-item_empty')) {
+                    status.text(madeToOrderText);
+                    addButton.val(preOrderText);
+                } else {
+                    status.text(inStockText);
+                    addButton.val(addToCartText);
+                }
+
                 selectedValue.text($(event.target).text());
                 input.val($(event.target).attr('data-id'));
                 menu.hide();

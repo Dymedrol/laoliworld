@@ -14,8 +14,7 @@
     </div>
 </div>
 
-
-<div class="laoli-pdp">
+<div class="laoli-pdp" data-inStockText="{{ section.settings.pdp-instock }}" data-madeToOrderText="{{ section.settings.pdp-madetoorder }}" data-addToCartText="{{ section.settings.pdp-addtocart }}" data-preOrderText="{{ section.settings.pdp-preorder }}">
     <div class="container">
         <div class="laoli-pdp-mobile">
             <div class="laoli-pdp-mobile-goback" onclick="history.back()">{{ section.settings.pdp-goback}}</div>
@@ -33,7 +32,7 @@
 
             </div>
             <div class="laoli-pdp-mobile-info">
-                <div class="laoli-pdp-mobile-info-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
+                <div class="laoli-pdp-mobile-info-status js-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
                 <div class="laoli-pdp-mobile-info-title">{{ product.title }}</div>
                 <div class="laoli-pdp-mobile-info-price">{{ product.price | money_without_trailing_zeros }}</div>
                 <div class="laoli-pdp-mobile-info-text">{{ product.description }}</div>
@@ -41,19 +40,19 @@
                 <form method="post" action="/cart/add">
                   <div class="laoli-pdp-mobile-info-buttons">
 
-                      <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
-                        <input type="hidden" name="id" value="{{ product.variants[0].id }}">
-                        <div class="laoli-pdp-mobile-info-buttons-sizes">
-                          {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ product.variants[0].title }}</span>
-                        </div>
-                        <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
-                          {% for variant in product.variants %}
-                            <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item" data-id="{{ variant.id}}">{{ variant.title }}</div>
-                          {% endfor %}
-
-                        </div>
+                    <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
+                      <input type="hidden" name="id" value="{{ product.variants[0].id }}">
+                      <div class="laoli-pdp-mobile-info-buttons-sizes">
+                        {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ product.variants[0].title }}</span>
                       </div>
-                      <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
+                      <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
+                        {% for variant in product.variants %}
+                          <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                        {% endfor %}
+                      </div>
+                    </div>
+
+                    <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
                   </div>
                 </form>
 
@@ -90,7 +89,7 @@
             </div>
             <div class="laoli-pdp-desktop-col3">
                 <div class="laoli-pdp-desktop-info">
-                    <div class="laoli-pdp-desktop-info-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
+                    <div class="laoli-pdp-desktop-info-status js-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
                     <div class="laoli-pdp-desktop-info-title">{{ product.title}}</div>
                     <div class="laoli-pdp-desktop-info-price">{{ product.price | money_without_trailing_zeros}}</div>
                     <div class="laoli-pdp-desktop-info-text">{{ product.description}}</div>
@@ -105,12 +104,12 @@
                             </div>
                             <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
                               {% for variant in product.variants %}
-                                <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                                <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
                               {% endfor %}
-
                             </div>
                           </div>
-                          <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
+
+                          <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
                       </div>
                     </form>
 
