@@ -1537,18 +1537,12 @@ a {
 }
 @media (min-width: 1200px) {
   .laoli-home-jumbo {
-    height: 680px;
+    height: calc(100vh - 155px);
   }
 }
 @media (min-width: 1440px) {
-  .laoli-home-jumbo {
-    height: 680px;
-  }
 }
 @media (min-width: 1920px) {
-  .laoli-home-jumbo {
-    height: 840px;
-  }
 }
 .laoli-home-jumbo-pic {
   display: flex;
@@ -1569,12 +1563,7 @@ a {
 }
 @media (min-width: 480px) {
   .laoli-home-jumbo-button {
-    bottom: 85px;
-  }
-}
-@media (min-width: 960px) {
-  .laoli-home-jumbo-button {
-    bottom: 90px;
+    bottom: 50px;
   }
 }
 .laoli-home-text1 {
