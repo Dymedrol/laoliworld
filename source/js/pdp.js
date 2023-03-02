@@ -7,7 +7,6 @@ export const initPdp = () => {
 
     const gallery = $('.laoli-pdp-gallery');
     const galleryWrapper = gallery.find('.laoli-pdp-gallery-wrapper');
-    const goBack = $('.laoli-pdp-desktop-goback')
     const back = $('.laoli-pdp-desktop-back')
 
     const detailsButton = $('.js-details-button');
@@ -42,10 +41,7 @@ export const initPdp = () => {
     });
 
     const showGallery = function() {
-        // goBack.hide();
-        // back.show();
         gallery.fadeIn(200);
-        // gallery.focus();
     }
 
     const hideGallery = function() {
