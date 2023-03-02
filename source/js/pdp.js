@@ -33,6 +33,9 @@ export const initPdp = () => {
         autoWidth: true,
         dots: true,
         center: true,
+        smartSpeed: 500,
+        animateIn: 'ease-out',
+        animateOut: 'ease-out',
     });
 
     const showGallery = function() {
