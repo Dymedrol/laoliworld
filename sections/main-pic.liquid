@@ -1,4 +1,7 @@
-<img src="{{ section.settings.main_image | img_url: '275x294', crop: 'center' }}" alt="{{ section.settings.main_image.alt }}" class="laoli-home-pic">
+<picture class="laoli-home-pic">
+  <source srcset="{{ section.settings.main_image | image_url: width: 275 }} 1x, {{ section.settings.main_image | image_url: width: 550 }} 2x"/>
+  <img src="{{ section.settings.main_image | img_url: '275x294', crop: 'center' }}" alt="{{ section.settings.main_image.alt }}" loading="lazy">
+</picture>
 
 {% schema %}
   {

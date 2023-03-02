@@ -335,7 +335,7 @@
             </div>
             <button type="submit" class="laoli-registration-button button-white">{{ section.settings.reg_button_text }}</button>
         </form>
-        <div class="laoli-registration-form-success">Success!</div>
+        <div class="laoli-registration-form-success">{{ section.settings.reg_success }}</div>
     </div>
 </div>
 
@@ -427,7 +427,14 @@
       "id": "reg_button_text",
       "label": "registration button text",
       "default": "join us"
+    },
+    {
+      "type": "text",
+      "id": "reg_success",
+      "label": "registration success text",
+      "default": "Merci"
     }
+
   ]
 }
 {% endschema %}
