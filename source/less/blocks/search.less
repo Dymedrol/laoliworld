@@ -1,0 +1,75 @@
+.laoli-menu__item-submit-form {
+    position: relative;
+}
+
+.laoli-menu__item-submit-form:focus-visible {
+    outline: none !important;
+    box-shadow: none;
+}
+
+
+.laoli-menu__item-submit-input {
+    width: 48px;
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+
+    color: #fff;
+
+    border: 0;
+    background: transparent;
+    padding: 0;
+}
+
+.laoli-menu__item-submit-input:focus {
+    width: 200px;
+    transition: width .5s;
+
+    &~.laoli-menu__item-submit-bar {
+        display: block;
+    }
+
+    &~.laoli-menu__item-submit {
+        display: block;
+    }
+}
+
+.laoli-menu__item-submit-input:focus-visible {
+    outline: none !important;
+    box-shadow: none;
+}
+
+.laoli-menu__item-submit-input::placeholder {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+.laoli-menu__item-submit {
+    position: absolute;
+    display: none;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    margin: auto;
+    border: 0;
+    background: transparent;
+    padding: 0;
+}
+
+.laoli-menu__item-submit-bar {
+    display: none;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    height: 1px;
+    background: #fff;
+    opacity: .1;
+}

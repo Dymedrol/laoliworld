@@ -6,6 +6,8 @@
 
 <noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
 
+{% comment %}
+
 {%- if section.settings.enable_filtering or section.settings.enable_sorting -%}
   {{ 'component-facets.css' | asset_url | stylesheet_tag }}
   <script src="{{ 'facets.js' | asset_url }}" defer="defer"></script>
@@ -61,6 +63,54 @@
     }
   }
 {%- endstyle -%}
+
+{% endcomment %}
+
+<div class="laoli-grid">
+
+    <div class="container">
+        <div class="laoli-grid-controls">
+
+            {% comment %}
+            <div class="laoli-grid-controls-list">
+                {%- for child_collection in collections -%}
+                  <a href="{{ child_collection.url }}" class="laoli-grid-controls-list-item {% if collection.title == child_collection.title %}laoli-grid-controls-list-item_active{% endif %}">{{ child_collection.title }}</a>
+                {%- endfor -%}
+            </div>
+            {% endcomment %}
+
+            <div class="laoli-grid-controls-list">
+                <div class="laoli-grid-controls-list-item">serch results for:</div>
+                <div class="laoli-grid-controls-list-item laoli-grid-controls-list-item_active">{{ search.terms | escape }}</div>
+            </div>
+
+            <div class="laoli-grid-controls-filters">
+                <div class="laoli-grid-controls-filters-filter" id="filter-in-stock">{{ section.settings.grid_filter_in_stock }}</div>
+                <div class="laoli-grid-controls-filters-filter" id="filter-made-to-order">{{ section.settings.grid_filter_made_to_order}}</div>
+            </div>
+        </div>
+    </div>
+
+    {% if search.results_count > 0 %}
+    <div class="laoli-grid-items">
+        {%- for item in search.results -%}
+          {%- case item.object_type -%}
+              {%- when 'product' -%}
+              {% render 'card-product',
+                card_product: item,
+                available: item.available
+              %}
+          {%- endcase -%}
+        {%- endfor -%}
+        <div class="laoli-grid-item-dummy"></div>
+        <div class="laoli-grid-item-dummy"></div>
+        <div class="laoli-grid-item-dummy"></div>
+    </div>
+    {% endif %}
+
+</div>
+
+{% comment %}
 
 <div class="template-search{% unless search.performed and search.results_count > 0 %} template-search--empty{% endunless %} section-{{ section.id }}-padding">
   <div class="template-search__header page-width">
@@ -270,6 +320,8 @@
     </div>
   {%- endif -%}
 </div>
+
+{% endcomment %}
 
 {% schema %}
 {

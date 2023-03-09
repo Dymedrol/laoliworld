@@ -18,7 +18,7 @@ export const openCart = () => {
 
 
     const cartItem = (item) => `
-    <div class="laoli-cart-item" data-id="${item.id}"">
+    <div class="laoli-cart-item" data-id="${item.id}" data-handle="${item.handle}">
         <div class="laoli-cart-item-pic-wrapper">
             <div class="laoli-cart-item-pic-lavel hidden">made to order</div>
             <img src="${item.featured_image.url}&width=200" alt="" class="laoli-cart-item-pic">
@@ -59,6 +59,26 @@ export const openCart = () => {
                 return
             }
 
+            // let variants = []
+
+            // fetch(window.Shopify.routes.root + 'products.json', {
+            //   method: 'get',
+            //   headers: {
+            //     'Content-Type': 'application/json'
+            //   },
+            // })
+            // .then(response => response.json())
+            // .then(result => {
+            //     console.log(result)
+            //     result.products.forEach(function(item) {
+            //         variants = [...variants, item.variants]
+            //     })
+            //     console.log(variants.flat(Infinity))
+            // })
+            // .catch((error) => {
+            //   console.error('Error:', error);
+            // });
+
             var currency = result.currency;
 
             if (currency == 'EUR') {
@@ -68,12 +88,29 @@ export const openCart = () => {
             if (currency == 'USD') {
                 currency = '$'
             }
+
             const items = result.items;
 
             items.forEach(function(item) {
                 item.currency = currency;
-            });
 
+                const url = 'products/' + item.handle + '.js'
+
+                fetch(window.Shopify.routes.root + url, {
+                  method: 'get',
+                  headers: {
+                    'Content-Type': 'application/json'
+                  },
+                })
+                .then(response => response.json())
+                .then(result => {
+                    console.log(result)
+                })
+                .catch((error) => {
+                  console.error('Error:', error);
+                });
+
+            });
 
             itemsWrapper.html(items.map(cartItem).join(''));
 
@@ -100,33 +137,22 @@ export const openCart = () => {
                   body: JSON.stringify(formData)
                 })
                 .then(response => {
-                    if (response.status === 200) {
-                        item.remove();
+                  return response.json();
+                })
+                .then(result => {
+                    item.remove();
 
-                        fetch(window.Shopify.routes.root + 'cart.js', {
-                          method: 'get',
-                          headers: {
-                            'Content-Type': 'application/json'
-                          },
-                        })
-                        .then(response => response.json())
-                        .then(result => {
-                            if (response.item_count > 0) {
-                                cartCount.text(' (' + newCount + ')');
-                            } else {
-                                content.css('display', 'none');
-                                empty.show();
-                                cartCount.text('');
-                            }
-                            totalPrice.text(currency + ' ' + getPrice(result.total_price));
-                        })
-                        .catch((error) => {
-                          console.error('Error:', error);
-                        });
+                    console.log(result)
 
+                    if (result.item_count > 0) {
+                        cartCount.text(' (' + result.item_count + ')');
+                    } else {
+                        content.css('display', 'none');
+                        empty.show();
+                        cartCount.text('');
                     }
 
-                  return response.json();
+                    totalPrice.text(currency + ' ' + getPrice(result.original_total_price));
                 })
                 .catch((error) => {
                   console.error('Error:', error);
