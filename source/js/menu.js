@@ -1,7 +1,10 @@
+import { openCart } from './cart';
+
 export const initMenu = () => {
 
     const menu = $('.laoli-menu')
     const menuInner = $('.laoli-menu-inner')
+    const cartButton = $('.js-cart-button')
 
     if (!menu.length) {
         return
@@ -24,6 +27,10 @@ export const initMenu = () => {
 
     close.click(function() {
         menu.removeClass('open');
+    });
+
+    cartButton.click(function() {
+        openCart();
     });
 }
 

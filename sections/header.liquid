@@ -52,10 +52,10 @@
 
         <div class="laoli-menu-controls">
             <div href="" class="laoli-menu-controls-text-right laoli-menu-controls-search visualy-hidden">{{ section.settings.menu_search_title}}</div>
-            <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right">{{ section.settings.menu_cart_title}}{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</a>
+            <div class="laoli-menu-controls-text-right js-cart-button">{{ section.settings.menu_cart_title}}<span class="js-cart-count">{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</span></div>
         </div>
         <div class="laoli-menu-mobile-wrapper">
-            <a href="{{ routes.cart_url }} "class="laoli-menu-mobile-cart">{{ section.settings.menu_cart_title}}</a>
+            <div class="laoli-menu-mobile-cart js-cart-button">{{ section.settings.menu_cart_title}}</div>
 
             <svg class="laoli-menu-mobile-burger js-menu-burger" width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect y="0.625" width="24" height="0.75" fill="#FFFFFF"/>
@@ -83,10 +83,10 @@
                 </svg>
             </a>
             <div class="laoli-menu-controls">
-                <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right laoli-menu-controls-text__white">{{ section.settings.menu_cart_title}}{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</a>
+                <div class="laoli-menu-controls-text-right laoli-menu-controls-text__white js-cart-button">{{ section.settings.menu_cart_title}}<span class="js-cart-count">{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</span></div>
             </div>
             <div class="laoli-menu-mobile-wrapper">
-                <div class="laoli-menu-mobile-cart laoli-menu-controls-text__white">{{ section.settings.menu_cart_title}}</div>
+                <div class="laoli-menu-mobile-cart laoli-menu-controls-text__white js-cart-button">{{ section.settings.menu_cart_title}}</div>
 
                 <svg class="js-menu-close" width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M19.0001 1.1983L18.4697 0.667969L9.80761 9.33008L1.32232 0.844792L0.791992 1.37512L9.27728 9.86041L0.792056 18.3456L1.32239 18.876L9.80761 10.3907L18.4697 19.0528L19 18.5225L10.3379 9.86041L19.0001 1.1983Z" fill="white"/>
@@ -172,6 +172,82 @@
     </div>
 {% endif %}
 
+<div class="laoli-cart-wrapper">
+
+    <div class="laoli-cart">
+        <svg class="laoli-cart-close cursor-pointer" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8655 0.403846L13.4617 0L6.86552 6.59615L0.403846 0.134484L0 0.53833L6.46167 7L0.000122052 13.4615L0.403968 13.8654L6.86552 7.40385L13.4615 13.9999L13.8654 13.596L7.26936 7L13.8655 0.403846Z" fill="#B82C36"/>
+        </svg>
+        <div class="laoli-cart-title">YOUR CART</div>
+
+        <div class="laoli-cart-content laoli-cart-loading js-cart-loading">
+            {% render 'loading' %}
+        </div>
+
+        <div class="laoli-cart-content js-cart-content">
+            <div class="laoli-cart-items">
+                <div class="laoli-cart-item">
+                    <div class="laoli-cart-item-pic-wrapper">
+                        <img src="build/img/pdp1.png" alt="" class="laoli-cart-item-pic">
+                    </div>
+                    <div class="laoli-cart-item-info">
+                        <div class="laoli-cart-item-info-price">$ 178</div>
+                        <div class="laoli-cart-item-info-upperblock">
+                            <div class="laoli-cart-item-info-title">Moon ring</div>
+                            <div class="laoli-cart-item-info-size">Size: 16</div>
+                        </div>
+                        <div class="laoli-cart-item-info-loweblock">
+                            <div class="laoli-cart-item-info-quantity">
+                                <span class="cursor-pointer">-</span>
+                                <span>1</span>
+                                <span class="cursor-pointer">+</span>
+                            </div>
+                            <div class="laoli-cart-item-info-remove">Remove</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="laoli-cart-item">
+                    <div class="laoli-cart-item-pic-wrapper">
+                        <div class="laoli-cart-item-pic-lavel">made to order</div>
+                        <img src="build/img/grid5.png" alt="" class="laoli-cart-item-pic">
+                    </div>
+                    <div class="laoli-cart-item-info">
+                        <div class="laoli-cart-item-info-price">$ 350</div>
+                        <div class="laoli-cart-item-info-upperblock">
+                            <div class="laoli-cart-item-info-title">Pearl bracelet</div>
+                            <div class="laoli-cart-item-info-size">Size: 184-197 mm</div>
+                        </div>
+                        <div class="laoli-cart-item-info-loweblock">
+                            <div class="laoli-cart-item-info-quantity">
+                                <span class="cursor-pointer">-</span>
+                                <span>2</span>
+                                <span class="cursor-pointer">+</span>
+                            </div>
+                            <div class="laoli-cart-item-info-remove">Remove</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="laoli-cart-footer">
+                <div class="laoli-cart-footer-upperblock">
+                    <div class="laoli-cart-footer-total">total</div>
+                    <div class="laoli-cart-footer-total js-cart-total"></div>
+                </div>
+                <div class="laoli-cart-footer-duration">n.b. you have pieces that are “made to order” they will be delivered within <span>6 to 8 weeks.</span></div>
+                <div class="button-red laoli-cart-footer-checkout">checkout</div>
+            </div>
+        </div>
+
+        <div class="laoli-cart-content laoli-cart-empty js-cart-empty">
+            <div class="laoli-cart-empty-wrapper">
+                <div class="laoli-cart-empty-text">Your cart is empty</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
 <div class="laoli-menu laoli-menu-dummy {% if template == 'index' %}laoli-menu-dummy-homepage{% endif %}">
     <div class="container laoli-menu-wrapper">
         <div class="laoli-menu-controls">
@@ -197,10 +273,10 @@
         </a>
         <div class="laoli-menu-controls">
             <div href="" class="laoli-menu-controls-text-right laoli-menu-controls-search visualy-hidden">{{ section.settings.menu_search_title}}</div>
-            <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right">{{ section.settings.menu_cart_title}}{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</a>
+            <div class="laoli-menu-controls-text-right js-cart-button">{{ section.settings.menu_cart_title}}<span class="js-cart-count">{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</span></div>
         </div>
         <div class="laoli-menu-mobile-wrapper">
-            <a href="{{ routes.cart_url }} "class="laoli-menu-mobile-cart">{{ section.settings.menu_cart_title}}</a>
+            <div class="laoli-menu-mobile-cart js-cart-button">{{ section.settings.menu_cart_title}}</div>
 
             <svg class="laoli-menu-mobile-burger js-menu-burger" width="24" height="12" viewBox="0 0 24 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect y="0.625" width="24" height="0.75" fill="#FFFFFF"/>
@@ -228,7 +304,7 @@
                 </svg>
             </a>
             <div class="laoli-menu-controls">
-                <a href="{{ routes.cart_url }}" class="laoli-menu-controls-text-right laoli-menu-controls-text__white">{{ section.settings.menu_cart_title}}{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</a>
+                <div class="laoli-menu-controls-text-right laoli-menu-controls-text__white js-cart-button">{{ section.settings.menu_cart_title}}<span class="js-cart-count">{% if cart.item_count > 0 %} ({{ cart.item_count}}){% endif %}</span></div>
             </div>
             <div class="laoli-menu-mobile-wrapper">
                 <div class="laoli-menu-mobile-cart laoli-menu-controls-text__white">{{ section.settings.menu_cart_title}}</div>

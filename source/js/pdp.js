@@ -1,9 +1,13 @@
+import { openCart } from './cart';
+
 export const initPdp = () => {
     const pdpWrapper = $('.laoli-pdp');
 
     if (!pdpWrapper.length) {
         return
     }
+
+    const cartCount = $('.js-cart-count');
 
     const gallery = $('.laoli-pdp-gallery');
     const galleryWrapper = gallery.find('.laoli-pdp-gallery-wrapper');
@@ -13,6 +17,8 @@ export const initPdp = () => {
     const detailsWrapper = $('.js-details-wrapper')
     const careButton = $('.js-care-button')
     const careWrapper = $('.js-care-wrapper')
+
+    const forms = $('.js-cart-form');
 
     detailsButton.click(function() {
         detailsButton.addClass('controls-item-active');
@@ -75,6 +81,47 @@ export const initPdp = () => {
             }
         });
     });
+
+    forms.submit(function(e) {
+        e.preventDefault();
+        const form  = $(this);
+        const productId = form.find('input[name="id"]').val();
+
+        let formData = {
+         'items': [{
+          'id': productId,
+          'quantity': 1
+          }]
+        };
+
+        fetch(window.Shopify.routes.root + 'cart/add.js', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(formData)
+        })
+        .then(response => {
+            if (response.status === 200) {
+
+                let cartCountText = cartCount.first().text();
+                if (cartCountText) {
+                    cartCountText = cartCountText.replace(/\s/g, '');
+                    cartCountText = cartCountText.replace(/[{()}]/g, '');
+                    cartCount.text(' (' + (Number(cartCountText) + 1) + ')');
+                } else {
+                    cartCount.text(' (1)');
+                }
+
+                openCart();
+            }
+
+          return response.json();
+        })
+        .catch((error) => {
+          console.error('Error:', error);
+        });
+    })
 
 }
 
