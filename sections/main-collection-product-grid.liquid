@@ -11,20 +11,18 @@
             </div>
             {% endcomment %}
 
+
+
             <div class="laoli-grid-controls-list laoli-grid-controls-list_desktop">
-                <a href="/collections/all" class="laoli-grid-controls-list-item {% if collection.title == 'All' %}laoli-grid-controls-list-item_active{% endif %}">all</a>
-                <a href="/collections/rings" class="laoli-grid-controls-list-item {% if collection.title == 'Rings' %}laoli-grid-controls-list-item_active{% endif %}">rings</a>
-                <a href="/collections/earrings" class="laoli-grid-controls-list-item {% if collection.title == 'Earrings' %}laoli-grid-controls-list-item_active{% endif %}">earrings</a>
-                <a href="/collections/necklaces" class="laoli-grid-controls-list-item {% if collection.title == 'Necklaces' %}laoli-grid-controls-list-item_active{% endif %}">necklaces</a>
-                <a href="/collections/bracelets" class="laoli-grid-controls-list-item {% if collection.title == 'Bracelets' %}laoli-grid-controls-list-item_active{% endif %}">bracelets</a>
+                {%- for collectionFilter in section.settings.collection_for_filter_list -%}
+                    <a href="{{ collectionFilter.url }}" class="laoli-grid-controls-list-item {% if collection.title == collectionFilter.title %}laoli-grid-controls-list-item_active{% endif %}">{{collectionFilter.title}}</a>
+                {%- endfor -%}
             </div>
 
             <div class="laoli-grid-controls-list laoli-grid-controls-list_mobile owl-carousel">
-                <a href="/collections/all" class="laoli-grid-controls-list-item {% if collection.title == 'All' %}laoli-grid-controls-list-item_active{% endif %}">all</a>
-                <a href="/collections/rings" class="laoli-grid-controls-list-item {% if collection.title == 'Rings' %}laoli-grid-controls-list-item_active{% endif %}">rings</a>
-                <a href="/collections/earrings" class="laoli-grid-controls-list-item {% if collection.title == 'Earrings' %}laoli-grid-controls-list-item_active{% endif %}">earrings</a>
-                <a href="/collections/necklaces" class="laoli-grid-controls-list-item {% if collection.title == 'Necklaces' %}laoli-grid-controls-list-item_active{% endif %}">necklaces</a>
-                <a href="/collections/bracelets" class="laoli-grid-controls-list-item {% if collection.title == 'Bracelets' %}laoli-grid-controls-list-item_active{% endif %}">bracelets</a>
+                {%- for collectionFilter in section.settings.collection_for_filter_list -%}
+                    <a href="{{ collectionFilter.url }}" class="laoli-grid-controls-list-item {% if collection.title == collectionFilter.title %}laoli-grid-controls-list-item_active{% endif %}">{{collectionFilter.title}}</a>
+                {%- endfor -%}
             </div>
 
             <div class="laoli-grid-controls-filters">
@@ -64,6 +62,11 @@
       "id": "grid_filter_in_stock",
       "label": "filter in stock  text",
       "default": "in stock"
+    },
+    {
+        "type": "collection_list",
+        "id": "collection_for_filter_list",
+        "label": "Collections for filter"
     }
   ]
 }
