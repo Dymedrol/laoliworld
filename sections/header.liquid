@@ -141,7 +141,7 @@
             </div>
             <div class="laoli-menu-content-mobile-cols2">
                 <!-- <div class="laoli-menu-content-mobile-search">search</div> -->
-                 <form action="{{ routes.search_url }}" class="laoli-menu__item-submit-form" autocomplete="off">
+                 <form action="{{ routes.search_url }}" class="laoli-menu__item-submit-form laoli-menu-content-mobile-search" autocomplete="off">
                   <input type="text"
                     id="desktop-search"
                     placeholder="Search"
@@ -160,9 +160,22 @@
                   <div class="laoli-menu__item-submit-bar"></div>
                 </form>
                 <div class="laoli-menu-content-mobile-row">
-                    <div class="laoli-menu-content-mobile-switch visualy-hidden">
-                        <span class="laoli-menu-content-mobile-switch__text laoli-menu-content-mobile-switch__text_active">fr </span><span class="laoli-menu-content-mobile-switch__text">|</span><span class="laoli-menu-content-mobile-switch__text"> eng</span>
+
+                    <div class="laoli-menu-content-mobile-switch">
+                        <localization-form>
+                          {% form 'localization' %}
+                            <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
+                            {% for language in localization.available_languages %}
+                              <span data-language="{{ language.iso_code }}"
+                                    class="language_switcher laoli-menu-content-mobile-switch__text cursor-pointer {% unless language.iso_code == localization.language.iso_code %} laoli-menu-content-mobile-switch__text_active{% endunless %}">{{ language.iso_code }}</span>
+                              {% unless forloop.last %}
+                                <span class="laoli-menu-content-mobile-switch__text">|</span>
+                              {% endunless %}
+                            {% endfor %}
+                          {% endform %}
+                        </localization-form>
                     </div>
+
                     <div class="laoli-menu-content-mobile-switch visualy-hidden">
                         <span class="laoli-menu-content-mobile-switch__text laoli-menu-content-mobile-switch__text_active">eur </span><span class="laoli-menu-content-mobile-switch__text">|</span><span class="laoli-menu-content-mobile-switch__text"> usd </span><span class="laoli-menu-content-mobile-switch__text">|</span><span class="laoli-menu-content-mobile-switch__text"> gbp</span>
                     </div>
@@ -181,9 +194,25 @@
               {% endfor %}
 
                 <div class="laoli-menu-content-col laoli-menu-content-col2">
-                    <div class="laoli-menu-content-mobile-switch visualy-hidden">
-                        <span class="laoli-menu-content-mobile-switch__text laoli-menu-content-mobile-switch__text_active">fr </span><span class="laoli-menu-content-mobile-switch__text">|</span><span class="laoli-menu-content-mobile-switch__text"> eng</span>
+
+                    <div class="laoli-menu-content-mobile-switch">
+                        <localization-form>
+                          {% form 'localization' %}
+                            <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
+                            {% for language in localization.available_languages %}
+                              <span data-language="{{ language.iso_code }}"
+                                    class="language_switcher laoli-menu-content-mobile-switch__text cursor-pointer {% unless language.iso_code == localization.language.iso_code %} laoli-menu-content-mobile-switch__text_active{% endunless %}">{{ language.iso_code }}</span>
+                              {% unless forloop.last %}
+                                <span class="laoli-menu-content-mobile-switch__text">|</span>
+                              {% endunless %}
+                            {% endfor %}
+                          {% endform %}
+                        </localization-form>
                     </div>
+
+
+
+
                     <div class="laoli-menu-content-mobile-switch visualy-hidden">
                         <span class="laoli-menu-content-mobile-switch__text laoli-menu-content-mobile-switch__text_active">eur </span><span class="laoli-menu-content-mobile-switch__text">|</span><span class="laoli-menu-content-mobile-switch__text"> usd </span><span class="laoli-menu-content-mobile-switch__text">|</span><span class="laoli-menu-content-mobile-switch__text"> gbp</span>
                     </div>

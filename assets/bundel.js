@@ -157,6 +157,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./source/js/languageSwitcher.js":
+/*!***************************************!*\
+  !*** ./source/js/languageSwitcher.js ***!
+  \***************************************/
+/*! exports provided: initLanguageSwitcher */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initLanguageSwitcher\", function() { return initLanguageSwitcher; });\nconst initLanguageSwitcher = () => {\n  let language_switcher_class_name = 'language_switcher';\n\n  function tumblerClickHandler(e) {\n    console.log('click');\n    let language = e.target.dataset.language;\n    let form = e.target.parentNode;\n    let language_input = form.querySelector('input[name=\"language_code\"]');\n    language_input.value = language;\n    form.submit();\n  }\n\n  let tumblers = document.getElementsByClassName(language_switcher_class_name);\n\n  for (let i = 0; i < tumblers.length; i++) {\n    tumblers[i].addEventListener('click', tumblerClickHandler);\n  }\n};\n\n//# sourceURL=webpack:///./source/js/languageSwitcher.js?");
+
+/***/ }),
+
 /***/ "./source/js/menu.js":
 /*!***************************!*\
   !*** ./source/js/menu.js ***!
@@ -213,7 +225,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n/* harmony import */ var _pdp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pdp */ \"./source/js/pdp.js\");\n/* harmony import */ var _pdp_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pdp-select */ \"./source/js/pdp-select.js\");\n/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./banner */ \"./source/js/banner.js\");\n/* harmony import */ var _registration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./registration */ \"./source/js/registration.js\");\n\n\n\n\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n  Object(_pdp__WEBPACK_IMPORTED_MODULE_2__[\"initPdp\"])();\n  Object(_pdp_select__WEBPACK_IMPORTED_MODULE_3__[\"initPdpSelect\"])();\n  Object(_banner__WEBPACK_IMPORTED_MODULE_4__[\"initBanner\"])();\n  Object(_registration__WEBPACK_IMPORTED_MODULE_5__[\"initRegistration\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n/* harmony import */ var _pdp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pdp */ \"./source/js/pdp.js\");\n/* harmony import */ var _pdp_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pdp-select */ \"./source/js/pdp-select.js\");\n/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./banner */ \"./source/js/banner.js\");\n/* harmony import */ var _registration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./registration */ \"./source/js/registration.js\");\n/* harmony import */ var _languageSwitcher__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./languageSwitcher */ \"./source/js/languageSwitcher.js\");\n\n\n\n\n\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n  Object(_pdp__WEBPACK_IMPORTED_MODULE_2__[\"initPdp\"])();\n  Object(_pdp_select__WEBPACK_IMPORTED_MODULE_3__[\"initPdpSelect\"])();\n  Object(_banner__WEBPACK_IMPORTED_MODULE_4__[\"initBanner\"])();\n  Object(_registration__WEBPACK_IMPORTED_MODULE_5__[\"initRegistration\"])();\n  Object(_languageSwitcher__WEBPACK_IMPORTED_MODULE_6__[\"initLanguageSwitcher\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
 
 /***/ }),
 
