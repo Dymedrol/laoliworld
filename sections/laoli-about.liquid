@@ -1,0 +1,97 @@
+<section class="laoli-about">
+  <div class="laoli-about-title">{{ section.settings.title }}</div>
+  <div class="laoli-about-content">
+    <div class="laoli-about-text1">{{ section.settings.text1 }}</div>
+    <div class="laoli-about-row">
+      <div class="laoli-about-col laoli-about-col1">
+        <picture class="laoli-about-pic" >
+          <source srcset="{{ section.settings.about_image | img_url: '452x428', crop: 'center' }} 1x, {{ section.settings.about_image | img_url: '904x856', crop: 'center' }} 2x" media="(min-width: 960px)" />
+          <source srcset="{{ section.settings.about_image | img_url: '640x640', crop: 'center' }}" media="(min-width: 720px)" />
+          <source srcset="{{ section.settings.about_image | img_url: '640x640', crop: 'center' }}" />
+          <img src="{{ section.settings.about_image | img_url: '640x640', crop: 'center' }}" alt="{{ section.settings.about_image.alt }}" loading="lazy"/>
+        </picture>
+      </div>
+      <div class="laoli-about-col">
+        <div class="laoli-about-text2">{{ section.settings.text2 }}</div>
+        <div class="laoli-about-text3">{{ section.settings.text3 }}</div>
+      </div>
+    </div>
+    <div class="laoli-about-text4">{{ section.settings.text4 }}</div>
+    <div class="laoli-about-row2">
+      <div class="laoli-about-row2-text">{{ section.settings.text5 }}</div>
+      <div class="laoli-about-row2-text">{{ section.settings.text6 }}</div>
+    </div>
+    <img src="{{ 'about-stars.png' | asset_url }}" class="laoli-about-stars" />
+
+    <a href="/collections/all" class="laoli-about-button button-red">{{ section.settings.button_text }}</a>
+
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "about page",
+  "presets": [
+    {
+      "name": "laoli about",
+      "category": "Custom"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "about title",
+      "default": "( about )"
+    },
+    {
+      "type": "text",
+      "id": "text1",
+      "label": "about text 1",
+      "default": "LAOLI transports its collectors to a sweeter, better-than-real world, offering casually elegant pieces that reconnect you with who you are."
+    },
+    {
+      "type": "text",
+      "id": "text2",
+      "label": "about text 2",
+      "default": "JEWELRY AS A WAY BACK TO YOURSELF"
+    },
+    {
+      "type": "text",
+      "id": "text3",
+      "label": "about text 3",
+      "default": "The warmth of gold hugging your skin, the delicate clasping of a chain behind your neck, the comforting weight of a pendant close to your heart, the joy of slipping perfectly mismatched rings on your finger — LAOLI celebrates the romantic notion of wearing jewels for ourselves, and how a special piece can be nostalgic, evocative, and grounding. LAOLI’s ability to intertwine the old, new and present into every piece speaks to that magical something felt by its wearers. Defined by the sensuality of their volume, delicate contrasts and quiet detailing, our pieces are created to be worn with ease and confidence."
+    },
+    {
+      "type": "image_picker",
+      "id": "about_image",
+      "label": "about image"
+    },
+    {
+      "type": "text",
+      "id": "text4",
+      "label": "about text 4",
+      "default": "I AM, AT HEART, FASCINATED BY THE NOTION OF WEARING JEWELRY — THE INTIMATE FEELING OF JEWELS AGAINST THE SKIN AND THE DAYDREAM STATE YOU ENTER WHEN YOU PUT ON SPECIAL PIECES"
+    },
+    {
+      "type": "text",
+      "id": "text5",
+      "label": "about text 5",
+      "default": "Designed for everyday elegance, LAOLI is named after our founder Olivia’s childhood nickname. Her longstanding passion for the way jewels live on the body, has inspired an exploration of how jewelry can nourish our sense of self. Based in Paris, she is inspired by the casual ease with which fine jewelry can be worn, layered and collected."
+    },
+    {
+      "type": "text",
+      "id": "text6",
+      "label": "about text 6",
+      "default": "As Olivia designs, she draws on an imagined sweeter-than-real world where the fine things in life are cherished. The warmth of late summer sun, the juice of a perfectly ripe peach dripping down your fingers, the memory of a loved one’s grasp as you stack your rings, a summer sparkling sea; Olivia’s goal is to transport women into a dreamy world that is not so much a place, but more a state of mind."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "button text",
+      "default": "discover our new collection"
+    }
+  ]
+}
+
+{% endschema %}

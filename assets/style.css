@@ -3159,4 +3159,228 @@ a {
 .laoli-packaging-image img {
   border-radius: 10px;
 }
+.laoli-about {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding-bottom: 100px;
+}
+@media (min-width: 720px) {
+  .laoli-about {
+    width: 680px;
+    padding-bottom: 120px;
+  }
+}
+@media (min-width: 960px) {
+  .laoli-about {
+    width: 920px;
+    padding-bottom: 200px;
+  }
+}
+@media (min-width: 1200px) {
+  .laoli-about {
+    width: 1067px;
+  }
+}
+.laoli-about-title {
+  font-family: 'GoudyOlSt BT';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #494540;
+  margin-bottom: 40px;
+}
+@media (min-width: 960px) {
+  .laoli-about-title {
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 95px;
+  }
+}
+.laoli-about-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.laoli-about-text1 {
+  font-family: 'GoudyOlSt BT';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #494540;
+  opacity: 0.8;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+@media (min-width: 960px) {
+  .laoli-about-text1 {
+    font-size: 50px;
+    line-height: 60px;
+    margin-bottom: 140px;
+  }
+}
+@media (min-width: 1200px) {
+  .laoli-about-text1 {
+    max-width: 920px;
+  }
+}
+.laoli-about-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 80px;
+}
+@media (min-width: 720px) {
+  .laoli-about-row {
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 140px;
+  }
+}
+.laoli-about-col {
+  width: 100%;
+}
+@media (min-width: 720px) {
+  .laoli-about-col {
+    width: 340px;
+  }
+}
+@media (min-width: 960px) {
+  .laoli-about-col {
+    width: 425px;
+  }
+}
+.laoli-about-col1 {
+  margin-bottom: 40px;
+}
+@media (min-width: 720px) {
+  .laoli-about-col1 {
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+}
+.laoli-about-pic {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+@media (min-width: 720px) {
+  .laoli-about-pic {
+    width: 323px;
+    height: 306px;
+  }
+}
+@media (min-width: 960px) {
+  .laoli-about-pic {
+    width: 452px;
+    height: 428px;
+  }
+}
+.laoli-about-pic img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.laoli-about-text2 {
+  font-family: 'GoudyOlSt BT';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  text-transform: uppercase;
+  color: #494540;
+  opacity: 0.8;
+  margin-bottom: 20px;
+}
+@media (min-width: 960px) {
+  .laoli-about-text2 {
+    font-size: 50px;
+    line-height: 60px;
+    margin-bottom: 50px;
+  }
+}
+.laoli-about-text3 {
+  font-family: 'TT Hoves';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 22px;
+  color: #494540;
+}
+.laoli-about-text4 {
+  font-family: 'GoudyOlSt BT';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 34px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #494540;
+  opacity: 0.8;
+  margin: 0 auto;
+  margin-bottom: 80px;
+}
+@media (min-width: 960px) {
+  .laoli-about-text4 {
+    font-size: 50px;
+    line-height: 60px;
+    margin-bottom: 140px;
+  }
+}
+@media (min-width: 1200px) {
+  .laoli-about-text4 {
+    max-width: 920px;
+  }
+}
+.laoli-about-row2 {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  max-width: 425px;
+  margin-bottom: 80px;
+  gap: 40px;
+}
+@media (min-width: 960px) {
+  .laoli-about-row2 {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: unset;
+    margin-bottom: 140px;
+    max-width: unset;
+    width: 100%;
+  }
+}
+.laoli-about-row2-text {
+  font-family: 'TT Hoves';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 22px;
+  color: #494540;
+}
+@media (min-width: 960px) {
+  .laoli-about-row2-text {
+    width: 425px;
+  }
+}
+.laoli-about-stars {
+  width: 320px;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}
+@media (min-width: 960px) {
+  .laoli-about-stars {
+    width: 550px;
+    margin-bottom: 140px;
+  }
+}
+.laoli-about-button {
+  margin: 0 auto;
+}
 
