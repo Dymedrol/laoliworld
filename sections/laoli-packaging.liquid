@@ -1,0 +1,55 @@
+<section class="laoli-packaging">
+  <div class="laoli-packaging-title">{{ section.settings.title }}</div>
+  <div class="laoli-packaging-images">
+    <picture class="laoli-packaging-image" >
+      <source srcset="{{ section.settings.packaging_image_1 | img_url: '600x870', crop: 'center' }} 1x, {{ section.settings.packaging_image_1 | img_url: '1200x1740', crop: 'center' }} 2x" media="(min-width: 1920px)" />
+      <source srcset="{{ section.settings.packaging_image_1 | img_url: '550x800', crop: 'center' }} 1x, {{ section.settings.packaging_image_1 | img_url: '1100x1600', crop: 'center' }} 2x" media="(min-width: 1440px)" />
+      <source srcset="{{ section.settings.packaging_image_1 | img_url: '525x764', crop: 'center' }} 1x, {{ section.settings.packaging_image_1 | img_url: '1050x1528', crop: 'center' }} 2x" media="(min-width: 1200px)" />
+      <source srcset="{{ section.settings.packaging_image_1 | img_url: '405x590', crop: 'center' }} 1x, {{ section.settings.packaging_image_1 | img_url: '810x1180', crop: 'center' }} 2x" media="(min-width: 960px)" />
+      <source srcset="{{ section.settings.packaging_image_1 | img_url: '680x680', crop: 'center' }} 1x, {{ section.settings.packaging_image_1 | img_url: '1360x1360', crop: 'center' }} 2x" media="(min-width: 720px)" />
+      <source srcset="{{ section.settings.packaging_image_1 | img_url: '640x640', crop: 'center' }}" />
+      <img src="{{ section.settings.packaging_image_1 | img_url: '640x640', crop: 'center' }}" alt="{{ section.settings.banner_image.alt }}" loading="lazy"/>
+    </picture>
+    <picture class="laoli-packaging-image" >
+      <source srcset="{{ section.settings.packaging_image_2 | img_url: '600x870', crop: 'center' }} 1x, {{ section.settings.packaging_image_2 | img_url: '1200x1740', crop: 'center' }} 2x" media="(min-width: 1920px)" />
+      <source srcset="{{ section.settings.packaging_image_2 | img_url: '550x800', crop: 'center' }} 1x, {{ section.settings.packaging_image_2 | img_url: '1100x1600', crop: 'center' }} 2x" media="(min-width: 1440px)" />
+      <source srcset="{{ section.settings.packaging_image_2 | img_url: '525x764', crop: 'center' }} 1x, {{ section.settings.packaging_image_2 | img_url: '1050x1528', crop: 'center' }} 2x" media="(min-width: 1200px)" />
+      <source srcset="{{ section.settings.packaging_image_2 | img_url: '405x590', crop: 'center' }} 1x, {{ section.settings.packaging_image_2 | img_url: '810x1180', crop: 'center' }} 2x" media="(min-width: 960px)" />
+      <source srcset="{{ section.settings.packaging_image_2 | img_url: '680x680', crop: 'center' }} 1x, {{ section.settings.packaging_image_2 | img_url: '1360x1360', crop: 'center' }} 2x" media="(min-width: 720px)" />
+      <source srcset="{{ section.settings.packaging_image_2 | img_url: '640x640', crop: 'center' }}" />
+      <img src="{{ section.settings.packaging_image_2 | img_url: '640x640', crop: 'center' }}" alt="{{ section.settings.banner_image.alt }}" loading="lazy"/>
+    </picture>
+  </div>
+
+</section>
+
+{% schema %}
+{
+  "name": "packaging page",
+  "presets": [
+    {
+      "name": "laoli packaging",
+      "category": "Custom"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "packaging title",
+      "default": "( packaging )"
+    },
+    {
+      "type": "image_picker",
+      "id": "packaging_image_1",
+      "label": "packaging image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "packaging_image_2",
+      "label": "packaging image 2"
+    }
+  ]
+}
+
+{% endschema %}

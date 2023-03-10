@@ -1,0 +1,87 @@
+.laoli-packaging {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    padding-bottom: 80px;
+
+    @media (@M) {
+        width: 620px;
+        padding-bottom: 80px;
+    }
+
+    @media (@L) {
+        width: 860px;
+        padding-bottom: 140px;
+    }
+
+    @media (@XL) {
+        width: 1100px;
+    }
+
+    @media (@XXL) {
+        width: 1150px;
+    }
+
+    @media (@XXXL) {
+        width: 1250px;
+    }
+}
+
+.laoli-packaging-title {
+    font-family: 'GoudyOlSt BT';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-align: center;
+    text-transform: uppercase;
+    color: #494540;
+
+    margin-bottom: 40px;
+
+    @media (@L) {
+        font-size: 30px;
+        line-height: 40px;
+        margin-bottom: 70px;
+    }
+}
+
+.laoli-packaging-images {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    @media (@L) {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: unset;
+    }
+}
+
+.laoli-packaging-image {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    @media (@L) {
+        aspect-ratio: auto;
+        width: 405px;
+        height: 590px;
+    }
+
+    @media (@XL) {
+        width: 525px;
+        height: 764px;
+    }
+
+    @media (@XXL) {
+        width: 550px;
+        height: 800px;
+    }
+
+    @media (@XXXL) {
+        width: 600px;
+        height: 870px;
+    }
+    & img {
+        border-radius: 10px;
+    }
+}

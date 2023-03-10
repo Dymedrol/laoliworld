@@ -3024,4 +3024,139 @@ a {
   width: 250px;
   margin: 0 auto;
 }
+.laoli-info {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+@media (min-width: 720px) {
+  .laoli-info {
+    width: 440px;
+    padding-bottom: 140px;
+  }
+}
+@media (min-width: 960px) {
+  .laoli-info {
+    width: 690px;
+  }
+}
+.laoli-info-title {
+  font-family: 'GoudyOlSt BT';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #494540;
+  margin-bottom: 40px;
+}
+@media (min-width: 960px) {
+  .laoli-info-title {
+    font-size: 30px;
+    line-height: 40px;
+  }
+}
+.laoli-info-content {
+  font-family: 'TT Hoves';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #494540;
+}
+.laoli-packaging {
+  width: calc(100% - 40px);
+  margin: 0 auto;
+  padding-bottom: 80px;
+}
+@media (min-width: 720px) {
+  .laoli-packaging {
+    width: 620px;
+    padding-bottom: 80px;
+  }
+}
+@media (min-width: 960px) {
+  .laoli-packaging {
+    width: 860px;
+    padding-bottom: 140px;
+  }
+}
+@media (min-width: 1200px) {
+  .laoli-packaging {
+    width: 1100px;
+  }
+}
+@media (min-width: 1440px) {
+  .laoli-packaging {
+    width: 1150px;
+  }
+}
+@media (min-width: 1920px) {
+  .laoli-packaging {
+    width: 1250px;
+  }
+}
+.laoli-packaging-title {
+  font-family: 'GoudyOlSt BT';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 32px;
+  text-align: center;
+  text-transform: uppercase;
+  color: #494540;
+  margin-bottom: 40px;
+}
+@media (min-width: 960px) {
+  .laoli-packaging-title {
+    font-size: 30px;
+    line-height: 40px;
+    margin-bottom: 70px;
+  }
+}
+.laoli-packaging-images {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media (min-width: 960px) {
+  .laoli-packaging-images {
+    flex-direction: row;
+    justify-content: space-between;
+    gap: unset;
+  }
+}
+.laoli-packaging-image {
+  width: 100%;
+  aspect-ratio: 1;
+}
+@media (min-width: 960px) {
+  .laoli-packaging-image {
+    aspect-ratio: auto;
+    width: 405px;
+    height: 590px;
+  }
+}
+@media (min-width: 1200px) {
+  .laoli-packaging-image {
+    width: 525px;
+    height: 764px;
+  }
+}
+@media (min-width: 1440px) {
+  .laoli-packaging-image {
+    width: 550px;
+    height: 800px;
+  }
+}
+@media (min-width: 1920px) {
+  .laoli-packaging-image {
+    width: 600px;
+    height: 870px;
+  }
+}
+.laoli-packaging-image img {
+  border-radius: 10px;
+}
 

@@ -3,16 +3,6 @@
     <div class="container">
         <div class="laoli-grid-controls">
 
-            {% comment %}
-            <div class="laoli-grid-controls-list">
-                {%- for child_collection in collections -%}
-                  <a href="{{ child_collection.url }}" class="laoli-grid-controls-list-item {% if collection.title == child_collection.title %}laoli-grid-controls-list-item_active{% endif %}">{{ child_collection.title }}</a>
-                {%- endfor -%}
-            </div>
-            {% endcomment %}
-
-
-
             <div class="laoli-grid-controls-list laoli-grid-controls-list_desktop">
                 {%- for collectionFilter in section.settings.collection_for_filter_list -%}
                     <a href="{{ collectionFilter.url }}" class="laoli-grid-controls-list-item {% if collection.title == collectionFilter.title %}laoli-grid-controls-list-item_active{% endif %}">{{collectionFilter.title}}</a>
