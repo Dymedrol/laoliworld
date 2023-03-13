@@ -140,7 +140,6 @@
                 </div>
             </div>
             <div class="laoli-menu-content-mobile-cols2">
-                <!-- <div class="laoli-menu-content-mobile-search">search</div> -->
                  <form action="{{ routes.search_url }}" class="laoli-menu__item-submit-form laoli-menu-content-mobile-search" autocomplete="off">
                   <input type="text"
                     id="desktop-search"
@@ -167,7 +166,7 @@
                             <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
                             {% for language in localization.available_languages %}
                               <span data-language="{{ language.iso_code }}"
-                                    class="language_switcher laoli-menu-content-mobile-switch__text cursor-pointer {% unless language.iso_code == localization.language.iso_code %} laoli-menu-content-mobile-switch__text_active{% endunless %}">{{ language.iso_code }}</span>
+                                    class="language_switcher laoli-menu-content-mobile-switch__text cursor-pointer {% if language.iso_code == localization.language.iso_code %} laoli-menu-content-mobile-switch__text_active{% endif %}">{{ language.iso_code }}</span>
                               {% unless forloop.last %}
                                 <span class="laoli-menu-content-mobile-switch__text">|</span>
                               {% endunless %}
@@ -201,7 +200,7 @@
                             <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
                             {% for language in localization.available_languages %}
                               <span data-language="{{ language.iso_code }}"
-                                    class="language_switcher laoli-menu-content-mobile-switch__text cursor-pointer {% unless language.iso_code == localization.language.iso_code %} laoli-menu-content-mobile-switch__text_active{% endunless %}">{{ language.iso_code }}</span>
+                                    class="language_switcher laoli-menu-content-mobile-switch__text cursor-pointer {% if language.iso_code == localization.language.iso_code %} laoli-menu-content-mobile-switch__text_active{% endif %}">{{ language.iso_code }}</span>
                               {% unless forloop.last %}
                                 <span class="laoli-menu-content-mobile-switch__text">|</span>
                               {% endunless %}
