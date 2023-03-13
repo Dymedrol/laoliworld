@@ -945,6 +945,8 @@ a {
 }
 .laoli-menu.open .laoli-menu-inner {
   display: flex;
+  top: 0;
+  transition: top 0.3s ease;
 }
 .laoli-menu-wrapper {
   display: flex;
@@ -1032,13 +1034,11 @@ a {
   text-decoration: none;
 }
 .laoli-menu-inner {
-  display: flex;
-  display: none;
   flex-direction: column;
   position: absolute;
   width: 100%;
   height: 100vh;
-  top: 0;
+  top: -200vh;
   left: 0;
   background: #92857E;
   padding-top: 25px;
@@ -1434,6 +1434,7 @@ a {
 }
 .laoli-footer {
   background: #A09B8E;
+  overflow: hidden;
 }
 .laoli-footer-logo-wrapper {
   padding-bottom: 40px;
@@ -1550,6 +1551,12 @@ a {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  font-size: 0;
+  height: fit-content;
+}
+.laoli-footer-switches form {
+  font-size: 0;
+  height: fit-content;
 }
 .laoli-footer-switch {
   border: 0.5px solid #FFFFFF;
@@ -2454,19 +2461,8 @@ a {
   left: 0;
   margin: auto;
   background: #fffbf4;
-  padding-top: 144px;
   z-index: 1;
   overflow: hidden;
-}
-@media (min-width: 1200px) {
-  .laoli-pdp-gallery {
-    padding-top: 144px;
-  }
-}
-@media (min-width: 1440px) {
-  .laoli-pdp-gallery {
-    padding-top: 114px;
-  }
 }
 .laoli-pdp-gallery-controls {
   position: absolute;
@@ -2612,11 +2608,10 @@ a {
   }
 }
 .laoli-registration {
-  display: none;
   position: fixed;
   top: 0;
   right: 0;
-  bottom: 0;
+  bottom: -300vh;
   left: 0;
   margin: auto;
   width: 360px;
@@ -2635,7 +2630,7 @@ a {
 }
 @media (min-width: 720px) {
   .laoli-registration {
-    bottom: 0;
+    bottom: -100vh;
     top: unset;
     left: unset;
     right: 40px;
@@ -2662,6 +2657,10 @@ a {
   .laoli-registration {
     right: 70px;
   }
+}
+.laoli-registration.open {
+  bottom: 0;
+  transition: bottom 0.3s ease;
 }
 .laoli-registration-close {
   position: absolute;
@@ -2820,8 +2819,9 @@ a {
 }
 @media (min-width: 720px) {
   .laoli-cart-wrapper {
+    display: block;
     top: 0;
-    right: 0;
+    right: -360px;
     bottom: unset;
     left: unset;
     width: 360px;
@@ -2829,6 +2829,11 @@ a {
     box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
     border-radius: 15px 0px 0px 15px;
   }
+}
+.laoli-cart-wrapper.open {
+  display: block;
+  right: 0;
+  transition: right 0.3s ease-out;
 }
 .laoli-cart {
   display: flex;
@@ -2916,8 +2921,8 @@ a {
   font-family: 'TT Hoves';
   font-style: normal;
   font-weight: 300;
-  font-size: 8px;
-  line-height: 10px;
+  font-size: 7px;
+  line-height: 5px;
   text-transform: uppercase;
   color: #000000;
 }
@@ -2941,7 +2946,7 @@ a {
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
-  line-height: 12px;
+  line-height: 18px;
   text-transform: uppercase;
   color: #494540;
 }
@@ -2953,7 +2958,7 @@ a {
   line-height: 18px;
   text-transform: uppercase;
   color: #494540;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   max-width: 150px;
 }
 .laoli-cart-item-info-size {
@@ -3008,7 +3013,7 @@ a {
   color: #B82C36;
 }
 .laoli-cart-footer-duration {
-  width: 250px;
+  width: 300px;
   margin: 0 auto;
   font-family: 'TT Hoves';
   font-style: normal;

@@ -12,11 +12,11 @@ export const initRegistration = () => {
 
 
     buttons.click(function() {
-        registration.show();
+        registration.addClass('open');
     })
 
     closeButton.click(function() {
-        registration.hide();
+        registration.removeClass('open');
     });
 
     form.submit(function(e) {
@@ -49,11 +49,6 @@ export const initRegistration = () => {
           }
         });
     });
-
-
-
-
-
 
 }
 

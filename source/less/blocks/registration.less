@@ -1,9 +1,8 @@
 .laoli-registration {
-    display: none;
     position: fixed;
     top: 0;
     right: 0;
-    bottom: 0;
+    bottom: -300vh;
     left: 0;
     margin: auto;
 
@@ -23,7 +22,7 @@
     }
 
     @media (@M) {
-        bottom: 0;
+        bottom: -100vh;
         top: unset;
         left: unset;
         right: 40px;
@@ -48,6 +47,11 @@
     @media (@XXXL) {
         right: 70px;
     }
+}
+
+.laoli-registration.open {
+    bottom: 0;
+    transition: bottom .3s ease;
 }
 
 .laoli-registration-close {

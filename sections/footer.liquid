@@ -28,7 +28,7 @@
                             <input type="hidden" name="language_code" value="{{ localization.language.iso_code }}">
                             {% for language in localization.available_languages %}
                               <span data-language="{{ language.iso_code }}"
-                                    class="language_switcher laoli-footer-switch__text cursor-pointer {% unless language.iso_code == localization.language.iso_code %} laoli-footer--switch__text_active{% endunless %}">{{ language.iso_code }}</span>
+                                    class="language_switcher laoli-footer-switch__text cursor-pointer {% if language.iso_code == localization.language.iso_code %} laoli-footer--switch__text_active{% endif %}">{{ language.iso_code }}</span>
                               {% unless forloop.last %}
                                 <span class="laoli-footer-switch__text">|</span>
                               {% endunless %}

@@ -216,9 +216,11 @@ export const openCart = () => {
     }
 
     const showCart = function() {
-        if ($(window).width() < 720) {
-            cart.show();
+        cart.addClass('open');
 
+        getCart();
+
+        setTimeout(function() {
             $(document).on('click.menu',function(e) {
                 const target = $(e.target);
 
@@ -226,21 +228,7 @@ export const openCart = () => {
                     hideCart();
                 }
             })
-        } else {
-            cart.show("slow", function() {
-                $(document).on('click.menu',function(e) {
-                    const target = $(e.target);
-
-                    if (!target.closest('.laoli-cart').length) {
-                        hideCart();
-                    }
-                })
-            });
-        }
-
-        getCart();
-
-
+        }, 500);
     }
 
     cartCheckout.click(function() {
@@ -259,7 +247,7 @@ export const openCart = () => {
     });
 
     const hideCart = function() {
-        cart.hide();
+        cart.removeClass('open');
         content.css('display', 'none');
         empty.hide();
         loading.show();
