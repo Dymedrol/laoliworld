@@ -118,7 +118,6 @@
             </div>
             <div class="laoli-pdp-desktop-col3">
 
-              <div class="test">
                 <div class="laoli-pdp-desktop-info">
                     <div class="laoli-pdp-desktop-info-status js-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
                     <div class="laoli-pdp-desktop-info-title">{{ product.title}}</div>
@@ -153,8 +152,6 @@
                     <div class="laoli-pdp-desktop-details-content js-details-wrapper">{{ product.metafields.custom.details | newline_to_br }}</div>
                     <div class="laoli-pdp-desktop-details-content js-care-wrapper">{{ product.metafields.custom.care | newline_to_br }}</div>
                 </div>
-              </div>
-
 
             </div>
         </div>
