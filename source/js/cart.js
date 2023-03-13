@@ -10,12 +10,10 @@ export const openCart = () => {
     const cartCount = $('.js-cart-count');
     const cartCheckout = $('.js-cart-checkout');
 
-
     const getPrice = function(price) {
         const updatedPrice = parseInt(price / 100) + "." + (price % 100)
         return updatedPrice
     }
-
 
     const cartItem = (item) => `
     <div class="laoli-cart-item" data-id="${item.id}" data-handle="${item.handle}">
@@ -59,26 +57,6 @@ export const openCart = () => {
                 return
             }
 
-            // let variants = []
-
-            // fetch(window.Shopify.routes.root + 'products.json', {
-            //   method: 'get',
-            //   headers: {
-            //     'Content-Type': 'application/json'
-            //   },
-            // })
-            // .then(response => response.json())
-            // .then(result => {
-            //     console.log(result)
-            //     result.products.forEach(function(item) {
-            //         variants = [...variants, item.variants]
-            //     })
-            //     console.log(variants.flat(Infinity))
-            // })
-            // .catch((error) => {
-            //   console.error('Error:', error);
-            // });
-
             var currency = result.currency;
 
             if (currency == 'EUR') {
@@ -93,23 +71,6 @@ export const openCart = () => {
 
             items.forEach(function(item) {
                 item.currency = currency;
-
-                const url = 'products/' + item.handle + '.js'
-
-                fetch(window.Shopify.routes.root + url, {
-                  method: 'get',
-                  headers: {
-                    'Content-Type': 'application/json'
-                  },
-                })
-                .then(response => response.json())
-                .then(result => {
-                    console.log(result)
-                })
-                .catch((error) => {
-                  console.error('Error:', error);
-                });
-
             });
 
             itemsWrapper.html(items.map(cartItem).join(''));
@@ -249,11 +210,29 @@ export const openCart = () => {
     const showCart = function() {
         if ($(window).width() < 720) {
             cart.show();
+
+            $(document).on('click.menu',function(e) {
+                const target = $(e.target);
+
+                if (!target.closest('.laoli-cart').length) {
+                    hideCart();
+                }
+            })
         } else {
-            cart.show("slow");
+            cart.show("slow", function() {
+                $(document).on('click.menu',function(e) {
+                    const target = $(e.target);
+
+                    if (!target.closest('.laoli-cart').length) {
+                        hideCart();
+                    }
+                })
+            });
         }
 
         getCart();
+
+
     }
 
     cartCheckout.click(function() {
@@ -276,6 +255,7 @@ export const openCart = () => {
         content.css('display', 'none');
         empty.hide();
         loading.show();
+        $(document).off('click.menu');
     }
 
     closeButton.click(function() {

@@ -1243,6 +1243,9 @@ a {
   text-decoration: none;
   margin-bottom: 15px;
 }
+.laoli-menu-content-link:hover {
+  text-decoration: underline;
+}
 .laoli-menu-content-pic-wrapper {
   display: none;
 }
