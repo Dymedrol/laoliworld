@@ -244,7 +244,7 @@
         <svg class="laoli-cart-close cursor-pointer" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8655 0.403846L13.4617 0L6.86552 6.59615L0.403846 0.134484L0 0.53833L6.46167 7L0.000122052 13.4615L0.403968 13.8654L6.86552 7.40385L13.4615 13.9999L13.8654 13.596L7.26936 7L13.8655 0.403846Z" fill="#B82C36"/>
         </svg>
-        <div class="laoli-cart-title">YOUR CART</div>
+        <div class="laoli-cart-title">{{ section.settings.cart_title}}</div>
 
         <div class="laoli-cart-content laoli-cart-loading js-cart-loading">
             {% render 'loading' %}
@@ -252,61 +252,20 @@
 
         <div class="laoli-cart-content js-cart-content">
             <div class="laoli-cart-items">
-                <div class="laoli-cart-item">
-                    <div class="laoli-cart-item-pic-wrapper">
-                        <img src="build/img/pdp1.png" alt="" class="laoli-cart-item-pic">
-                    </div>
-                    <div class="laoli-cart-item-info">
-                        <div class="laoli-cart-item-info-price">$ 178</div>
-                        <div class="laoli-cart-item-info-upperblock">
-                            <div class="laoli-cart-item-info-title">Moon ring</div>
-                            <div class="laoli-cart-item-info-size">Size: 16</div>
-                        </div>
-                        <div class="laoli-cart-item-info-loweblock">
-                            <div class="laoli-cart-item-info-quantity">
-                                <span class="cursor-pointer">-</span>
-                                <span>1</span>
-                                <span class="cursor-pointer">+</span>
-                            </div>
-                            <div class="laoli-cart-item-info-remove">Remove</div>
-                        </div>
-                    </div>
-                </div>
-                <div class="laoli-cart-item">
-                    <div class="laoli-cart-item-pic-wrapper">
-                        <div class="laoli-cart-item-pic-lavel">made to order</div>
-                        <img src="build/img/grid5.png" alt="" class="laoli-cart-item-pic">
-                    </div>
-                    <div class="laoli-cart-item-info">
-                        <div class="laoli-cart-item-info-price">$ 350</div>
-                        <div class="laoli-cart-item-info-upperblock">
-                            <div class="laoli-cart-item-info-title">Pearl bracelet</div>
-                            <div class="laoli-cart-item-info-size">Size: 184-197 mm</div>
-                        </div>
-                        <div class="laoli-cart-item-info-loweblock">
-                            <div class="laoli-cart-item-info-quantity">
-                                <span class="cursor-pointer">-</span>
-                                <span>2</span>
-                                <span class="cursor-pointer">+</span>
-                            </div>
-                            <div class="laoli-cart-item-info-remove">Remove</div>
-                        </div>
-                    </div>
-                </div>
             </div>
             <div class="laoli-cart-footer">
                 <div class="laoli-cart-footer-upperblock">
-                    <div class="laoli-cart-footer-total">total</div>
+                    <div class="laoli-cart-footer-total">{{ section.settings.cart_total}}</div>
                     <div class="laoli-cart-footer-total js-cart-total"></div>
                 </div>
-                <div class="laoli-cart-footer-duration hidden">n.b. you have pieces that are “made to order” they will be delivered within <span>6 to 8 weeks.</span></div>
-                <div class="button-red laoli-cart-footer-checkout js-cart-checkout">checkout</div>
+                <div class="laoli-cart-footer-duration hidden">{{ section.settings.cart_delivery }}</div>
+                <div class="button-red laoli-cart-footer-checkout js-cart-checkout">{{ section.settings.cart_checkout}}</div>
             </div>
         </div>
 
         <div class="laoli-cart-content laoli-cart-empty js-cart-empty">
             <div class="laoli-cart-empty-wrapper">
-                <div class="laoli-cart-empty-text">Your cart is empty</div>
+                <div class="laoli-cart-empty-text">{{ section.settings.cart_empty }}</div>
             </div>
         </div>
     </div>
@@ -578,8 +537,43 @@
       "id": "reg_success",
       "label": "registration success text",
       "default": "Merci"
+    },
+    {
+      "type": "text",
+      "id": "cart_title",
+      "label": "cart popup title",
+      "default": "your cart"
+    },
+    {
+      "type": "text",
+      "id": "cart_remove",
+      "label": "cart popup remove text",
+      "default": "remove"
+    },
+    {
+      "type": "text",
+      "id": "cart_total",
+      "label": "cart popup total text",
+      "default": "total"
+    },
+    {
+      "type": "text",
+      "id": "cart_delivery",
+      "label": "cart popup delivery text",
+      "default": "N.B. YOU HAVE PIECES THAT ARE “MADE TO ORDER” THEY WILL BE DELIVERED WITHIN 6 TO 8 WEEKS."
+    },
+    {
+      "type": "text",
+      "id": "cart_checkout",
+      "label": "cart popup checkout text",
+      "default": "checkout"
+    },
+    {
+      "type": "text",
+      "id": "cart_empty",
+      "label": "cart popup empty text",
+      "default": "Your cart is empty"
     }
-
   ]
 }
 {% endschema %}

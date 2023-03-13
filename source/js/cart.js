@@ -9,6 +9,7 @@ export const openCart = () => {
     const totalPrice = cart.find('.js-cart-total');
     const cartCount = $('.js-cart-count');
     const cartCheckout = $('.js-cart-checkout');
+    const duration = $('.laoli-cart-footer-duration');
 
     const getPrice = function(price) {
         const updatedPrice = parseInt(price / 100) + "." + (price % 100)
@@ -18,7 +19,7 @@ export const openCart = () => {
     const cartItem = (item) => `
     <div class="laoli-cart-item" data-id="${item.id}" data-handle="${item.handle}">
         <div class="laoli-cart-item-pic-wrapper">
-            <div class="laoli-cart-item-pic-lavel hidden">made to order</div>
+            <div class="laoli-cart-item-pic-lavel ${item.inventory_quantity > 0 ? 'hidden' : ''}">made to order</div>
             <img src="${item.featured_image.url}&width=200" alt="" class="laoli-cart-item-pic">
         </div>
         <div class="laoli-cart-item-info">
@@ -71,6 +72,13 @@ export const openCart = () => {
 
             items.forEach(function(item) {
                 item.currency = currency;
+                const currentProduct = products.find((product) => product.id == item.id);
+                console.log(currentProduct)
+                item.inventory_quantity = currentProduct.quantity;
+
+                if (item.inventory_quantity < 1) {
+                    duration.removeClass('hidden');
+                }
             });
 
             itemsWrapper.html(items.map(cartItem).join(''));

@@ -300,5 +300,19 @@
     {{ 'owl.carousel.min.js' | asset_url | script_tag }}
     <script src="https://unpkg.com/owlcarousel2-progressbar"></script>
     {{ 'bundel.js' | asset_url | script_tag }}
+
+    <script type="text/javascript">
+      const products = [
+        {% assign collection_handle = 'all' %}
+        {% for product in collections[collection_handle].products %}
+          {% for variant in product.variants %}
+            {
+              id: {{variant.id}},
+              quantity: {{variant.inventory_quantity}},
+            },
+          {% endfor %}
+        {% endfor %}
+      ]
+    </script>
   </body>
 </html>
