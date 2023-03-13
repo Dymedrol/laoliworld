@@ -819,6 +819,7 @@ a {
   background: transparent;
   z-index: 1;
   cursor: pointer;
+  overflow: hidden;
 }
 .button-white-footer:before {
   position: absolute;
@@ -1147,6 +1148,7 @@ a {
   border: 0.5px solid #FFFFFF;
   border-radius: 20px;
   padding: 0 7px;
+  font-size: 0;
 }
 .laoli-menu-content-mobile-switch__text {
   font-family: 'TT Hoves';

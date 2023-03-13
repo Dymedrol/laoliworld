@@ -168,7 +168,7 @@
                               <span data-language="{{ language.iso_code }}"
                                     class="language_switcher laoli-menu-content-mobile-switch__text cursor-pointer {% if language.iso_code == localization.language.iso_code %} laoli-menu-content-mobile-switch__text_active{% endif %}">{{ language.iso_code }}</span>
                               {% unless forloop.last %}
-                                <span class="laoli-menu-content-mobile-switch__text">|</span>
+                                <span class="laoli-menu-content-mobile-switch__text">&#8201;|&#8201;</span>
                               {% endunless %}
                             {% endfor %}
                           {% endform %}
@@ -202,7 +202,7 @@
                               <span data-language="{{ language.iso_code }}"
                                     class="language_switcher laoli-menu-content-mobile-switch__text cursor-pointer {% if language.iso_code == localization.language.iso_code %} laoli-menu-content-mobile-switch__text_active{% endif %}">{{ language.iso_code }}</span>
                               {% unless forloop.last %}
-                                <span class="laoli-menu-content-mobile-switch__text">|</span>
+                                <span class="laoli-menu-content-mobile-switch__text">&#8201;|&#8201;</span>
                               {% endunless %}
                             {% endfor %}
                           {% endform %}
