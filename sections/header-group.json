@@ -19,7 +19,14 @@
         "reg_input_email": "e-mail",
         "reg_agree": "I AGREE WITH TERMS OF <a href=\"https:\/\/about.laoliworld.com\/pages\/privacy-policy\">PRIVACY POLICY<\/a>",
         "reg_button_text": "join us",
-        "reg_success": "Merci"
+        "reg_success": "Merci",
+        "cart_title": "your cart",
+        "cart_remove": "remove",
+        "cart_total": "total",
+        "cart_delivery": "N.B. YOU HAVE PIECES THAT ARE “MADE TO ORDER” THEY WILL BE DELIVERED WITHIN 6 TO 8 WEEKS.",
+        "cart_checkout": "checkout",
+        "cart_empty": "Your cart is empty",
+        "responsibility_page": true
       }
     }
   },

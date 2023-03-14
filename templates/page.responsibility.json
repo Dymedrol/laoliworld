@@ -1,0 +1,23 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "897804d2-dc85-4d2f-959d-cf4076b2b499": {
+      "type": "laoli-responsibility",
+      "settings": {
+        "title": "( responsibility )",
+        "text": "At LAOLI, we’ve made decisions to embed consciousness into every stage of our work. We have chosen to only use the highest quality materials and to avoid using newly mined raw materials. Our jewelry is made using 100% recycled 14kt and 18kt gold, conflict-free gemstones, cultured diamonds produced in India, and responsibly produced natural pearls.<br><br> Many of our suppliers are small, family-run businesses and they are all Responsible Jewelry Council-certified, to ensure accountability throughout the supply chain. Our artisans are the best there are for every element we need, focusing on quality craftsmanship, time-honed techniques, sustainability and ethics. Our gem-setters are in Bangkok, our pearl-stringers are in Paris, all chosen by their level of workmanship and commitment to the same high standards that we uphold."
+      }
+    }
+  },
+  "order": [
+    "main",
+    "897804d2-dc85-4d2f-959d-cf4076b2b499"
+  ]
+}
