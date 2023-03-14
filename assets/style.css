@@ -3087,6 +3087,10 @@ a {
   line-height: 24px;
   color: #494540;
 }
+.laoli-info-content a {
+  color: #494540;
+  text-decoration: none;
+}
 .laoli-packaging {
   width: calc(100% - 40px);
   margin: 0 auto;
