@@ -27,6 +27,7 @@
     text-align: center;
     text-transform: uppercase;
     color: #494540;
+    opacity: 0.8;
 
     margin-bottom: 40px;
 
@@ -170,7 +171,7 @@
 .laoli-about-text3 {
     font-family: 'TT Hoves';
     font-style: normal;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 15px;
     line-height: 22px;
     color: #494540;
@@ -227,19 +228,47 @@
         margin-bottom: 140px;
         max-width: unset;
         width: 100%;
+        max-width: 920px;
     }
 }
 
 .laoli-about-row2-text {
     font-family: 'TT Hoves';
     font-style: normal;
-    font-weight: 300;
+    font-weight: 200;
     font-size: 15px;
     line-height: 22px;
     color: #494540;
 
     @media (@L) {
         width: 425px;
+    }
+}
+
+.laoli-about-pic2 {
+    display: flex;
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 0 auto;
+    margin-bottom: 70px;
+
+    @media (@M) {
+        width: 600px;
+        height: 390px;
+    }
+
+    @media (@L) {
+        width: 920px;
+        height: 600px;
+        margin-bottom: 140px;
+    }
+
+
+    & img {
+        object-fit: cover;
+        width: 100%;
     }
 }
 

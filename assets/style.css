@@ -942,6 +942,12 @@ a {
     padding-bottom: 40px;
   }
 }
+.laoli-menu.laoli-menu-responsibilty {
+  mix-blend-mode: unset;
+}
+.laoli-menu.laoli-menu-responsibilty g {
+  mix-blend-mode: unset;
+}
 .laoli-menu.open {
   mix-blend-mode: normal;
 }
@@ -3216,6 +3222,7 @@ a {
   text-align: center;
   text-transform: uppercase;
   color: #494540;
+  opacity: 0.8;
   margin-bottom: 40px;
 }
 @media (min-width: 960px) {
@@ -3334,7 +3341,7 @@ a {
 .laoli-about-text3 {
   font-family: 'TT Hoves';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 15px;
   line-height: 22px;
   color: #494540;
@@ -3380,12 +3387,13 @@ a {
     margin-bottom: 140px;
     max-width: unset;
     width: 100%;
+    max-width: 920px;
   }
 }
 .laoli-about-row2-text {
   font-family: 'TT Hoves';
   font-style: normal;
-  font-weight: 300;
+  font-weight: 200;
   font-size: 15px;
   line-height: 22px;
   color: #494540;
@@ -3394,6 +3402,32 @@ a {
   .laoli-about-row2-text {
     width: 425px;
   }
+}
+.laoli-about-pic2 {
+  display: flex;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-bottom: 70px;
+}
+@media (min-width: 720px) {
+  .laoli-about-pic2 {
+    width: 600px;
+    height: 390px;
+  }
+}
+@media (min-width: 960px) {
+  .laoli-about-pic2 {
+    width: 920px;
+    height: 600px;
+    margin-bottom: 140px;
+  }
+}
+.laoli-about-pic2 img {
+  object-fit: cover;
+  width: 100%;
 }
 .laoli-about-stars {
   width: 320px;

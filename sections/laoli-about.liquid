@@ -21,7 +21,18 @@
       <div class="laoli-about-row2-text">{{ section.settings.text5 }}</div>
       <div class="laoli-about-row2-text">{{ section.settings.text6 }}</div>
     </div>
-    <img src="{{ 'about-stars.png' | asset_url }}" class="laoli-about-stars" />
+
+    <picture class="laoli-about-pic2" >
+      <source srcset="{{ section.settings.about_image2 | img_url: '920x600', crop: 'center' }} 1x, {{ section.settings.about_image2 | img_url: '1840x1200', crop: 'center' }} 2x" media="(min-width: 960px)" />
+      <source srcset="{{ section.settings.about_image2 | img_url: '700x700', crop: 'center' }}" media="(min-width: 720px)" />
+      <source srcset="{{ section.settings.about_image2 | img_url: '700x700', crop: 'center' }}" />
+      <img src="{{ section.settings.about_image2 | img_url: '640x640', crop: 'center' }}" alt="{{ section.settings.about_image2.alt }}" loading="lazy"/>
+    </picture>
+
+    <picture class="laoli-about-stars">
+      <source srcset="{{ 'about-stars.png' | asset_url }} 1x, {{ 'about-stars-retina.png' | asset_url }} 2x" />
+      <img src="{{ 'about-stars.png' | asset_url }}" />
+    </picture>
 
     <a href="/collections/all" class="laoli-about-button button-red">{{ section.settings.button_text }}</a>
 
@@ -42,7 +53,7 @@
       "type": "text",
       "id": "title",
       "label": "about title",
-      "default": "( about )"
+      "default": "about"
     },
     {
       "type": "text",
@@ -90,6 +101,11 @@
       "id": "button_text",
       "label": "button text",
       "default": "discover our new collection"
+    },
+    {
+      "type": "image_picker",
+      "id": "about_image2",
+      "label": "about image 2"
     }
   ]
 }
