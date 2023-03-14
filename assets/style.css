@@ -2652,7 +2652,7 @@ a {
 }
 @media (min-width: 720px) {
   .laoli-registration {
-    bottom: -100vh;
+    bottom: -300vh;
     top: unset;
     left: unset;
     right: 40px;
