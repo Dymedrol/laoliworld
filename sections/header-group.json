@@ -26,7 +26,7 @@
         "cart_delivery": "N.B. YOU HAVE PIECES THAT ARE “MADE TO ORDER” THEY WILL BE DELIVERED WITHIN 6 TO 8 WEEKS.",
         "cart_checkout": "checkout",
         "cart_empty": "Your cart is empty",
-        "responsibility_page": true
+        "responsibility_page": false
       }
     }
   },
