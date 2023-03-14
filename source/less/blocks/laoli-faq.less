@@ -1,0 +1,103 @@
+.laoli-faq-title {
+    font-family: 'GoudyOlSt BT';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #A09B8E;
+    text-align: center;
+
+    margin-bottom: 43px;
+
+    @media (@L) {
+        font-size: 30px;
+        line-height: 40px;
+        margin-bottom: 35px;
+    }
+}
+
+.laoli-faq-block {
+    width: calc(100% - 40px);
+    margin: 0 auto;
+    margin-bottom: 70px;
+
+    @media (@M) {
+        width: 502px;
+    }
+}
+
+.laoli-faq-block-title {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 18px;
+    text-transform: uppercase;
+    color: #000000;
+
+    margin-bottom: 15px;
+}
+
+
+.laoli-faq-block-item-cross {
+    position: absolute;
+    top: 12px;
+    right: 0;
+    cursor: pointer;
+    transition: all ease-in-out .3s;
+}
+
+
+.laoli-faq-block-item {
+    position: relative;
+    border-top: 1px dashed #DFDFDF;
+    margin-bottom: 15px;
+        padding-top: 10px;
+}
+
+.laoli-faq-block-item-question {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #888888;
+
+    padding-right: 30px;
+    cursor: pointer;
+}
+
+.laoli-faq-block-item-question:hover {
+    & ~.laoli-faq-block-item-cross rect {
+        fill: #B82C36;
+    }
+}
+
+.laoli-faq-block-item-answer {
+    display: none;
+    margin-top: 20px;
+
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #888888;
+
+    width: 300px;
+
+    @media (@M) {
+        margin-left: auto;
+    }
+}
+
+.laoli-faq-block-item.open {
+    // & .laoli-faq-block-item-answer {
+    //     display: block;
+    // }
+
+    & .laoli-faq-block-item-cross {
+        transform: rotate(-45deg);
+    }
+}

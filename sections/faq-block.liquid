@@ -1,0 +1,54 @@
+<div class="laoli-faq-block">
+  <div class="laoli-faq-block-title">{{ section.settings.title }}</div>
+
+  {% for block in section.blocks %}
+    <div class="laoli-faq-block-item">
+      <div class="laoli-faq-block-item-question">{{ block.settings.question_title }}</div>
+      <div class="laoli-faq-block-item-answer">{{ block.settings.question_answer | newline_to_br}}</div>
+
+      <svg class="laoli-faq-block-item-cross" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect x="7.2417" width="14" height="0.5" transform="rotate(90 7.2417 0)" fill="black"/>
+        <rect y="6.75879" width="14" height="0.5" fill="black"/>
+      </svg>
+    </div>
+  {% endfor %}
+
+</div>
+
+{% schema %}
+{
+  "name": "faq block",
+  "presets": [
+    {
+      "name": "faq block",
+      "category": "Custom"
+    }
+  ],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "title"
+    }
+  ],
+  "blocks": [
+      {
+        "name": "question",
+        "type": "question",
+        "settings": [
+            {
+              "type": "text",
+              "id": "question_title",
+              "label": "question"
+            },
+            {
+              "type": "textarea",
+              "id": "question_answer",
+              "label": "answer"
+            }
+        ]
+      }
+  ]
+}
+
+{% endschema %}

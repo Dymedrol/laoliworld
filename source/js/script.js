@@ -5,6 +5,7 @@ import { initPdpSelect } from './pdp-select';
 import { initBanner } from './banner';
 import { initRegistration } from './registration';
 import { initLanguageSwitcher } from './languageSwitcher';
+import { initFaq } from './faq';
 
 $(document).ready(function(){
   initMenu();
@@ -14,6 +15,7 @@ $(document).ready(function(){
   initBanner();
   initRegistration();
   initLanguageSwitcher();
+  initFaq();
 })
 
 

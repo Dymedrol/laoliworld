@@ -145,6 +145,18 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 
 /***/ }),
 
+/***/ "./source/js/faq.js":
+/*!**************************!*\
+  !*** ./source/js/faq.js ***!
+  \**************************/
+/*! exports provided: initFaq */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initFaq\", function() { return initFaq; });\nconst initFaq = () => {\n  const block = $('.laoli-faq-block');\n\n  if (!block.length) {\n    return;\n  }\n\n  const question = $('.laoli-faq-block-item-question');\n  question.click(function () {\n    console.log('click');\n    const item = $(this).closest('.laoli-faq-block-item');\n    item.toggleClass('open');\n    item.find('.laoli-faq-block-item-answer').toggle(\"fast\");\n  });\n};\n\n//# sourceURL=webpack:///./source/js/faq.js?");
+
+/***/ }),
+
 /***/ "./source/js/grid.js":
 /*!***************************!*\
   !*** ./source/js/grid.js ***!
@@ -225,7 +237,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) *
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n/* harmony import */ var _pdp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pdp */ \"./source/js/pdp.js\");\n/* harmony import */ var _pdp_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pdp-select */ \"./source/js/pdp-select.js\");\n/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./banner */ \"./source/js/banner.js\");\n/* harmony import */ var _registration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./registration */ \"./source/js/registration.js\");\n/* harmony import */ var _languageSwitcher__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./languageSwitcher */ \"./source/js/languageSwitcher.js\");\n\n\n\n\n\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n  Object(_pdp__WEBPACK_IMPORTED_MODULE_2__[\"initPdp\"])();\n  Object(_pdp_select__WEBPACK_IMPORTED_MODULE_3__[\"initPdpSelect\"])();\n  Object(_banner__WEBPACK_IMPORTED_MODULE_4__[\"initBanner\"])();\n  Object(_registration__WEBPACK_IMPORTED_MODULE_5__[\"initRegistration\"])();\n  Object(_languageSwitcher__WEBPACK_IMPORTED_MODULE_6__[\"initLanguageSwitcher\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _menu__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./menu */ \"./source/js/menu.js\");\n/* harmony import */ var _grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./grid */ \"./source/js/grid.js\");\n/* harmony import */ var _pdp__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pdp */ \"./source/js/pdp.js\");\n/* harmony import */ var _pdp_select__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pdp-select */ \"./source/js/pdp-select.js\");\n/* harmony import */ var _banner__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./banner */ \"./source/js/banner.js\");\n/* harmony import */ var _registration__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./registration */ \"./source/js/registration.js\");\n/* harmony import */ var _languageSwitcher__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./languageSwitcher */ \"./source/js/languageSwitcher.js\");\n/* harmony import */ var _faq__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./faq */ \"./source/js/faq.js\");\n\n\n\n\n\n\n\n\n$(document).ready(function () {\n  Object(_menu__WEBPACK_IMPORTED_MODULE_0__[\"initMenu\"])();\n  Object(_grid__WEBPACK_IMPORTED_MODULE_1__[\"initGrid\"])();\n  Object(_pdp__WEBPACK_IMPORTED_MODULE_2__[\"initPdp\"])();\n  Object(_pdp_select__WEBPACK_IMPORTED_MODULE_3__[\"initPdpSelect\"])();\n  Object(_banner__WEBPACK_IMPORTED_MODULE_4__[\"initBanner\"])();\n  Object(_registration__WEBPACK_IMPORTED_MODULE_5__[\"initRegistration\"])();\n  Object(_languageSwitcher__WEBPACK_IMPORTED_MODULE_6__[\"initLanguageSwitcher\"])();\n  Object(_faq__WEBPACK_IMPORTED_MODULE_7__[\"initFaq\"])();\n});\n\n//# sourceURL=webpack:///./source/js/script.js?");
 
 /***/ }),
 
