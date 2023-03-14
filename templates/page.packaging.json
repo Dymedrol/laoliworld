@@ -2,13 +2,23 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "8dc18432-efbc-4225-81c2-85355bf52c7b": {
+      "type": "laoli-packaging",
+      "settings": {
+        "title": "( packaging )",
+        "packaging_image_1": "shopify:\/\/shop_images\/WhatsApp_Image_2023-01-26_at_12.43.png",
+        "packaging_image_2": "shopify:\/\/shop_images\/WhatsApp_Image_2023-01-26_at_12.43_1.png"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "8dc18432-efbc-4225-81c2-85355bf52c7b"
   ]
 }
