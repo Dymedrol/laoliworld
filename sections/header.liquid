@@ -272,7 +272,7 @@
 </div>
 
 
-<div class="laoli-menu laoli-menu-dummy {% if template == 'index' %}laoli-menu-dummy-homepage{% endif %} {% if section.settings.responsibility_page %}hidden{% endif %}">
+<div class="laoli-menu laoli-menu-dummy {% if template == 'index' %}laoli-menu-dummy-homepage{% endif %} {% if page.url == "/pages/responsibility" %}hidden{% endif %}">
     <div class="container laoli-menu-wrapper">
         <div class="laoli-menu-controls">
 
@@ -572,12 +572,6 @@
       "id": "cart_empty",
       "label": "cart popup empty text",
       "default": "Your cart is empty"
-    },
-    {
-      "type": "checkbox",
-      "id": "responsibility_page",
-      "label": "responsibility_page",
-      "default": false
     }
   ]
 }

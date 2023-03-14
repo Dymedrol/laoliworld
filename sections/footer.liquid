@@ -1,5 +1,5 @@
-<footer class="laoli-footer" style="{% if section.settings.responsibility_page %}background: #171716;{% endif %}" >
-    <div class="laoli-footer-logo-wrapper {% if section.settings.responsibility_page %}hidden{% endif %}">
+<footer class="laoli-footer" style="{% if page.url == "/pages/responsibility" %}background: #171716;{% endif %}" >
+    <div class="laoli-footer-logo-wrapper {% if page.url == "/pages/responsibility" %}hidden{% endif %}">
         <svg class="laoli-footer-logo" width="320" height="75" viewBox="0 0 320 75" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M2.85563 -3.05371C3.70055 -3.05371 4.65242 -2.83981 5.7059 -2.83981C8.24068 -2.83981 10.6685 -2.41737 14.8985 -2.41737C20.6044 -2.41737 24.091 -2.83981 25.9894 -2.83981C27.3638 -2.83981 27.7862 -2.62592 27.7862 -1.78103C27.7862 2.75891 19.8611 -3.15531 19.1231 9.62498C18.8076 16.1755 18.2782 52.6181 18.2782 53.7784V58.0029C18.2782 61.4894 19.0161 65.8208 20.8129 66.3502C23.1391 67.0881 23.7702 67.1951 25.3531 67.1951C59.0484 67.1951 55.1393 57.158 58.2035 57.158C58.8399 57.158 59.4709 57.6874 59.4709 58.9547C59.4709 65.2914 51.2302 72.7938 47.0056 72.7938C33.4868 72.7938 24.4012 71.735 17.9573 71.735C12.1498 71.735 9.93052 72.5799 4.75403 72.5799C2.64172 72.5799 1.68985 72.0505 1.68985 71.3126C1.68985 70.1522 2.85028 69.6228 3.3797 69.6228C3.80216 69.6228 4.96259 69.6228 6.44388 68.564C8.77009 66.7673 10.0375 64.0241 10.0375 47.8589V34.7631C10.0375 28.9558 10.353 23.0363 10.353 16.491C10.353 13.427 10.246 10.2613 10.1391 6.87641C9.92518 2.43807 5.70056 0.432797 1.58289 0.325849C0.101604 0.325849 0 -0.310493 0 -1.15538C0.00534762 -2.73287 2.0107 -3.05371 2.85563 -3.05371Z" fill="#FFFBF4"/>
             <path d="M180.839 -4C212.743 -4 220.77 20.0847 220.77 30.8597C220.77 60.5431 202.497 73.9544 179.363 73.9544C153.165 73.9544 139.962 55.4684 139.962 36.4584C139.957 13.7427 153.903 -4 180.839 -4ZM182.743 69.3075C194.47 69.3075 212.107 60.0137 212.107 40.5759C212.107 13.9566 195.839 0.224442 177.246 0.224442C163.09 0.224442 149.251 9.51822 149.251 31.0682C149.256 44.4849 158.866 69.3075 182.743 69.3075Z" fill="#FFFBF4"/>
@@ -10,7 +10,7 @@
     </div>
     <div class="laoli-footer-info-wrapper">
         <div class="laoli-footer-info">
-            {% if section.settings.responsibility_page %}
+            {% if page.url == "/pages/responsibility" %}
                 <div class="laoli-footer-logo2">{% render 'footer-logo' %}</div>
             {% endif %}
             <div class="laoli-footer-cols">
@@ -58,12 +58,6 @@
       "id": "footer_button_title",
       "label": "footer button text",
       "default": "10% off first order"
-    },
-    {
-      "type": "checkbox",
-      "id": "responsibility_page",
-      "label": "responsibility_page",
-      "default": false
     }
   ]
 }
