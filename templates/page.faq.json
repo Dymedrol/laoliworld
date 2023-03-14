@@ -16,8 +16,20 @@
     },
     "13e7cd5e-f8f8-41af-923c-15577745426b": {
       "type": "faq-block",
+      "blocks": {
+        "d2df971c-4b33-4dd1-8ce0-43cfe779f2ab": {
+          "type": "question",
+          "settings": {
+            "question_title": "When will my order ship?",
+            "question_answer": "We carry both in stock and made to order pieces. Our in stock pieces ship from our Paris showroom within 2 to 5 business days of purchase. If the item is made to order, the pieces ship within approximately 6 to 8 weeks as our artisans need time to create your piece.<br><br>To know whether an item is made to order or in stock, please refer to the product page of the item. If you need your piece to arrive sooner or if you are interested in same day delivery in Paris, please contact <a href=\"mailto:hello@laoliworld.com\" style=\"color: rgb(136, 136, 136); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(136, 136, 136); box-shadow: none; text-decoration: none;\">hello@laoliworld.com<\/a> and we will do our best to accommodate your request."
+          }
+        }
+      },
+      "block_order": [
+        "d2df971c-4b33-4dd1-8ce0-43cfe779f2ab"
+      ],
       "settings": {
-        "title": ""
+        "title": "MY ORDER"
       }
     }
   },
