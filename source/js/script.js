@@ -6,6 +6,7 @@ import { initBanner } from './banner';
 import { initRegistration } from './registration';
 import { initLanguageSwitcher } from './languageSwitcher';
 import { initFaq } from './faq';
+import { initRegions } from './region';
 
 $(document).ready(function(){
   initMenu();
@@ -16,6 +17,7 @@ $(document).ready(function(){
   initRegistration();
   initLanguageSwitcher();
   initFaq();
+  initRegions();
 })
 
 

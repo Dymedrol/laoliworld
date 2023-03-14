@@ -1,0 +1,157 @@
+.laoli-region {
+    display: none;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+
+    width: 320px;
+    min-height: 350px;
+    height: fit-content;
+
+    background: #FFFBF4;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+
+    padding: 50px 20px 32px;
+
+    z-index: 50;
+}
+
+.laoli-region-close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.laoli-region-first {
+
+}
+
+.laoli-region-title {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #494540;
+}
+
+.laoli-region-title-first {
+    margin-bottom: 10px;
+}
+
+.laoli-region-region-name {
+    font-family: 'GoudyOlSt BT';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 32px;
+    text-transform: uppercase;
+    color: #494540;
+    text-align: center;
+
+    margin-bottom: 33px;
+}
+
+.laoli-region-region-text1 {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #494540;
+
+    margin-bottom: 5px;
+}
+
+.laoli-region-region-text2 {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    text-align: center;
+    color: #494540;
+
+    margin-bottom: 61px;
+}
+
+.laoli-region-button1 {
+    margin: 0 auto 15px;
+}
+
+.laoli-region-change {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    text-align: center;
+    text-decoration-line: underline;
+    color: #A09B8E;
+
+    cursor: pointer;
+}
+
+.laoli-region-second {
+    display: none;
+}
+
+.laoli-region-title-second {
+    margin-bottom: 20px;
+}
+
+.laoli-region-selector {
+    padding: 10px;
+    height: 170px;
+
+    border: 1px solid rgba(160, 155, 142, 0.5);
+    border-radius: 5px;
+
+    margin-bottom: 20px;
+}
+
+.laoli-region-selector-inner {
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar {
+      width: 4px;               /* width of the entire scrollbar */
+      border-radius: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba(160, 155, 142, 0.5);        /* color of the tracking area */
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #494540;    /* color of the scroll thumb */
+      border-radius: 4px;       /* roundness of the scroll thumb */
+    }
+}
+
+.laoli-region-selector-item {
+    font-family: 'TT Hoves';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 12px;
+    line-height: 18px;
+    color: #A09B8E;
+
+    margin-bottom: 5px;
+    cursor: pointer;
+
+    &:hover {
+        text-decoration-line: underline;
+    }
+}
+
+.laoli-region-selector-item-active {
+    text-decoration-line: underline;
+}

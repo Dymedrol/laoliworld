@@ -175,8 +175,8 @@
                         </localization-form>
                     </div>
 
-                    <div class="laoli-menu-content-mobile-switch visualy-hidden">
-                        <span class="laoli-menu-content-mobile-switch__text laoli-menu-content-mobile-switch__text_active">eur </span><span class="laoli-menu-content-mobile-switch__text">|</span><span class="laoli-menu-content-mobile-switch__text"> usd </span><span class="laoli-menu-content-mobile-switch__text">|</span><span class="laoli-menu-content-mobile-switch__text"> gbp</span>
+                    <div class="laoli-menu-content-mobile-switch cursor-pointer js-region">
+                        <span class="laoli-menu-content-mobile-switch__text laoli-menu-content-mobile-switch__text_active">{{ localization.country.name }}</span>
                     </div>
                 </div>
             </div>
@@ -212,8 +212,8 @@
 
 
 
-                    <div class="laoli-menu-content-mobile-switch visualy-hidden">
-                        <span class="laoli-menu-content-mobile-switch__text laoli-menu-content-mobile-switch__text_active">eur </span><span class="laoli-menu-content-mobile-switch__text">|</span><span class="laoli-menu-content-mobile-switch__text"> usd </span><span class="laoli-menu-content-mobile-switch__text">|</span><span class="laoli-menu-content-mobile-switch__text"> gbp</span>
+                    <div class="laoli-menu-content-mobile-switch cursor-pointer js-region">
+                        <span class="laoli-menu-content-mobile-switch__text laoli-menu-content-mobile-switch__text_active">{{ localization.country.name }}</span>
                     </div>
                 </div>
             </div>
@@ -440,6 +440,38 @@
         </form>
         <div class="laoli-registration-form-success">{{ section.settings.reg_success }}</div>
     </div>
+</div>
+
+<div class="laoli-region">
+
+    <svg class="laoli-region-close js-region-close" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8658 0.403846L13.4619 0L6.86564 6.59628L0.403846 0.134484L0 0.53833L6.46179 7.00012L0.000366193 13.4615L0.404213 13.8654L6.86564 7.40397L13.4615 13.9999L13.8654 13.596L7.26948 7.00012L13.8658 0.403846Z" fill="#B82C36"/>
+    </svg>
+
+    <div class="laoli-region-first">
+        <div class="laoli-region-title laoli-region-title-first">Your location is set to</div>
+        <div class="laoli-region-region-name">{{ localization.country.name }}</div>
+        <div class="laoli-region-region-text1">Shop in {{ localization.country.currency.iso_code }}</div>
+        <div class="laoli-region-region-text2">Get shipping options for {{ localization.country.name }}</div>
+        <button class="laoli-region-button1 button-white js-region-close">CONTINUE</button>
+        <div class="laoli-region-change">Change country</div>
+    </div>
+
+    <div class="laoli-region-second">
+        <div class="laoli-region-title laoli-region-title-second">Select your country</div>
+        <div class="laoli-region-selector">
+            <div class="laoli-region-selector-inner">
+                {%- for country in localization.available_countries -%}
+                    <div class="laoli-region-selector-item" data-value="{{ country.iso_code }}">{{ country.name }}</div>
+                {%- endfor -%}
+            </div>
+        </div>
+        {%- form 'localization', id: 'FooterCountryFormNoScript' -%}
+            <input class="js-region-input" type="hidden" name="country_code" value="{{ localization.language.iso_code }}">
+            <button class="laoli-region-button1 button-white">CONTINUE</button>
+        {%- endform -%}
+    </div>
+
 </div>
 
 

@@ -2,7 +2,6 @@ export const initLanguageSwitcher = () => {
     let language_switcher_class_name = 'language_switcher';
 
     function tumblerClickHandler(e) {
-      console.log('click')
       let language = e.target.dataset.language;
       let form = e.target.parentNode;
       let language_input = form.querySelector('input[name="language_code"]');
