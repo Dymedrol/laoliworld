@@ -2,13 +2,29 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "0abf6d35-3206-4563-a2b8-7a9d97d4d7ec": {
+      "type": "laoli-about",
+      "settings": {
+        "title": "( about )",
+        "text1": "LAOLI transports its collectors to a sweeter, better-than-real world, offering casually elegant pieces that reconnect you with who you are.",
+        "text2": "JEWELRY AS A WAY BACK TO YOURSELF",
+        "text3": "The warmth of gold hugging your skin, the delicate clasping of a chain behind your neck, the comforting weight of a pendant close to your heart, the joy of slipping perfectly mismatched rings on your finger — LAOLI celebrates the romantic notion of wearing jewels for ourselves, and how a special piece can be nostalgic, evocative, and grounding. LAOLI’s ability to intertwine the old, new and present into every piece speaks to that magical something felt by its wearers. Defined by the sensuality of their volume, delicate contrasts and quiet detailing, our pieces are created to be worn with ease and confidence.",
+        "about_image": "shopify:\/\/shop_images\/Frame_84.png",
+        "text4": "I AM, AT HEART, FASCINATED BY THE NOTION OF WEARING JEWELRY — THE INTIMATE FEELING OF JEWELS AGAINST THE SKIN AND THE DAYDREAM STATE YOU ENTER WHEN YOU PUT ON SPECIAL PIECES",
+        "text5": "Designed for everyday elegance, LAOLI is named after our founder Olivia’s childhood nickname. Her longstanding passion for the way jewels live on the body, has inspired an exploration of how jewelry can nourish our sense of self. Based in Paris, she is inspired by the casual ease with which fine jewelry can be worn, layered and collected.",
+        "text6": "As Olivia designs, she draws on an imagined sweeter-than-real world where the fine things in life are cherished. The warmth of late summer sun, the juice of a perfectly ripe peach dripping down your fingers, the memory of a loved one’s grasp as you stack your rings, a summer sparkling sea; Olivia’s goal is to transport women into a dreamy world that is not so much a place, but more a state of mind.",
+        "button_text": "discover our new collection"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "0abf6d35-3206-4563-a2b8-7a9d97d4d7ec"
   ]
 }
