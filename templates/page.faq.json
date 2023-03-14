@@ -105,7 +105,7 @@
           "type": "question",
           "settings": {
             "question_title": "What happens if my piece is faulty or needs repair?",
-            "question_answer": "All items purchased on LAOLWORLD.com have a 2 year warranty from the date of your purchase. During this time frame, all repairs or replacements will be free of charge provided that the deterioration is related to a manufacturing defect. After this 2 year warranty period or repairs on non faulty items, we can still help repair your piece but there will be a cost for our services. If you find that your item is defective, please contact us at hello@laoliworld.com with your invoice, description of defect and images of your piece."
+            "question_answer": "All items purchased on LAOLWORLD.com have a 2 year warranty from the date of your purchase. During this time frame, all repairs or replacements will be free of charge provided that the deterioration is related to a manufacturing defect. After this 2 year warranty period or repairs on non faulty items, we can still help repair your piece but there will be a cost for our services. If you find that your item is defective, please contact us at <a href=\"mailto:hello@laoliworld.com\" style=\"color: rgb(136, 136, 136); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(136, 136, 136); box-shadow: none; text-decoration: none;\">hello@laoliworld.com<\/a> with your invoice, description of defect and images of your piece."
           }
         }
       },
