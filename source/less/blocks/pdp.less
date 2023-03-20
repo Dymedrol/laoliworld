@@ -287,10 +287,9 @@
 }
 
 .laoli-pdp-desktop-goback {
-    position: absolute;
-    top: 0;
+    position: sticky;
+    top: 109px;
     left: 0;
-
     font-family: 'TT Hoves';
     font-style: normal;
     font-weight: 300;
@@ -298,8 +297,10 @@
     line-height: 12px;
     text-transform: uppercase;
     color: #888888;
-
     cursor: pointer;
+    align-self: flex-start;
+
+    margin-bottom: 350px;
 }
 
 .laoli-pdp-desktop-back {
@@ -321,6 +322,7 @@
         display: flex;
         width: 300px;
         padding-bottom: 30px;
+        flex-direction: column;
     }
 
     @media (@XXL) {
@@ -473,7 +475,7 @@
 .laoli-pdp-desktop-details_left {
     position: sticky;
     bottom: 50px;
-    align-self: flex-end;
+    margin-top: auto;
 }
 
 .laoli-pdp-desktop-details-controls {
