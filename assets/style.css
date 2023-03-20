@@ -701,10 +701,10 @@ a {
 .button-red:after {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -1px;
   display: block;
   content: '';
-  width: 50%;
+  width: 51%;
   height: 40px;
   background: url('./button-red.svg');
   z-index: -1;
@@ -727,10 +727,10 @@ a {
 .button-red:hover:after {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -1px;
   display: block;
   content: '';
-  width: 50%;
+  width: 51%;
   height: 40px;
   background: url('./button-red-hover.svg');
   z-index: -1;
@@ -770,10 +770,10 @@ a {
 .button-white:after {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -1px;
   display: block;
   content: '';
-  width: 50%;
+  width: 51%;
   height: 40px;
   background: url('./button-white.svg');
   z-index: -1;
@@ -796,10 +796,10 @@ a {
 .button-white:hover:after {
   position: absolute;
   top: 0;
-  right: 0;
+  right: -1px;
   display: block;
   content: '';
-  width: 50%;
+  width: 51%;
   height: 40px;
   background: url('./button-red.svg');
   z-index: -1;
