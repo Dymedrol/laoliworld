@@ -1991,6 +1991,7 @@ a {
 .laoli-grid-item-pic img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 .laoli-grid-item-hover-pic {
   position: absolute;
@@ -2007,6 +2008,7 @@ a {
 .laoli-grid-item-hover-pic img {
   height: 100%;
   width: 100%;
+  object-fit: cover;
 }
 .laoli-grid-item-title {
   position: absolute;
