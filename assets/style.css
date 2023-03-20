@@ -329,6 +329,11 @@ a {
   position: relative;
   flex: 1;
 }
+@media (min-width: 960px) {
+  .laoli-main {
+    min-height: 1024px;
+  }
+}
 .cursor-pointer {
   cursor: pointer;
 }
