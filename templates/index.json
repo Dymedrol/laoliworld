@@ -25,7 +25,7 @@
       "type": "main-button",
       "settings": {
         "button_text": "about laoli",
-        "button_link": "https:\/\/about.laoliworld.com\/pages\/about"
+        "button_link": "\/pages\/about"
       }
     },
     "dc400eca-c8aa-4954-990c-851d09ab8bd2": {
