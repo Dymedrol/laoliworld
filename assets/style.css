@@ -3120,6 +3120,17 @@ a {
   color: #494540;
   text-decoration: none;
 }
+.laoli-info-content span {
+  font-family: 'TT Hoves';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  color: #494540;
+}
+.laoli-info-content u {
+  font-weight: 500;
+}
 .laoli-packaging {
   width: calc(100% - 40px);
   margin: 0 auto;
