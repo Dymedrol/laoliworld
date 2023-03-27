@@ -3101,6 +3101,7 @@ a {
   text-transform: uppercase;
   color: #494540;
   margin-bottom: 40px;
+  opacity: 0.8;
 }
 @media (min-width: 960px) {
   .laoli-info-title {
