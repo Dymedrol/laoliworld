@@ -7,9 +7,9 @@
         </svg>
 
         <div class="laoli-banner-inner">
-            <div class="button-red-banner js-show-subscription">{{ section.settings.banner_button_text }}</div>
+            <a href="{{ section.settings.banner_button_link }}" class="button-red-banner js-show-subscription">{{ section.settings.banner_button_text }}</a>
             <div class="laoli-banner-text">{{ section.settings.banner_text }}</div>
-            <div class="button-red-banner js-show-subscription">{{ section.settings.banner_button_text }}</div>
+            <a href="{{ section.settings.banner_button_link }}" class="button-red-banner js-show-subscription">{{ section.settings.banner_button_text }}</a>
         </div>
     </div>
 
@@ -521,6 +521,11 @@
       "id": "banner_button_text",
       "label": "banner button text",
       "default": "join us"
+    },
+    {
+      "type": "text",
+      "id": "banner_button_link",
+      "label": "banner button link"
     },
     {
       "type": "text",
