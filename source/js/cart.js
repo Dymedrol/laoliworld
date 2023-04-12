@@ -12,7 +12,10 @@ export const openCart = () => {
     const duration = $('.laoli-cart-footer-duration');
 
     const getPrice = function(price) {
-        const updatedPrice = parseInt(price / 100) + "." + (price % 100)
+        const newPrice = price.toString();
+        const xx = newPrice.length - 2;
+        const updatedPrice = newPrice.substring(0, xx) + "." + newPrice.substring(xx, newPrice.length)
+
         return updatedPrice
     }
 
@@ -73,7 +76,6 @@ export const openCart = () => {
             items.forEach(function(item) {
                 item.currency = currency;
                 const currentProduct = products.find((product) => product.id == item.id);
-                console.log(currentProduct)
                 item.inventory_quantity = currentProduct.quantity;
 
                 if (item.inventory_quantity < 1) {
@@ -110,8 +112,6 @@ export const openCart = () => {
                 })
                 .then(result => {
                     item.remove();
-
-                    console.log(result)
 
                     if (result.item_count > 0) {
                         cartCount.text(' (' + result.item_count + ')');
