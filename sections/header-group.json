@@ -5,13 +5,14 @@
     "header": {
       "type": "header",
       "settings": {
-        "menu-color": "#92857E",
+        "menu-color": "#92857e",
         "menu_shop_title": "shop",
         "menu_cart_title": "cart",
         "menu_search_title": "search",
         "menu_image": "shopify:\/\/shop_images\/Rectangle-19.jpg",
         "show_banner": true,
         "banner_button_text": "",
+        "banner_button_link": "",
         "banner_text": "Complimentary shipping on all orders over 600 EUR shipping within the EU and US",
         "reg_image": "shopify:\/\/shop_images\/news.jpg",
         "reg_title": "become a&#160;collector",
