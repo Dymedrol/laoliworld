@@ -3721,8 +3721,8 @@ a {
 
 /* karen magic */
 
-.laoli-pdp-desktop-info-title, .laoli-pdp-desktop-info-status {
-  line-height: 16px !important;
+.laoli-pdp-desktop-info-title, .laoli-pdp-desktop-info-status, .laoli-cart-item-info-title, .laoli-cart-item-info-price {
+  line-height: 17px !important;
 }
 
 .laoli-cart-item-info-title {
