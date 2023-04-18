@@ -3728,3 +3728,7 @@ a {
 .laoli-cart-item-info-title {
   max-width: 135px !important;
 }
+
+.laoli-cart-item-info-quantity span {
+line-height: 17.5px !important;
+}
