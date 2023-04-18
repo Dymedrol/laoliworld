@@ -3721,7 +3721,7 @@ a {
 
 /* karen magic */
 
-.laoli-pdp-desktop-info-title {
+.laoli-pdp-desktop-info-title, .laoli-pdp-desktop-info-status {
   line-height: 16px !important;
 }
 
