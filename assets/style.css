@@ -3718,3 +3718,10 @@ a {
   text-decoration-line: underline;
 }
 
+
+/* karen magic */
+
+.laoli-pdp-desktop-info-title {
+  line-height: 16px !important;
+}
+
