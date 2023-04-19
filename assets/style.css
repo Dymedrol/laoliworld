@@ -2287,17 +2287,27 @@ a {
 @media (min-width: 1200px) {
   .laoli-pdp-desktop-col1 {
     display: flex;
-    width: 300px;
+    width: 280px;
     padding-bottom: 30px;
     flex-direction: column;
+  }
+}
+@media (min-width: 1440px) {
+  .laoli-pdp-desktop-col1 {
+    width: 300px;
   }
 }
 .laoli-pdp-desktop-col2 {
   width: 500px;
 }
 .laoli-pdp-desktop-col3 {
-  width: 300px;
+  width: 280px;
   padding-bottom: 30px;
+}
+@media (min-width: 1440px) {
+  .laoli-pdp-desktop-col3 {
+    width: 300px;
+  }
 }
 .laoli-pdp-desktop-pic {
   display: block;
