@@ -3717,18 +3717,17 @@ a {
 .laoli-region-selector-item-active {
   text-decoration-line: underline;
 }
-
-
 /* karen magic */
-
-.laoli-pdp-desktop-info-title, .laoli-pdp-desktop-info-status, .laoli-cart-item-info-title, .laoli-cart-item-info-price {
+.laoli-pdp-desktop-info-title,
+.laoli-pdp-desktop-info-status,
+.laoli-cart-item-info-title,
+.laoli-cart-item-info-price {
   line-height: 17px !important;
 }
-
 .laoli-cart-item-info-title {
   max-width: 135px !important;
 }
-
 .laoli-cart-item-info-quantity span {
-line-height: 17.5px !important;
+  line-height: 17.5px !important;
 }
+
