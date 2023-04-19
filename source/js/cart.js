@@ -3,6 +3,7 @@ export const openCart = () => {
     const closeButton = cart.find('.laoli-cart-close');
     const content = cart.find('.js-cart-content');
     const empty = cart.find('.js-cart-empty');
+    const title = cart.find('.js-cart-title');
     const itemsWrapper = cart.find('.laoli-cart-items');
     const loading = cart.find('.js-cart-loading');
     const template = cart.find('#cart-item-template');
@@ -58,6 +59,7 @@ export const openCart = () => {
             if (result.item_count == 0) {
                 loading.hide();
                 empty.show();
+                title.hide();
                 return
             }
 
@@ -118,6 +120,7 @@ export const openCart = () => {
                     } else {
                         content.css('display', 'none');
                         empty.show();
+                        title.hide();
                         cartCount.text('');
                     }
 
@@ -158,6 +161,7 @@ export const openCart = () => {
                     } else {
                         content.css('display', 'none');
                         empty.show();
+                        title.hide();
                         cartCount.text('');
                     }
                 })
@@ -200,6 +204,7 @@ export const openCart = () => {
                     } else {
                         content.css('display', 'none');
                         empty.show();
+                        title.hide();
                         cartCount.text('');
                     }
                 })
@@ -250,6 +255,7 @@ export const openCart = () => {
         cart.removeClass('open');
         content.css('display', 'none');
         empty.hide();
+        title.show();
         loading.show();
         $(document).off('click.menu');
     }

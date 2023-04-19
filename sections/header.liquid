@@ -243,7 +243,7 @@
         <svg class="laoli-cart-close cursor-pointer" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path fill-rule="evenodd" clip-rule="evenodd" d="M13.8655 0.403846L13.4617 0L6.86552 6.59615L0.403846 0.134484L0 0.53833L6.46167 7L0.000122052 13.4615L0.403968 13.8654L6.86552 7.40385L13.4615 13.9999L13.8654 13.596L7.26936 7L13.8655 0.403846Z" fill="#B82C36"/>
         </svg>
-        <div class="laoli-cart-title">{{ section.settings.cart_title}}</div>
+        <div class="laoli-cart-title js-cart-title">{{ section.settings.cart_title}}</div>
 
         <div class="laoli-cart-content laoli-cart-loading js-cart-loading">
             {% render 'loading' %}
@@ -265,6 +265,7 @@
         <div class="laoli-cart-content laoli-cart-empty js-cart-empty">
             <div class="laoli-cart-empty-wrapper">
                 <div class="laoli-cart-empty-text">{{ section.settings.cart_empty }}</div>
+                <a href="/collections/all" class="laoli-cart-empty-button button-red">Explore laoli</a>
             </div>
         </div>
     </div>

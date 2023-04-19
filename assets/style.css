@@ -2869,8 +2869,12 @@ a {
   display: none;
 }
 .laoli-cart-empty-wrapper {
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   width: 320px;
+  height: 100%;
+  padding-bottom: 40px;
 }
 .laoli-cart-empty-text {
   width: 200px;
@@ -2881,6 +2885,9 @@ a {
   line-height: 40px;
   text-transform: uppercase;
   color: #B82C36;
+}
+.laoli-cart-empty-button {
+  margin: auto auto 0 auto;
 }
 .laoli-cart-content::-webkit-scrollbar {
   display: none;
