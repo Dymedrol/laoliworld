@@ -26,7 +26,7 @@
             </div>
           </div>
 
-          <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
+          <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-addtocart}}">
         </div>
       </form>
     </div>
@@ -78,7 +78,7 @@
                   </div>
                 </div>
 
-                <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
+                <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-addtocart}}">
               </div>
             </form>
 
@@ -139,7 +139,7 @@
                             </div>
                           </div>
 
-                          <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-addtocart}}{% else %}{{ section.settings.pdp-preorder }}{% endif %}">
+                          <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-addtocart }}">
                       </div>
                     </form>
 

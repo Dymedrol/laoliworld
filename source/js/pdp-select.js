@@ -26,11 +26,12 @@ export const initPdpSelect = () => {
         menu.toggle();
 
         menu.click(function(event) {
-            const target = $(event.target)
+            const target = $(event.target);
+
             if (target.hasClass("laoli-pdp-mobile-info-buttons-sizes-menu-item")) {
                 if (target.hasClass('laoli-pdp-mobile-info-buttons-sizes-menu-item_empty')) {
                     status.text(madeToOrderText);
-                    addButton.val(preOrderText);
+                    addButton.val(addToCartText);
                 } else {
                     status.text(inStockText);
                     addButton.val(addToCartText);

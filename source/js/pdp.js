@@ -63,7 +63,6 @@ export const initPdp = () => {
         const attr = "picture[data-index=" + index + "]";
         const targetPic = gallery.find(attr);
         let offset = targetPic.position().top;
-        console.log(targetPic, offset)
 
         if (index == 1) {
             offset = 0;
