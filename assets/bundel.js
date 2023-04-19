@@ -129,7 +129,7 @@ eval("\n\nvar stylesInDom = {};\n\nvar isOldIE = function isOldIE() {\n  var mem
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initBanner\", function() { return initBanner; });\nconst initBanner = () => {\n  const banner = $('.laoli-banner');\n\n  if (!banner.length) {\n    return;\n  }\n\n  const closeButton = banner.find('.laoli-banner-close');\n  closeButton.click(function () {\n    banner.remove();\n  });\n};\n\n//# sourceURL=webpack:///./source/js/banner.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, \"initBanner\", function() { return initBanner; });\nconst initBanner = () => {\n  const banner = $('.laoli-banner');\n\n  if (!banner.length) {\n    return;\n  }\n\n  const pdp = $('.laoli-pdp-desktop');\n\n  if (pdp.length) {\n    pdp.addClass('laoli-pdp-with-banner');\n  }\n\n  const closeButton = banner.find('.laoli-banner-close');\n  closeButton.click(function () {\n    banner.remove();\n    pdp.removeClass('laoli-pdp-with-banner');\n  });\n};\n\n//# sourceURL=webpack:///./source/js/banner.js?");
 
 /***/ }),
 
