@@ -2300,6 +2300,7 @@ a {
   padding-bottom: 30px;
 }
 .laoli-pdp-desktop-pic {
+  display: block;
   width: 100%;
   height: auto;
   margin-bottom: 20px;
