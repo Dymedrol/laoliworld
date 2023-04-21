@@ -21,7 +21,15 @@
             </div>
             <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
               {% for variant in product.variants %}
-                <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                {% if variant.inventory_quantity > 0 %}
+                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                {% endif %}
+              {% endfor %}
+
+              {% for variant in product.variants %}
+                {% if variant.inventory_quantity == 0 %}
+                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                {% endif %}
               {% endfor %}
             </div>
           </div>
@@ -72,9 +80,19 @@
                     {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ product.variants[0].title }}</span>
                   </div>
                   <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
+
                     {% for variant in product.variants %}
-                      <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                      {% if variant.inventory_quantity > 0 %}
+                        <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                      {% endif %}
                     {% endfor %}
+
+                    {% for variant in product.variants %}
+                      {% if variant.inventory_quantity == 0 %}
+                        <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                      {% endif %}
+                    {% endfor %}
+
                   </div>
                 </div>
 
@@ -134,7 +152,15 @@
                             </div>
                             <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
                               {% for variant in product.variants %}
-                                <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                                {% if variant.inventory_quantity > 0 %}
+                                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                                {% endif %}
+                              {% endfor %}
+
+                              {% for variant in product.variants %}
+                                {% if variant.inventory_quantity == 0 %}
+                                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
+                                {% endif %}
                               {% endfor %}
                             </div>
                           </div>
