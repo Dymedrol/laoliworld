@@ -2609,12 +2609,12 @@ a {
     width: 1150px;
   }
 }
-.laoli-related-item:nth-child(3) {
-  display: none;
+.laoli-related-items .laoli-grid-item:nth-child(3) {
+  display: none !important;
 }
 @media (min-width: 1200px) {
-  .laoli-related-item:nth-child(3) {
-    display: block;
+  .laoli-related-items .laoli-grid-item:nth-child(3) {
+    display: block !important;
   }
 }
 .laoli-registration {

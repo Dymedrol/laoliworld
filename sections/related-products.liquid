@@ -24,7 +24,7 @@
 <div class="no-js-hidden">
   <product-recommendations
     class=""
-    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit={{ section.settings.products_to_show }}"
+    data-url="{{ routes.product_recommendations_url }}?section_id={{ section.id }}&product_id={{ product.id }}&limit=3"
   >
     {% if recommendations.performed and recommendations.products_count > 0 %}
       <div class="laoli-related">
