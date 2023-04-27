@@ -23,10 +23,20 @@
     </div>
 
     <div class="laoli-grid-items">
+
         {%- for product in collection.products -%}
+
+            {% assign is_available = false %}
+
+            {%- for variant in product.variants -%}
+                {% if variant.inventory_quantity > 0 %}
+                  {% assign is_available = true %}
+                {% endif %}
+            {%- endfor -%}
+
             {% render 'card-product',
               card_product: product,
-              available: product.available
+              available: is_available
             %}
         {%- endfor -%}
         <div class="laoli-grid-item-dummy"></div>
