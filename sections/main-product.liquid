@@ -15,9 +15,19 @@
         <div class="laoli-pdp-mobile-info-buttons">
 
           <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
-            <input type="hidden" name="id" value="{{ product.variants[0].id }}">
+
+            {% assign first_variant = product.variants[0] %}
+
+            {%- for variant in product.variants -%}
+                {% if variant.inventory_quantity > 0 %}
+                  {% assign first_variant = variant %}
+                  {% break %}
+                {% endif %}
+            {%- endfor -%}
+
+            <input type="hidden" name="id" value="{{ first_variant.id }}">
             <div class="laoli-pdp-mobile-info-buttons-sizes">
-              {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ product.variants[0].title }}</span>
+              {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ first_variant.title }}</span>
             </div>
             <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
               {% for variant in product.variants %}
@@ -66,7 +76,18 @@
 
       <div class="container">
         <div class="laoli-pdp-mobile-info">
-            <div class="laoli-pdp-mobile-info-status js-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
+
+            {% assign product_status = section.settings.pdp-madetoorder %}
+
+            {%- for variant in product.variants -%}
+                {% if variant.inventory_quantity > 0 %}
+                  {% assign product_status = section.settings.pdp-instock %}
+                  {% break %}
+                {% endif %}
+            {%- endfor -%}
+
+
+            <div class="laoli-pdp-mobile-info-status js-status">{{ product_status }}</div>
             <div class="laoli-pdp-mobile-info-title">{{ product.title }}</div>
             <div class="laoli-pdp-mobile-info-price">{{ product.price | money_without_trailing_zeros }}</div>
             <div class="laoli-pdp-mobile-info-text">{{ product.description }}</div>
@@ -75,12 +96,21 @@
               <div class="laoli-pdp-mobile-info-buttons">
 
                 <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
-                  <input type="hidden" name="id" value="{{ product.variants[0].id }}">
+
+                  {% assign first_variant = product.variants[0] %}
+
+                  {%- for variant in product.variants -%}
+                      {% if variant.inventory_quantity > 0 %}
+                        {% assign first_variant = variant %}
+                        {% break %}
+                      {% endif %}
+                  {%- endfor -%}
+
+                  <input type="hidden" name="id" value="{{ first_variant.id }}">
                   <div class="laoli-pdp-mobile-info-buttons-sizes">
-                    {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ product.variants[0].title }}</span>
+                    {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ first_variant.title }}</span>
                   </div>
                   <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
-
                     {% for variant in product.variants %}
                       {% if variant.inventory_quantity > 0 %}
                         <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
@@ -92,7 +122,6 @@
                         <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-id="{{ variant.id}}">{{ variant.title }}</div>
                       {% endif %}
                     {% endfor %}
-
                   </div>
                 </div>
 
@@ -137,7 +166,7 @@
             <div class="laoli-pdp-desktop-col3">
 
                 <div class="laoli-pdp-desktop-info">
-                    <div class="laoli-pdp-desktop-info-status js-status">{% if product.selected_or_first_available_variant.inventory_quantity > 0 %}{{ section.settings.pdp-instock }}{% else %}{{ section.settings.pdp-madetoorder }}{% endif %}</div>
+                    <div class="laoli-pdp-desktop-info-status js-status">{{ product_status }}</div>
                     <div class="laoli-pdp-desktop-info-title">{{ product.title}}</div>
                     <div class="laoli-pdp-desktop-info-price">{{ product.price | money_without_trailing_zeros}}</div>
                     <div class="laoli-pdp-desktop-info-text">{{ product.description}}</div>
@@ -146,9 +175,19 @@
                       <div class="laoli-pdp-mobile-info-buttons">
 
                           <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
-                            <input type="hidden" name="id" value="{{ product.variants[0].id }}">
+
+                            {% assign first_variant = product.variants[0] %}
+
+                            {%- for variant in product.variants -%}
+                                {% if variant.inventory_quantity > 0 %}
+                                  {% assign first_variant = variant %}
+                                  {% break %}
+                                {% endif %}
+                            {%- endfor -%}
+
+                            <input type="hidden" name="id" value="{{ first_variant.id }}">
                             <div class="laoli-pdp-mobile-info-buttons-sizes">
-                              {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ product.variants[0].title }}</span>
+                              {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ first_variant.title }}</span>
                             </div>
                             <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
                               {% for variant in product.variants %}
