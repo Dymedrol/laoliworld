@@ -10,7 +10,8 @@
           "rings",
           "earrings",
           "necklaces",
-          "bracelets"
+          "bracelets",
+          "in-stock"
         ]
       }
     }
