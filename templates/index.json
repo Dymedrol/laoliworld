@@ -3,8 +3,8 @@
     "image_banner": {
       "type": "image-banner",
       "settings": {
-        "image_banner_title_text": "SHOP OUR IN STOCK HOLIDAY GIFTS",
-        "image_banner_title_link": "https:\/\/laoliworld.com\/collections\/in-stock",
+        "image_banner_title_text": "SHOP OUR LATEST COLLECTION",
+        "image_banner_title_link": "https:\/\/laoliworld.com\/collections\/all",
         "banner_image": "shopify:\/\/shop_images\/HOME.jpg",
         "banner_image_mobile": "shopify:\/\/shop_images\/laoli.jpg"
       }
