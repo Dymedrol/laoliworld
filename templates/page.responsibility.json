@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -12,7 +21,7 @@
       "type": "laoli-responsibility",
       "settings": {
         "title": "responsibility",
-        "text": "At LAOLI, we’ve made decisions to embed consciousness into every stage of our work. We have chosen to only use the highest quality materials and to avoid using newly mined raw materials. Our jewelry is made using 100% recycled 14kt and 18kt gold, conflict-free gemstones, cultured diamonds produced in India, and responsibly produced natural pearls. Many of our suppliers are small, family-run businesses and they are all Responsible Jewelry Council-certified, to ensure accountability throughout the supply chain. Our artisans are the best there are for every element we need, focusing on quality craftsmanship, time-honed techniques, sustainability and ethics. Our gem-setters are in Bangkok, our pearl-stringers are in Paris, all chosen by their level of workmanship and commitment to the same high standards that we uphold."
+        "text": "At LAOLI, we’ve made decisions to embed consciousness into every stage of our work. The majority of our jewelry is made using 100% recycled 14kt and 18kt gold, conflict-free gemstones, cultured diamonds produced in India, and responsibly produced natural pearls. Our partnering ateliers are small, family-run businesses that are Responsible Jewelry Council-certified, chosen for their focus on quality craftsmanship, time-honed techniques, sustainability and ethics. All our our beaded necklaces handcrafted in our Parisian studio and are made from natural beads and shells that our designer Olivia has personally sourced."
       }
     },
     "71fa664d-2bda-4a31-98df-9c8fd62f695c": {
@@ -21,7 +30,7 @@
 
       ],
       "settings": {
-        "custom_liquid": "<style>\n@media (min-width: 960px) {\n.laoli-main {\nmin-height: 100vh !important;\n}\n}\n<\/style>",
+        "custom_liquid": "<style>\n@media (min-width: 960px) {\n.laoli-main {\nmin-height: 100vh !important;\n}\n}\n</style>",
         "color_scheme": "background-1",
         "padding_top": 0,
         "padding_bottom": 0

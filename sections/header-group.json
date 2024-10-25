@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "name": "t:sections.header.name",
   "type": "header",
@@ -9,17 +18,17 @@
         "menu_shop_title": "shop",
         "menu_cart_title": "cart",
         "menu_search_title": "search",
-        "menu_image": "shopify:\/\/shop_images\/BANNER_2.png",
+        "menu_image": "shopify://shop_images/BANNER_2.png",
         "show_banner": true,
         "banner_button_text": "",
         "banner_button_link": "",
-        "banner_text": "Enjoy free shipping on US and EU on orders over 600 EUR.",
-        "reg_image": "shopify:\/\/shop_images\/news.jpg",
-        "reg_title": "become a&#160;collector",
-        "reg_text": "RECEIVE LAOLI UPDATES, EARLY ACCESS AND 10%&#160;OFF YOUR FIRST ORDER",
+        "banner_text": "Enjoy free shipping on US and EU on orders over 700 EUR.",
+        "reg_image": "shopify://shop_images/news.jpg",
+        "reg_title": "become a collector",
+        "reg_text": "RECEIVE LAOLI UPDATES, EARLY ACCESS AND 10% OFF YOUR FIRST ORDER",
         "reg_input_name": "your name",
         "reg_input_email": "e-mail",
-        "reg_agree": "I AGREE WITH TERMS OF <a href=\"https:\/\/about.laoliworld.com\/pages\/privacy-policy\">PRIVACY POLICY<\/a>",
+        "reg_agree": "I AGREE WITH TERMS OF PRIVACY POLICY",
         "reg_button_text": "join us",
         "reg_success": "Merci",
         "cart_title": "your cart",

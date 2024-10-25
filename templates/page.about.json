@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -15,12 +24,12 @@
         "text1": "LAOLI intertwines the old, the new and the conscious, evoking beauty in the everyday.",
         "text2": "JEWELRY AS A WAY BACK TO YOURSELF",
         "text3": "Founded by creative director Olivia Ball, LAOLI is built upon a love of meaningful materials and the search for refinement. Originally from Argentina and now living in Paris, Olivia draws inspiration from her family heirlooms, life and legacy. ",
-        "about_image": "shopify:\/\/shop_images\/Frame_84.png",
+        "about_image": "shopify://shop_images/Frame_84.png",
         "text4": "The pieces are defined by the sensuality of their volume, intention of materials and the casual nature in which fine jewellery can be worn, layered and collected.",
         "text5": "Argentina instilled a sense of tradition in Olivia's designs, how her grandmother used to wear her gold religious icons around her neck, how babies have their ears pierced and set with pearls, how putting on jewellery every day even just to stay at home is a daily ritual, how pieces are kept to be passed down the generations. Paris is where it all came together, in the insouciant elegant way that the French are famed for and thus LAOLI was born.",
-        "text6": "LAOLI believes refinement is about more than just what the eye can see. Collections are based on a foundation of recycled gold, consciously lab cultivated diamonds and ethical stones, beautiful finishes and ease of wear. Imbued with the warmth of gold and delicate contrasts, the LAOLI woman wears her pieces with individuality and confidence.",
+        "text6": "LAOLI believes refinement is about more than just what the eye can see. Collections are based on a foundation of recycled solid gold, beautiful finishes and ease of wear. Imbued with the warmth of gold and delicate contrasts, the LAOLI woman wears her pieces with individuality and confidence.",
         "button_text": "discover our new collection",
-        "about_image2": "shopify:\/\/shop_images\/000068560014.jpg"
+        "about_image2": "shopify://shop_images/000068560014.jpg"
       }
     }
   },
