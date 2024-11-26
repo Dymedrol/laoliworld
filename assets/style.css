@@ -646,7 +646,7 @@ a {
   content: '';
   width: 50%;
   height: 40px;
-  background: url('./button-red.svg');
+  background: url('https://cdn.shopify.com/s/files/1/0596/7403/4314/files/button-red-black.svg?v=1732618658');
   z-index: -1;
 }
 .button-red:after {
@@ -657,7 +657,7 @@ a {
   content: '';
   width: 51%;
   height: 40px;
-  background: url('./button-red.svg');
+  background: url('https://cdn.shopify.com/s/files/1/0596/7403/4314/files/button-red-black.svg?v=1732618658');
   z-index: -1;
   background-position-x: right;
 }
