@@ -5,6 +5,8 @@ export const initPdpSelect = () => {
         return
     }
 
+    const priceWrapper = $('.laoli-pdp-desktop-info-price')
+
     const selects = $('.laoli-pdp-mobile-info-buttons-sizes');
 
     const status = $('.js-status');
@@ -39,6 +41,7 @@ export const initPdpSelect = () => {
 
                 selectedValue.text($(event.target).text());
                 input.val($(event.target).attr('data-id'));
+                priceWrapper.text($(event.target).attr('data-price'))
                 menu.hide();
             }
         });
