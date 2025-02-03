@@ -21,14 +21,12 @@
       "type": "laoli-responsibility",
       "settings": {
         "title": "responsibility",
-        "text": "At LAOLI, we’ve made decisions to embed consciousness into every stage of our work. The majority of our jewelry is made using 100% recycled 14kt and 18kt gold, conflict-free gemstones, cultured diamonds produced in India, and responsibly produced natural pearls. Our partnering ateliers are small, family-run businesses that are Responsible Jewelry Council-certified, chosen for their focus on quality craftsmanship, time-honed techniques, sustainability and ethics. All our our beaded necklaces handcrafted in our Parisian studio and are made from natural beads and shells that our designer Olivia has personally sourced."
+        "text": "Jewelry carries meaning beyond adornment—it tells a story, holds energy, and reflects the hands that shaped it. At LAOLI, every piece is created with purpose, using materials that honor both beauty and responsibility. We are committed to working with recycled gold, conflict-free gemstones, cultured diamonds, and responsibly sourced natural pearls whenever possible. Each element is chosen with care—for its rarity, integrity, and timeless appeal. Our designs come to life in small, family-run ateliers, each selected for its dedication to artistry, ethical practices, and time-honored techniques. Many of these workshops are Responsible Jewelry Council-certified, ensuring sustainability is not just a promise, but a practice woven into every step. In our Parisian studio, our beaded necklaces take shape by hand, strung with natural beads and shells personally sourced by our founder, Olivia—treasures collected with intention, echoing the beauty of sunlit shores and timeless escapes. This is the essence of LAOLI: pieces made to be worn, loved, and passed down, always with purpose."
       }
     },
     "71fa664d-2bda-4a31-98df-9c8fd62f695c": {
       "type": "custom-liquid",
-      "custom_css": [
-
-      ],
+      "custom_css": [],
       "settings": {
         "custom_liquid": "<style>\n@media (min-width: 960px) {\n.laoli-main {\nmin-height: 100vh !important;\n}\n}\n</style>",
         "color_scheme": "background-1",
