@@ -44,7 +44,11 @@
             </div>
           </div>
 
-          <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-addtocart}}">
+            {% if  product.available %}
+                <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-addtocart }}">
+            {% else %}
+                <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-soldout }}" disabled>
+            {% endif %}
         </div>
       </form>
     </div>
@@ -87,7 +91,7 @@
             {%- endfor -%}
 
 
-            <div class="laoli-pdp-mobile-info-status js-status">{{ product_status }}</div>
+            <div class="laoli-pdp-mobile-info-status js-status">{% if product.available %}{{ product_status }}{% else %}{{ section.settings.pdp-soldout }}{% endif %}</div>
             <div class="laoli-pdp-mobile-info-title">{{ product.title }}</div>
             <div class="laoli-pdp-mobile-info-price">{{ product.price | money_without_trailing_zeros }}</div>
             <div class="laoli-pdp-mobile-info-text">{{ product.description }}</div>
@@ -125,7 +129,11 @@
                   </div>
                 </div>
 
-                <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-addtocart}}">
+                  {% if  product.available %}
+                      <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-addtocart }}">
+                  {% else %}
+                      <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-soldout }}" disabled>
+                  {% endif %}
               </div>
             </form>
 
@@ -166,7 +174,7 @@
             <div class="laoli-pdp-desktop-col3">
 
                 <div class="laoli-pdp-desktop-info">
-                    <div class="laoli-pdp-desktop-info-status js-status">{{ product_status }}</div>
+                    <div class="laoli-pdp-desktop-info-status js-status">{% if product.available %}{{ product_status }}{% else %}{{ section.settings.pdp-soldout }}{% endif %}</div>
                     <div class="laoli-pdp-desktop-info-title">{{ product.title}}</div>
                     <div class="laoli-pdp-desktop-info-price">{{ product.price | money_without_trailing_zeros}}</div>
                     <div class="laoli-pdp-desktop-info-text">{{ product.description}}</div>
@@ -203,8 +211,11 @@
                               {% endfor %}
                             </div>
                           </div>
-
-                          <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-addtocart }}">
+                          {% if  product.available %}
+                              <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-addtocart }}">
+                          {% else %}
+                              <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-soldout }}" disabled>
+                          {% endif %}
                       </div>
                     </form>
 
@@ -249,6 +260,12 @@
       "id": "pdp-addtocart",
       "label": "add to cart text",
       "default": "add to cart"
+    },
+    {
+      "type": "text",
+      "id": "pdp-soldout",
+      "label": "soldout text",
+      "default": "soldout"
     },
     {
       "type": "text",
