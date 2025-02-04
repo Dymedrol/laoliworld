@@ -30,5 +30,5 @@
       </picture>
     {% endif %}
     <div class="laoli-grid-item-title">{{ card_product.title }}</div>
-    <div class="laoli-grid-item-price">{% if card_product.available %}{{ card_product.price | money_without_trailing_zeros }}{% else %}soldout{% endif %}</div>
+    <div class="laoli-grid-item-price">{% if card_product.available %}{{ card_product.price | money_without_trailing_zeros }}{% else %}sold out{% endif %}</div>
 </a>
