@@ -304,5 +304,10 @@
         }
       }
     }
+  },
+  "platform_customizations": {
+    "custom_css": [
+      ".laoli-cart-footer-total {color: #764f39;}"
+    ]
   }
 }
