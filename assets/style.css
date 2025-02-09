@@ -715,7 +715,7 @@ a {
   content: '';
   width: 50%;
   height: 40px;
-  background: url('./button-white.svg');
+  background: url('./button-white-brown.svg');
   z-index: -1;
 }
 .button-white:after {
@@ -726,7 +726,7 @@ a {
   content: '';
   width: 51%;
   height: 40px;
-  background: url('./button-white.svg');
+  background: url('./button-white-brown.svg');
   z-index: -1;
   background-position-x: right;
 }
