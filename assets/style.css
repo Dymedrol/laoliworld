@@ -741,7 +741,7 @@ a {
   content: '';
   width: 50%;
   height: 40px;
-  background: url('./button-red.svg');
+  background: url('./button-red-brown.svg');
   z-index: -1;
 }
 .button-white:hover:after {
@@ -752,7 +752,7 @@ a {
   content: '';
   width: 51%;
   height: 40px;
-  background: url('./button-red.svg');
+  background: url('./button-red-brown.svg');
   z-index: -1;
   background-position-x: right;
 }
