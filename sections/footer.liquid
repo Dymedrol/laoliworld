@@ -70,3 +70,53 @@
   ]
 }
 {% endschema %}
+
+      <script>
+        // Immediately Invoked Function Expression to avoid global scope pollution
+(function() {
+    // Function to create a cookie with a specific expiration in days
+    function setCookie(name, value, days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            // Set expiration date to now plus the specified number of days
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        // Set the cookie
+        document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+    }
+
+    // Function to retrieve a cookie value by name
+    function getCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';'); // Split the cookies on semicolons
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            // Trim leading whitespace
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            // If the cookie name matches, return its value
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null; // Return null if not found
+    }
+
+    // Check if the cookie is already set to avoid repeated actions within 1 day
+    if (!getCookie('subscriptionClicked')) {
+        // Find the div with the class 'js-show-subscription'
+        var div = document.querySelector('.js-show-subscription');
+        if (div) {
+            // Simulate a click on the div
+            div.click();
+            // Set a cookie to remember this action for 1 day
+            setCookie('subscriptionClicked', 'true', 1);
+            console.log('Div clicked and cookie set.');
+        } else {
+            console.log('Div with class "js-show-subscription" not found.');
+        }
+    } else {
+        console.log('Action already performed within the last day.');
+    }
+})();
+
+      </script>
