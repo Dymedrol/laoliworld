@@ -1,6 +1,6 @@
 <section class="laoli-home-jumbo">
 
-    <picture class="laoli-home-jumbo-pic" >
+    <picture class="laoli-home-jumbo-pic" href="{{ section.settings.image_banner_title_link }}" >
       <source srcset="{{ section.settings.banner_image | img_url: '1820x840', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '3640x1680', crop: 'center' }} 2x" media="(min-width: 1920px)" />
       <source srcset="{{ section.settings.banner_image | img_url: '1340x680', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '2680x1360', crop: 'center' }} 2x" media="(min-width: 1440px)" />
       <source srcset="{{ section.settings.banner_image | img_url: '1100x680', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '2200x1360', crop: 'center' }} 2x" media="(min-width: 1200px)" />
