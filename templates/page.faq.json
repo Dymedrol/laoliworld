@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
@@ -21,28 +30,28 @@
           "type": "question",
           "settings": {
             "question_title": "When will my order ship?",
-            "question_answer": "We carry both in stock and made to order pieces. Our in stock pieces ship from our Paris showroom within 2 to 5 business days of purchase. If the item is made to order, the pieces ship within approximately 6 to 8 weeks as our artisans need time to create your piece.<br><br>To know whether an item is made to order or in stock, please refer to the product page of the item. If you need your piece to arrive sooner or if you are interested in same day delivery in Paris, please contact <a href=\"mailto:hello@laoliworld.com\" style=\"color: rgb(136, 136, 136); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(136, 136, 136); box-shadow: none; text-decoration: none;\">hello@laoliworld.com<\/a> and we will do our best to accommodate your request."
+            "question_answer": "We carry both in stock and made to order pieces. Our in stock pieces ship from our Paris showroom within 3 to 6 business days of purchase. If the item is made to order, please refer to the product page to see how long we need to create your piece. <br><br>If you need your piece to arrive sooner or if you are interested in same day delivery in Paris, please contact <a href=\"mailto:hello@laoliworld.com\" style=\"color: rgb(136, 136, 136); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(136, 136, 136); box-shadow: none; text-decoration: none;\">hello@laoliworld.com</a> and we will do our best to accommodate your request."
           }
         },
         "94f48511-b513-4e62-be04-8a00b1d23aa9": {
           "type": "question",
           "settings": {
             "question_title": "What does made to order mean?",
-            "question_answer": "Made to order means that the product is not currently in stock but will be created specially for you. As a small-batch producer, we choose to avoid excess production. Our made-to-order, which will take a little longer to get to you, keeps waste to a minimum and ensures our craftspeople can spend the time and care required on your jewels. Once your order is placed, please expect 6−8 weeks for your piece to be shipped."
+            "question_answer": "Made to order means that the product is not currently in stock but will be created specially for you. As a small-batch producer, we choose to avoid excess production. Our made-to-order, which will take a little longer to get to you, keeps waste to a minimum and ensures our craftspeople can spend the time and care required on your jewels. Please refer to the product page for production deadline."
           }
         },
         "829df9a2-4c8a-433f-b1b3-e22a2522d89f": {
           "type": "question",
           "settings": {
             "question_title": "How do I make changes to my order?",
-            "question_answer": "If you need to change your contact information, shipping information or cancel an order please contact us at <a href=\"mailto:hello@laoliworld.com\" style=\"color: rgb(136, 136, 136); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(136, 136, 136); box-shadow: none; text-decoration: none;\">hello@laoliworld.com<\/a> as soon as possible after placing your order for assistance."
+            "question_answer": "If you need to change your contact information, shipping information or cancel an order please contact us at <a href=\"mailto:hello@laoliworld.com\" style=\"color: rgb(136, 136, 136); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(136, 136, 136); box-shadow: none; text-decoration: none;\">hello@laoliworld.com</a> as soon as possible after placing your order for assistance."
           }
         },
         "9ee40c03-15df-4252-a441-f6b4bbb3189f": {
           "type": "question",
           "settings": {
             "question_title": "I live outside Europe. Are there any additional fees and taxes to pay upon receipt of my order?",
-            "question_answer": "We ship to international destinations outside the European Union via DHL. For orders shipped to destinations outside the European Union, duties and taxes are not included. Upon receipt, local custom duties, taxes and fees may apply, which are not included in the price or the shipping expenses. DHL will act as a broker in collecting any customs due. You may contact your local customs office for information regarding shipping from France to your country. LAOLI offers complimentary duties and taxes on all orders over 1700 EUR shipping to the United States."
+            "question_answer": "For orders shipped outside the EU and the United States, duties, taxes, and import fees are not included in the product or shipping prices. \n\nAs these costs vary by country and are beyond our control, we are unable to estimate them in advance. For specific information, please contact your local customs office."
           }
         }
       },
@@ -105,7 +114,7 @@
           "type": "question",
           "settings": {
             "question_title": "What happens if my piece is faulty or needs repair?",
-            "question_answer": "All items purchased on LAOLWORLD.com have a 2 year warranty from the date of your purchase. During this time frame, all repairs or replacements will be free of charge provided that the deterioration is related to a manufacturing defect. After this 2 year warranty period or repairs on non faulty items, we can still help repair your piece but there will be a cost for our services. If you find that your item is defective, please contact us at <a href=\"mailto:hello@laoliworld.com\" style=\"color: rgb(136, 136, 136); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(136, 136, 136); box-shadow: none; text-decoration: none;\">hello@laoliworld.com<\/a> with your invoice, description of defect and images of your piece."
+            "question_answer": "All items purchased on LAOLWORLD.com have a 2 year warranty from the date of your purchase. During this time frame, all repairs or replacements will be free of charge provided that the deterioration is related to a manufacturing defect. After this 2 year warranty period or repairs on non faulty items, we can still help repair your piece but there will be a cost for our services. If you find that your item is defective, please contact us at <a href=\"mailto:hello@laoliworld.com\" style=\"color: rgb(136, 136, 136); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(136, 136, 136); box-shadow: none; text-decoration: none;\">hello@laoliworld.com</a> with your invoice, description of defect and images of your piece."
           }
         }
       },
