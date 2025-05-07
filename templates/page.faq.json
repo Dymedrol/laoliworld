@@ -51,7 +51,7 @@
           "type": "question",
           "settings": {
             "question_title": "I live outside Europe. Are there any additional fees and taxes to pay upon receipt of my order?",
-            "question_answer": "For orders shipped outside the EU and the United States, duties, taxes, and import fees are not included in the product or shipping prices. \n\nAs these costs vary by country and are beyond our control, we are unable to estimate them in advance. For specific information, please contact your local customs office."
+            "question_answer": "For orders shipped outside the EU and the United States, duties, taxes, and import fees are not included in the product or shipping prices. \n\nAs these costs vary by country and are beyond our control, we are unable to estimate them in advance. For specific information, please contact your local customs office.\n\nFor customers in the United States, duties and taxes are covered by us. You will not be charged any additional fees when your order arrives."
           }
         }
       },
