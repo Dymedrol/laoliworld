@@ -16,13 +16,13 @@
         "grid_filter_in_stock": "in stock",
         "collection_for_filter_list": [
           "all",
-          "rings",
-          "earrings",
           "necklaces",
           "bracelets",
-          "in-stock",
+          "earrings",
+          "rings",
           "diamonds",
-          "pearls"
+          "pearls",
+          "jumbo"
         ]
       }
     }
