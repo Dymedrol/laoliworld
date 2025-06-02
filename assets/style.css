@@ -2157,7 +2157,7 @@ a {
 }
 .laoli-pdp-mobile-info-buttons-sizes-value {
   display: inline-block;
-  width: 17px;
+ /* width: 17px;*/
   text-align: right;
 }
 .laoli-pdp-mobile-info-buttons-sizes-menu {
