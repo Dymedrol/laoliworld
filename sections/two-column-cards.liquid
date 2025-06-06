@@ -29,7 +29,7 @@
   }
 
   .card-item {
-    height: calc(100vh - 120px);
+    height: calc({{ section.settings.desktop_card_height | default: 80 }}vh - 120px);
     width: 100%;
     max-width: 100%;
     position: relative;
@@ -66,6 +66,15 @@
     width: 100%;
   }
 
+  .card-link:hover .card-image {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
+
+  .card-image {
+    transition: transform 0.3s ease;
+  }
+
   /* Custom responsive breakpoints */
   @media (max-width: 1200px) {
     .two-column-cards {
@@ -85,7 +94,7 @@
     }
     
     .card-item {
-      height: calc(100vh - 90px);
+      height: calc({{ section.settings.mobile_card_height | default: 70 }}vh - 90px);
     }
     
     /* Reset centering for mobile since it's single column */
@@ -192,6 +201,32 @@
       "label": "Mobile Vertical Spacing",
       "default": 30,
       "info": "Vertical spacing between cards on mobile"
+    },
+    {
+      "type": "header",
+      "content": "Card Height"
+    },
+    {
+      "type": "range",
+      "id": "desktop_card_height",
+      "min": 30,
+      "max": 100,
+      "step": 5,
+      "unit": "vh",
+      "label": "Desktop Card Height",
+      "default": 80,
+      "info": "Height of cards on desktop (viewport height minus 120px built-in adjustment)"
+    },
+    {
+      "type": "range",
+      "id": "mobile_card_height",
+      "min": 30,
+      "max": 90,
+      "step": 5,
+      "unit": "vh",
+      "label": "Mobile Card Height",
+      "default": 70,
+      "info": "Height of cards on mobile (viewport height minus 90px built-in adjustment)"
     },
     {
       "type": "header",
