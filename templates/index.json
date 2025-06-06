@@ -76,9 +76,10 @@
         "card_Ky8BA4",
         "card_zKcRw8"
       ],
-      "disabled": true,
       "name": "Two Column Cards",
       "settings": {
+        "top_spacing": 50,
+        "bottom_spacing": 50,
         "section_id": ""
       }
     }

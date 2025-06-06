@@ -21,6 +21,13 @@
     align-items: center;
   }
 
+  /* Center odd cards when they're alone in a row */
+  .card-item:nth-child(odd):last-child {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: calc(50% - 25px);
+  }
+
   .card-item {
     height: calc(100vh - 120px);
     width: 100%;
@@ -64,6 +71,10 @@
     .two-column-cards {
       gap: 20px;
     }
+    
+    .card-item:nth-child(odd):last-child {
+      max-width: calc(50% - 10px);
+    }
   }
 
   @media (max-width: 960px) {
@@ -74,6 +85,12 @@
     
     .card-item {
       height: calc(100vh - 90px);
+    }
+    
+    /* Reset centering for mobile since it's single column */
+    .card-item:nth-child(odd):last-child {
+      grid-column: auto;
+      max-width: 100%;
     }
   }
 
