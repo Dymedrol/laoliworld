@@ -3767,3 +3767,12 @@ a {
   border-radius: 0 !important;
   width: 100%;
 }
+
+/* If laoli-banner exists anywhere in the DOM, adjust the jumbo height */
+.laoli-banner ~ * .laoli-home-jumbo .laoli-home-jumbo-pic,
+.laoli-banner ~ * .laoli-home-jumbo .laoli-home-jumbo-pic img,
+body:has(.laoli-banner) .laoli-home-jumbo .laoli-home-jumbo-pic,
+body:has(.laoli-banner) .laoli-home-jumbo .laoli-home-jumbo-pic img {
+  height: calc(100% - 50px);
+  max-height: calc(100vh - 50px);
+}
