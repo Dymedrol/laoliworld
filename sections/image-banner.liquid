@@ -50,3 +50,15 @@
   ]
 }
 {% endschema %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  const laolisBanner = document.querySelector('.laoli-banner');
+  const jumboSection = document.querySelector('.laoli-home-jumbo');
+  
+  if (laolisBanner && jumboSection) {
+    // Get current height and reduce by 50px
+    const currentHeight = jumboSection.offsetHeight;
+    jumboSection.style.height = (currentHeight - 50) + 'px';
+  }
+});
+</script>
