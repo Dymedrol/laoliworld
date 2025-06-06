@@ -14,7 +14,7 @@
   .two-column-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: {{ section.settings.desktop_vertical_spacing | default: 50 }}px 50px;
     max-width: 100%;
     box-sizing: border-box;
     justify-items: center;
@@ -69,7 +69,7 @@
   /* Custom responsive breakpoints */
   @media (max-width: 1200px) {
     .two-column-cards {
-      gap: 20px;
+      gap: {{ section.settings.desktop_vertical_spacing | default: 50 }}px 20px;
     }
     
     .card-item:nth-child(odd):last-child {
@@ -80,7 +80,7 @@
   @media (max-width: 960px) {
     .two-column-cards {
       grid-template-columns: 1fr;
-      gap: 30px;
+      gap: {{ section.settings.mobile_vertical_spacing | default: 30 }}px;
       justify-items: center;
     }
     
@@ -97,7 +97,7 @@
 
   @media (max-width: 480px) {
     .two-column-cards {
-      gap: 20px;
+      gap: {{ section.settings.mobile_vertical_spacing | default: 30 }}px;
     }
   }
 </style>
@@ -166,6 +166,32 @@
       "label": "Bottom Spacing",
       "default": 50,
       "info": "Add spacing below the section"
+    },
+    {
+      "type": "header",
+      "content": "Card Spacing"
+    },
+    {
+      "type": "range",
+      "id": "desktop_vertical_spacing",
+      "min": 0,
+      "max": 100,
+      "step": 5,
+      "unit": "px",
+      "label": "Desktop Vertical Spacing",
+      "default": 50,
+      "info": "Vertical spacing between card rows on desktop"
+    },
+    {
+      "type": "range",
+      "id": "mobile_vertical_spacing",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "px",
+      "label": "Mobile Vertical Spacing",
+      "default": 30,
+      "info": "Vertical spacing between cards on mobile"
     },
     {
       "type": "header",
