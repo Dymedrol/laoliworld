@@ -1,4 +1,4 @@
-<section class="laoli-home-jumbo">
+<section class="laoli-home-jumbo{% if section.settings.fullscreen_mode %} laoli-home-jumbo--fullscreen{% endif %}">
  <a href="{{ section.settings.image_banner_title_link }}" >
     <picture class="laoli-home-jumbo-pic" >
       <source srcset="{{ section.settings.banner_image | img_url: '1820x840', crop: 'center' }} 1x, {{ section.settings.banner_image | img_url: '3640x1680', crop: 'center' }} 2x" media="(min-width: 1920px)" />
@@ -12,13 +12,19 @@
     </picture>
 </a>
     <a href="{{ section.settings.image_banner_title_link }}" class="laoli-home-jumbo-button button-red">{{ section.settings.image_banner_title_text }}</a>
-
 </section>
 
 {% schema %}
 {
   "name": "t:sections.image-banner.name",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "fullscreen_mode",
+      "label": "Enable fullscreen mode",
+      "default": false,
+      "info": "Removes border radius and makes image span full viewport width"
+    },
     {
       "type": "text",
       "id": "image_banner_title_text",
@@ -36,12 +42,11 @@
       "id": "banner_image",
       "label": "image-banner image"
     },
-        {
+    {
       "type": "image_picker",
       "id": "banner_image_mobile",
       "label": "image-banner image mobile"
     }
   ]
 }
-
 {% endschema %}
