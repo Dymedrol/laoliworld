@@ -3755,3 +3755,15 @@ a {
   line-height: 17.5px !important;
 }
 
+/* Fullscreen mode styles */
+.laoli-home-jumbo--fullscreen {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  border-radius: 0 !important;
+}
+
+.laoli-home-jumbo--fullscreen .laoli-home-jumbo-pic,
+.laoli-home-jumbo--fullscreen .laoli-home-jumbo-pic img {
+  border-radius: 0 !important;
+  width: 100%;
+}
