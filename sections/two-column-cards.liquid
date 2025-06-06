@@ -6,6 +6,11 @@
 {% endcomment %}
 
 <style>
+  .two-column-cards-section {
+    padding-top: {{ section.settings.top_spacing | default: 0 }}px;
+    padding-bottom: {{ section.settings.bottom_spacing | default: 0 }}px;
+  }
+
   .two-column-cards {
     padding: 0 50px;
     display: grid;
@@ -13,11 +18,14 @@
     gap: 50px;
     max-width: 100%;
     box-sizing: border-box;
+    justify-items: center;
+    align-items: center;
   }
 
   .card-item {
     height: calc(100vh - 100px);
     width: 100%;
+    max-width: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
@@ -49,15 +57,7 @@
     color: inherit;
     display: block;
     height: 100%;
-  }
-
-  .card-link:hover .card-image {
-    transform: scale(1.02);
-    transition: transform 0.3s ease;
-  }
-
-  .card-image {
-    transition: transform 0.3s ease;
+    width: 100%;
   }
 
   /* Custom responsive breakpoints */
@@ -71,6 +71,7 @@
   @media (max-width: 960px) {
     .two-column-cards {
       grid-template-columns: 1fr;
+      justify-items: center;
     }
     
     .card-item {
@@ -125,6 +126,32 @@
   "tag": "section",
   "class": "section-two-column-cards",
   "settings": [
+    {
+      "type": "header",
+      "content": "Section Spacing"
+    },
+    {
+      "type": "range",
+      "id": "top_spacing",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Top Spacing",
+      "default": 50,
+      "info": "Add spacing above the section"
+    },
+    {
+      "type": "range",
+      "id": "bottom_spacing",
+      "min": 0,
+      "max": 200,
+      "step": 10,
+      "unit": "px",
+      "label": "Bottom Spacing",
+      "default": 50,
+      "info": "Add spacing below the section"
+    },
     {
       "type": "header",
       "content": "Section Settings"
