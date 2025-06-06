@@ -18,7 +18,8 @@
     max-width: 100%;
     box-sizing: border-box;
     justify-items: center;
-    align-items: center;
+    align-items: stretch; /* This ensures all cards in a row have the same height */
+    grid-auto-rows: minmax(calc({{ section.settings.desktop_card_height | default: 80 }}vh - 120px), auto);
   }
 
   /* Center odd cards when they're alone in a row */
@@ -35,15 +36,17 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    min-height: calc({{ section.settings.desktop_card_height | default: 80 }}vh - 120px);
   }
 
   .card-image {
     width: 100%;
-    height: 100%;
+    flex: 1; /* This makes the image take up available space */
     object-fit: cover;
     border-radius: 12px;
     box-shadow: 2px 5px 10px 0px rgba(0, 0, 0, 0.10);
     display: block;
+    min-height: 0; /* Prevents flex item from overflowing */
   }
 
   .card-subtitle {
@@ -56,12 +59,14 @@
     margin-top: 20px;
     text-align: left;
     color: inherit;
+    flex-shrink: 0; /* Prevents subtitle from shrinking */
   }
 
   .card-link {
     text-decoration: none;
     color: inherit;
-    display: block;
+    display: flex;
+    flex-direction: column;
     height: 100%;
     width: 100%;
   }
@@ -79,6 +84,7 @@
   @media (max-width: 1200px) {
     .two-column-cards {
       gap: {{ section.settings.desktop_vertical_spacing | default: 50 }}px 20px;
+      grid-auto-rows: minmax(calc({{ section.settings.desktop_card_height | default: 80 }}vh - 120px), auto);
     }
     
     .card-item:nth-child(odd):last-child {
@@ -91,10 +97,13 @@
       grid-template-columns: 1fr;
       gap: {{ section.settings.mobile_vertical_spacing | default: 30 }}px;
       justify-items: center;
+      align-items: stretch;
+      grid-auto-rows: minmax(calc({{ section.settings.mobile_card_height | default: 70 }}vh - 90px), auto);
     }
     
     .card-item {
       height: calc({{ section.settings.mobile_card_height | default: 70 }}vh - 90px);
+      min-height: calc({{ section.settings.mobile_card_height | default: 70 }}vh - 90px);
     }
     
     /* Reset centering for mobile since it's single column */
@@ -107,6 +116,7 @@
   @media (max-width: 480px) {
     .two-column-cards {
       gap: {{ section.settings.mobile_vertical_spacing | default: 30 }}px;
+      grid-auto-rows: minmax(calc({{ section.settings.mobile_card_height | default: 70 }}vh - 90px), auto);
     }
   }
 </style>
