@@ -42,6 +42,45 @@
       "settings": {
         "main_image": "shopify://shop_images/image_9_88644bfd-4f50-47bf-9152-ef33adf9d0da.png"
       }
+    },
+    "two_column_cards_f7yJQL": {
+      "type": "two-column-cards",
+      "blocks": {
+        "card_pTa76a": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/DSC_0407.jpg",
+            "card_subtitle": "Sample Card 1",
+            "card_link": ""
+          }
+        },
+        "card_Ky8BA4": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/DSC_0958.jpg",
+            "card_subtitle": "Sample Card 2",
+            "card_link": ""
+          }
+        },
+        "card_zKcRw8": {
+          "type": "card",
+          "settings": {
+            "card_image": "shopify://shop_images/DSC_0727.jpg",
+            "card_subtitle": "third subtitle",
+            "card_link": "shopify://pages/about"
+          }
+        }
+      },
+      "block_order": [
+        "card_pTa76a",
+        "card_Ky8BA4",
+        "card_zKcRw8"
+      ],
+      "disabled": true,
+      "name": "Two Column Cards",
+      "settings": {
+        "section_id": ""
+      }
     }
   },
   "order": [
@@ -49,6 +88,7 @@
     "85d25305-81ad-4cc7-ac1e-75704ab79edf",
     "c7a55a79-d2ec-4889-90c4-ea672a86842d",
     "11e7aaaf-536c-4cbb-a9cb-24cbaafb9bf5",
-    "dc400eca-c8aa-4954-990c-851d09ab8bd2"
+    "dc400eca-c8aa-4954-990c-851d09ab8bd2",
+    "two_column_cards_f7yJQL"
   ]
 }
