@@ -42,8 +42,19 @@ class CartItems extends HTMLElement {
   }
 
   onChange(event) {
-    const lineItemKey = event.target.dataset.lineItemKey;
-    this.updateQuantity(lineItemKey, event.target.value, document.activeElement.getAttribute('name'));
+    const key = event.target.dataset.lineItemKey;
+    const newQuantity = event.target.value;
+
+    fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ key, quantity: newQuantity })
+    })
+    .then(() => fetch('/cart.js'))
+    .then(res => res.json())
+    .then(cart => {
+      // Re-render cart with new keys
+    });
   }
 
   onCartUpdate() {
