@@ -12,16 +12,8 @@
           </picture>
       {%- endfor -%}
       <form method="post" action="/cart/add" class="laoli-pdp-gallery-form js-cart-form">  
-        {% if product.variants.size == 1 %}
-          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-        {% else %}
-          <select name="id">
-            {% for variant in product.variants %}
-              <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title }}</option>
-            {% endfor %}
-          </select>
-        {% endif %}
-        <input type="number" name="quantity" value="1" min="1" class="js-qty">
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+  <input type="number" name="quantity" value="1" min="1" class="js-qty">
         <div class="laoli-pdp-mobile-info-buttons">
 
           <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
@@ -35,19 +27,20 @@
                 {% endif %}
             {%- endfor -%}
 
+            <input type="hidden" name="id" value="{{ first_variant.id }}">
             <div class="laoli-pdp-mobile-info-buttons-sizes">
               {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ first_variant.title }}</span>
             </div>
             <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
               {% for variant in product.variants %}
                 {% if variant.inventory_quantity > 0 %}
-                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id }}">{{ variant.title }}</div>
+                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id }}">!{{ variant.title }}</div>
                 {% endif %}
               {% endfor %}
 
               {% for variant in product.variants %}
                 {% if variant.inventory_quantity <= 0 %}
-                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity <= 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id }}">{{ variant.title }}</div>
+                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity <= 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id }}">!{{ variant.title }}</div>
                 {% endif %}
               {% endfor %}
             </div>
@@ -106,15 +99,6 @@
             <div class="laoli-pdp-mobile-info-text">{{ product.description }}</div>
 
             <form method="post" action="/cart/add" class="js-cart-form">
-              {% if product.variants.size == 1 %}
-                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-              {% else %}
-                <select name="id">
-                  {% for variant in product.variants %}
-                    <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title }}</option>
-                  {% endfor %}
-                </select>
-              {% endif %}
               <div class="laoli-pdp-mobile-info-buttons">
 
                 <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
@@ -128,19 +112,20 @@
                       {% endif %}
                   {%- endfor -%}
 
+                  <input type="hidden" name="id" value="{{ first_variant.id }}">
                   <div class="laoli-pdp-mobile-info-buttons-sizes">
                     {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ first_variant.title }}</span>
                   </div>
                   <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
                     {% for variant in product.variants %}
                       {% if variant.inventory_quantity > 0 %}
-                        <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id }}">{{ variant.title }}</div>
+                        <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id}}">{{ variant.title }}</div>
                       {% endif %}
                     {% endfor %}
 
                     {% for variant in product.variants %}
                       {% if variant.inventory_quantity <= 0 %}
-                        <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity <= 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id }}">{{ variant.title }}</div>
+                        <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity <= 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id}}">{{ variant.title }}</div>
                       {% endif %}
                     {% endfor %}
                   </div>
@@ -197,15 +182,6 @@
                     <div class="laoli-pdp-desktop-info-text">{{ product.description}}</div>
 
                     <form method="post" action="/cart/add" class="js-cart-form">
-                      {% if product.variants.size == 1 %}
-                        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
-                      {% else %}
-                        <select name="id">
-                          {% for variant in product.variants %}
-                            <option value="{{ variant.id }}" {% if variant == product.selected_or_first_available_variant %}selected{% endif %} {% unless variant.available %}disabled{% endunless %}>{{ variant.title }}</option>
-                          {% endfor %}
-                        </select>
-                      {% endif %}
                       <div class="laoli-pdp-mobile-info-buttons">
 
                           <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
@@ -219,19 +195,20 @@
                                 {% endif %}
                             {%- endfor -%}
 
+                            <input type="hidden" name="id" value="{{ first_variant.id }}">
                             <div class="laoli-pdp-mobile-info-buttons-sizes">
                               {{ section.settings.pdp-size}}: <span class="laoli-pdp-mobile-info-buttons-sizes-value">{{ first_variant.title }}</span>
                             </div>
                             <div class="laoli-pdp-mobile-info-buttons-sizes-menu">
                               {% for variant in product.variants %}
                                 {% if variant.inventory_quantity > 0 %}
-                                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id }}">{{ variant.title }}</div>
+                                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity == 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id}}">{{ variant.title }}</div>
                                 {% endif %}
                               {% endfor %}
 
                               {% for variant in product.variants %}
                                 {% if variant.inventory_quantity <= 0 %}
-                                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity <= 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id }}">{{ variant.title }}</div>
+                                  <div class="laoli-pdp-mobile-info-buttons-sizes-menu-item{% if variant.inventory_quantity <= 0 %} laoli-pdp-mobile-info-buttons-sizes-menu-item_empty{% endif %}" data-price="{{ variant.price | money_without_trailing_zeros }}" data-id="{{ variant.id}}">{{ variant.title }}</div>
                                 {% endif %}
                               {% endfor %}
                             </div>
