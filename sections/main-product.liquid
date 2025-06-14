@@ -11,7 +11,9 @@
             <img src="{{ media.preview_image | image_url: width: 1100 }}" alt="" data-index="{{ forloop.index }}">
           </picture>
       {%- endfor -%}
-      <form method="post" action="/cart/add" class="laoli-pdp-gallery-form js-cart-form">
+      <form method="post" action="/cart/add" class="laoli-pdp-gallery-form js-cart-form">  
+        <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+  <input type="number" name="quantity" value="1" min="1">
         <div class="laoli-pdp-mobile-info-buttons">
 
           <div class="laoli-pdp-mobile-info-buttons-sizes-wrapper {% if product.variants.size <= 1 %}hidden{% endif %}">
