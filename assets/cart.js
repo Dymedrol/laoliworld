@@ -98,74 +98,94 @@ class CartItems extends HTMLElement {
         return response.text();
       })
       .then((state) => {
-        const parsedState = JSON.parse(state);
-        const quantityElement = document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
-        const items = document.querySelectorAll('.cart-item');
+        let parsedState = JSON.parse(state);
 
-        if (parsedState.errors) {
-          quantityElement.value = quantityElement.getAttribute('value');
-          this.updateLiveRegions(line, parsedState.errors);
-          return;
-        }
+        // Defensive fallback: if items are missing or empty, fetch full cart
+        function proceedWithState(stateToUse) {
+          const quantityElement = document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
+          const items = document.querySelectorAll('.cart-item');
 
-        this.classList.toggle('is-empty', parsedState.item_count === 0);
-        const cartDrawerWrapper = document.querySelector('cart-drawer');
-        const cartFooter = document.getElementById('main-cart-footer');
+          if (stateToUse.errors) {
+            quantityElement.value = quantityElement.getAttribute('value');
+            this.updateLiveRegions(line, stateToUse.errors);
+            return;
+          }
 
-        if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
-        if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
+          this.classList.toggle('is-empty', stateToUse.item_count === 0);
+          const cartDrawerWrapper = document.querySelector('cart-drawer');
+          const cartFooter = document.getElementById('main-cart-footer');
 
-        if (parsedState.sections) {
-          this.getSectionsToRender().forEach((section) => {
-            const elementToReplace = document.getElementById(section.id);
-            if (!elementToReplace) return;
+          if (cartFooter) cartFooter.classList.toggle('is-empty', stateToUse.item_count === 0);
+          if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', stateToUse.item_count === 0);
 
-            const sectionContent = parsedState.sections[section.section];
-            if (!sectionContent) return;
+          // Update sections with proper error handling
+          if (stateToUse.sections) {
+            this.getSectionsToRender().forEach((section) => {
+              const elementToReplace = document.getElementById(section.id);
+              if (!elementToReplace) return;
 
-            const selector = section.selector;
-            const element = elementToReplace.querySelector(selector) || elementToReplace;
-            if (!element) return;
+              const sectionContent = stateToUse.sections[section.section];
+              if (!sectionContent) return;
 
-            try {
-              element.innerHTML = this.getSectionInnerHTML(sectionContent, selector);
-            } catch (error) {
-              console.error('Error updating section:', error);
+              const selector = section.selector;
+              const element = elementToReplace.querySelector(selector) || elementToReplace;
+              if (!element) return;
+
+              try {
+                element.innerHTML = this.getSectionInnerHTML(sectionContent, selector);
+              } catch (error) {
+                console.error('Error updating section:', error);
+              }
+            });
+          }
+
+          // Safely handle product quantity update
+          let message = '';
+          try {
+            const cartItems = Array.isArray(stateToUse.items) ? stateToUse.items : [];
+            const currentProduct = cartItems[line - 1];
+            console.log('USING STATE:', stateToUse, 'line:', line, 'currentProduct:', currentProduct);
+            const currentQuantity = parseInt(quantityElement?.value || '0', 10);
+            const updatedValue = currentProduct ? currentProduct.quantity : undefined;
+
+            if (cartItems.length === stateToUse.items?.length &&
+                typeof updatedValue === 'number' &&
+                updatedValue !== currentQuantity) {
+              message = window.cartStrings.quantityError.replace('[quantity]', updatedValue);
+            } else if (typeof updatedValue === 'undefined') {
+              message = window.cartStrings.error;
             }
-          });
-        }
-
-        let message = '';
-        try {
-          const items = Array.isArray(parsedState.items) ? parsedState.items : [];
-          const currentProduct = items[line - 1];
-          console.log('parsedState.items:', parsedState.items, 'line:', line, 'currentProduct:', currentProduct);
-          const currentQuantity = parseInt(quantityElement?.value || '0', 10);
-          const updatedValue = currentProduct ? currentProduct.quantity : undefined;
-
-          if (items.length === parsedState.items?.length &&
-              typeof updatedValue === 'number' &&
-              updatedValue !== currentQuantity) {
-            message = window.cartStrings.quantityError.replace('[quantity]', updatedValue);
-          } else if (typeof updatedValue === 'undefined') {
+          } catch (error) {
+            console.error('Error processing quantity update:', error);
             message = window.cartStrings.error;
           }
-        } catch (error) {
-          console.error('Error processing quantity update:', error);
-          message = window.cartStrings.error;
+
+          this.updateLiveRegions(line, message);
+
+          // Handle focus management
+          const lineItem = document.getElementById(`CartItem-${line}`) || document.getElementById(`CartDrawer-Item-${line}`);
+          if (lineItem && lineItem.querySelector(`[name="${name}"]`)) {
+            cartDrawerWrapper ? trapFocus(cartDrawerWrapper, lineItem.querySelector(`[name="${name}"]`)) : lineItem.querySelector(`[name="${name}"]`).focus();
+          } else if (stateToUse.item_count === 0 && cartDrawerWrapper) {
+            trapFocus(cartDrawerWrapper.querySelector('.drawer__inner-empty'), cartDrawerWrapper.querySelector('a'))
+          } else if (document.querySelector('.cart-item') && cartDrawerWrapper) {
+            trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'))
+          }
+          publish(PUB_SUB_EVENTS.cartUpdate, {source: 'cart-items'});
         }
 
-        this.updateLiveRegions(line, message);
-
-        const lineItem = document.getElementById(`CartItem-${line}`) || document.getElementById(`CartDrawer-Item-${line}`);
-        if (lineItem && lineItem.querySelector(`[name="${name}"]`)) {
-          cartDrawerWrapper ? trapFocus(cartDrawerWrapper, lineItem.querySelector(`[name="${name}"]`)) : lineItem.querySelector(`[name="${name}"]`).focus();
-        } else if (parsedState.item_count === 0 && cartDrawerWrapper) {
-          trapFocus(cartDrawerWrapper.querySelector('.drawer__inner-empty'), cartDrawerWrapper.querySelector('a'))
-        } else if (document.querySelector('.cart-item') && cartDrawerWrapper) {
-          trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'))
+        if (!Array.isArray(parsedState.items) || parsedState.items.length === 0) {
+          console.warn('Fallback: items missing from AJAX response, fetching /cart.js');
+          fetch('/cart.js')
+            .then(res => res.json())
+            .then(fullCart => {
+              parsedState.items = fullCart.items;
+              parsedState.item_count = fullCart.item_count;
+              proceedWithState.call(this, parsedState);
+            });
+        } else {
+          proceedWithState.call(this, parsedState);
         }
-        publish(PUB_SUB_EVENTS.cartUpdate, {source: 'cart-items'});
       }).catch((error) => {
         console.error('Cart update error:', error);
         this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
