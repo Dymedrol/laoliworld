@@ -45,6 +45,8 @@ class CartItems extends HTMLElement {
     const key = event.target.dataset.lineItemKey;
     const newQuantity = event.target.value;
 
+    console.log('[UPDATE CART] key:', key, 'quantity:', newQuantity);
+
     fetch('/cart/change.js', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -102,6 +104,8 @@ class CartItems extends HTMLElement {
       key: lineItemKey,
       quantity
     });
+
+    console.log('[UPDATE CART] key:', lineItemKey, 'quantity:', quantity);
 
     fetch('/cart/change.js', {
       method: 'POST',
