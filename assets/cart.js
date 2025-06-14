@@ -137,15 +137,18 @@ class CartItems extends HTMLElement {
 
         let message = '';
         try {
-          const items = parsedState.items || [];
+          const items = Array.isArray(parsedState.items) ? parsedState.items : [];
           const currentProduct = items[line - 1];
+          console.log('parsedState.items:', parsedState.items, 'line:', line, 'currentProduct:', currentProduct);
           const currentQuantity = parseInt(quantityElement?.value || '0', 10);
-          const updatedValue = currentProduct?.quantity;
-          
-          if (items.length === parsedState.items?.length && 
-              typeof updatedValue === 'number' && 
+          const updatedValue = currentProduct ? currentProduct.quantity : undefined;
+
+          if (items.length === parsedState.items?.length &&
+              typeof updatedValue === 'number' &&
               updatedValue !== currentQuantity) {
             message = window.cartStrings.quantityError.replace('[quantity]', updatedValue);
+          } else if (typeof updatedValue === 'undefined') {
+            message = window.cartStrings.error;
           }
         } catch (error) {
           console.error('Error processing quantity update:', error);
