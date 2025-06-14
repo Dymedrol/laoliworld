@@ -1,4 +1,4 @@
-class CartRemoveButton extends HTMLElement {
+class CartRemove1Button extends HTMLElement {
   constructor() {
     super();
 
