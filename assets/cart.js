@@ -117,13 +117,15 @@ class CartItems extends HTMLElement {
 
         this.getSectionsToRender().forEach((section => {
           const elementToReplace = 
-            document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
-          elementToReplace.innerHTML = 
-            this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
+            document.getElementById(section.id)?.querySelector(section.selector) || document.getElementById(section.id);
+          if (elementToReplace && parsedState.sections && parsedState.sections[section.section]) {
+            elementToReplace.innerHTML = 
+              this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
+          }
         }));
 
-        const currentProduct = parsedState.items[line - 1];
-        const updatedValue = currentProduct ? currentProduct.quantity : undefined;
+        const currentProduct = parsedState.items?.[line - 1];
+        const updatedValue = currentProduct?.quantity;
         let message = '';
         if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
           if (typeof updatedValue === 'undefined') {
