@@ -42,7 +42,8 @@ class CartItems extends HTMLElement {
   }
 
   onChange(event) {
-    this.updateQuantity(event.target.dataset.index, event.target.value, document.activeElement.getAttribute('name'));
+    const variantId = event.target.dataset.quantityVariantId;
+    this.updateQuantity(event.target.dataset.index, event.target.value, document.activeElement.getAttribute('name'), variantId);
   }
 
   onCartUpdate() {
@@ -83,7 +84,7 @@ class CartItems extends HTMLElement {
     ];
   }
 
-  updateQuantity(line, quantity, name) {
+  updateQuantity(line, quantity, name, variantId) {
     this.enableLoading(line);
 
     const body = JSON.stringify({
@@ -100,7 +101,6 @@ class CartItems extends HTMLElement {
       .then((state) => {
         let parsedState = JSON.parse(state);
 
-        // Defensive fallback: if items are missing or empty, fetch full cart
         function proceedWithState(stateToUse) {
           const quantityElement = document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
           const items = document.querySelectorAll('.cart-item');
@@ -118,7 +118,6 @@ class CartItems extends HTMLElement {
           if (cartFooter) cartFooter.classList.toggle('is-empty', stateToUse.item_count === 0);
           if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', stateToUse.item_count === 0);
 
-          // Update sections with proper error handling
           if (stateToUse.sections) {
             this.getSectionsToRender().forEach((section) => {
               const elementToReplace = document.getElementById(section.id);
@@ -139,12 +138,17 @@ class CartItems extends HTMLElement {
             });
           }
 
-          // Safely handle product quantity update
+          // Robust cart item lookup by variant ID
           let message = '';
           try {
             const cartItems = Array.isArray(stateToUse.items) ? stateToUse.items : [];
-            const currentProduct = cartItems[line - 1];
-            console.log('USING STATE:', stateToUse, 'line:', line, 'currentProduct:', currentProduct);
+            let currentProduct = null;
+            if (variantId) {
+              currentProduct = cartItems.find(item => String(item.id) === String(variantId));
+            } else {
+              currentProduct = cartItems[line - 1];
+            }
+            console.log('USING STATE:', stateToUse, 'line:', line, 'variantId:', variantId, 'currentProduct:', currentProduct);
             const currentQuantity = parseInt(quantityElement?.value || '0', 10);
             const updatedValue = currentProduct ? currentProduct.quantity : undefined;
 
