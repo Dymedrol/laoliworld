@@ -100,106 +100,34 @@ class CartItems extends HTMLElement {
 
     const body = JSON.stringify({
       key: lineItemKey,
-      quantity,
-      sections: this.getSectionsToRender().map((section) => section.section),
-      sections_url: window.location.pathname
+      quantity
     });
 
-    fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
-      .then((response) => {
-        return response.text();
-      })
-      .then((state) => {
-        let parsedState = JSON.parse(state);
+    fetch('/cart/change.js', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body
+    })
+    .then(() => fetch('/cart.js'))
+    .then(res => res.json())
+    .then(cart => {
+      this.renderCart(cart); // Update the cart UI with the latest cart data
+    })
+    .catch((error) => {
+      console.error('Cart update error:', error);
+      alert('There was a problem updating your cart. Please try again.');
+    })
+    .finally(() => {
+      this.disableLoading(lineItemKey);
+    });
+  }
 
-        function proceedWithState(stateToUse) {
-          const quantityElement = document.querySelector(`[data-line-item-key="${lineItemKey}"]`);
-          const items = document.querySelectorAll('.cart-item');
-
-          if (stateToUse.errors) {
-            quantityElement.value = quantityElement.getAttribute('value');
-            this.updateLiveRegions(lineItemKey, stateToUse.errors);
-            return;
-          }
-
-          this.classList.toggle('is-empty', stateToUse.item_count === 0);
-          const cartDrawerWrapper = document.querySelector('cart-drawer');
-          const cartFooter = document.getElementById('main-cart-footer');
-
-          if (cartFooter) cartFooter.classList.toggle('is-empty', stateToUse.item_count === 0);
-          if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', stateToUse.item_count === 0);
-
-          if (stateToUse.sections) {
-            this.getSectionsToRender().forEach((section) => {
-              const elementToReplace = document.getElementById(section.id);
-              if (!elementToReplace) return;
-
-              const sectionContent = stateToUse.sections[section.section];
-              if (!sectionContent) return;
-
-              const selector = section.selector;
-              const element = elementToReplace.querySelector(selector) || elementToReplace;
-              if (!element) return;
-
-              try {
-                element.innerHTML = this.getSectionInnerHTML(sectionContent, selector);
-              } catch (error) {
-                console.error('Error updating section:', error);
-              }
-            });
-          }
-
-          // Find cart item by key
-          let message = '';
-          try {
-            const cartItems = Array.isArray(stateToUse.items) ? stateToUse.items : [];
-            const currentProduct = cartItems.find(item => item.key === lineItemKey);
-            if (!currentProduct) {
-              console.error('[CRITICAL] Could not find cart item by key!', {cartItems, lineItemKey, stateToUse});
-            }
-            const currentQuantity = parseInt(quantityElement?.value || '0', 10);
-            const updatedValue = currentProduct ? currentProduct.quantity : undefined;
-
-            if (cartItems.length === stateToUse.items?.length &&
-                typeof updatedValue === 'number' &&
-                updatedValue !== currentQuantity) {
-              message = window.cartStrings.quantityError.replace('[quantity]', updatedValue);
-            } else if (typeof updatedValue === 'undefined') {
-              message = window.cartStrings.error;
-            }
-          } catch (error) {
-            console.error('Error processing quantity update:', error);
-            message = window.cartStrings.error;
-          }
-
-          this.updateLiveRegions(lineItemKey, message);
-
-          // Handle focus management
-          // (You may want to update this logic to use the key as well)
-          publish(PUB_SUB_EVENTS.cartUpdate, {source: 'cart-items'});
-        }
-
-        if (!Array.isArray(parsedState.items) || parsedState.items.length === 0) {
-          console.warn('Fallback: items missing from AJAX response, fetching /cart.js');
-          fetch('/cart.js')
-            .then(res => res.json())
-            .then(fullCart => {
-              parsedState.items = fullCart.items;
-              parsedState.item_count = fullCart.item_count;
-              proceedWithState.call(this, parsedState);
-            });
-        } else {
-          proceedWithState.call(this, parsedState);
-        }
-      }).catch((error) => {
-        console.error('Cart update error:', error);
-        this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
-        const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
-        errors.textContent = window.cartStrings.error;
-      })
-      .finally(() => {
-        this.disableLoading(lineItemKey);
-      });
+  // Placeholder for your cart UI update logic
+  renderCart(cart) {
+    // TODO: Implement this function to update the cart UI using the latest cart data
+    // For example, re-render cart items, totals, etc.
+    // You may want to replace the cart HTML or update specific elements
+    console.log('[RENDER CART]', cart);
   }
 
   updateLiveRegions(line, message) {
