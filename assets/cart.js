@@ -135,23 +135,23 @@ class CartItems extends HTMLElement {
           });
         }
 
-        let updatedValue;
-        try {
-          const currentProduct = parsedState.items?.[line - 1];
-          updatedValue = currentProduct?.quantity;
-        } catch (error) {
-          console.error('Error getting product quantity:', error);
-          updatedValue = undefined;
-        }
-
         let message = '';
-        if (items.length === parsedState.items?.length && updatedValue !== parseInt(quantityElement.value)) {
-          if (typeof updatedValue === 'undefined') {
-            message = window.cartStrings.error;
-          } else {
+        try {
+          const items = parsedState.items || [];
+          const currentProduct = items[line - 1];
+          const currentQuantity = parseInt(quantityElement?.value || '0', 10);
+          const updatedValue = currentProduct?.quantity;
+          
+          if (items.length === parsedState.items?.length && 
+              typeof updatedValue === 'number' && 
+              updatedValue !== currentQuantity) {
             message = window.cartStrings.quantityError.replace('[quantity]', updatedValue);
           }
+        } catch (error) {
+          console.error('Error processing quantity update:', error);
+          message = window.cartStrings.error;
         }
+
         this.updateLiveRegions(line, message);
 
         const lineItem = document.getElementById(`CartItem-${line}`) || document.getElementById(`CartDrawer-Item-${line}`);
