@@ -121,7 +121,9 @@ class CartItems extends HTMLElement {
           elementToReplace.innerHTML = 
             this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
         }));
-        const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
+
+        const currentProduct = parsedState.items[line - 1];
+        const updatedValue = currentProduct ? currentProduct.quantity : undefined;
         let message = '';
         if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
           if (typeof updatedValue === 'undefined') {
