@@ -16,6 +16,7 @@ class CartItems extends HTMLElement {
   constructor() {
     super();
     this.lineItemStatusElement = document.getElementById('shopping-cart-line-item-status') || document.getElementById('CartDrawer-LineItemStatus');
+    this.currentRequests = new Set();
 
     const debouncedOnChange = debounce((event) => {
       this.onChange(event);
@@ -63,7 +64,7 @@ class CartItems extends HTMLElement {
     return [
       {
         id: 'main-cart-items',
-        section: document.getElementById('main-cart-items').dataset.id,
+        section: document.getElementById('main-cart-items')?.dataset?.id || 'main-cart-items',
         selector: '.js-contents'
       },
       {
@@ -78,36 +79,75 @@ class CartItems extends HTMLElement {
       },
       {
         id: 'main-cart-footer',
-        section: document.getElementById('main-cart-footer').dataset.id,
+        section: document.getElementById('main-cart-footer')?.dataset?.id || 'main-cart-footer',
         selector: '.js-contents'
       }
-    ];
+    ].filter(section => section.section);
   }
 
   updateQuantity(line, quantity, name, variantId) {
-    this.enableLoading(line);
+    if (!line || isNaN(parseInt(line))) {
+      console.error('Invalid line number:', line);
+      return;
+    }
+    
+    if (quantity !== 0 && (!quantity || isNaN(parseInt(quantity)))) {
+      console.error('Invalid quantity:', quantity);
+      return;
+    }
+
+    const lineNumber = parseInt(line);
+    
+    if (this.currentRequests.has(lineNumber)) {
+      console.warn('Request already in progress for line', lineNumber);
+      return;
+    }
+    
+    this.currentRequests.add(lineNumber);
+    this.enableLoading(lineNumber);
 
     const body = JSON.stringify({
-      line,
-      quantity,
+      line: lineNumber,
+      quantity: parseInt(quantity),
       sections: this.getSectionsToRender().map((section) => section.section),
       sections_url: window.location.pathname
     });
 
-    fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
+    fetch(`${routes.cart_change_url}`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body
+    })
       .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`);
+        }
         return response.text();
       })
       .then((state) => {
-        let parsedState = JSON.parse(state);
+        let parsedState;
+        try {
+          parsedState = JSON.parse(state);
+        } catch (e) {
+          console.error('JSON parse error:', e);
+          throw new Error('Invalid response format');
+        }
+
+        if (parsedState.status && parsedState.status !== 200) {
+          throw new Error(parsedState.message || 'Cart update failed');
+        }
 
         function proceedWithState(stateToUse) {
-          const quantityElement = document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
+          const quantityElement = document.getElementById(`Quantity-${lineNumber}`) || document.getElementById(`Drawer-quantity-${lineNumber}`);
           const items = document.querySelectorAll('.cart-item');
 
           if (stateToUse.errors) {
             quantityElement.value = quantityElement.getAttribute('value');
-            this.updateLiveRegions(line, stateToUse.errors);
+            this.updateLiveRegions(lineNumber, stateToUse.errors);
             return;
           }
 
@@ -138,42 +178,65 @@ class CartItems extends HTMLElement {
             });
           }
 
-          // Robust cart item lookup by variant ID
           let message = '';
           try {
             const cartItems = Array.isArray(stateToUse.items) ? stateToUse.items : [];
             console.log('[DEBUG] CartItems:', cartItems);
-            console.log('[DEBUG] variantId:', variantId, 'line:', line);
+            console.log('[DEBUG] variantId:', variantId, 'line:', lineNumber);
             console.log('[DEBUG] stateToUse:', stateToUse);
+            
             let currentProduct = null;
+            
             if (variantId) {
-              currentProduct = cartItems.find(item => String(item.id) === String(variantId));
-            } else {
-              currentProduct = cartItems[line - 1];
+              currentProduct = cartItems.find(item => 
+                item && String(item.variant_id) === String(variantId)
+              );
+              
+              if (!currentProduct) {
+                currentProduct = cartItems.find(item => 
+                  item && String(item.id) === String(variantId)
+                );
+              }
             }
-            if (!currentProduct) {
-              console.error('[CRITICAL] Could not find cart item!', {cartItems, variantId, line, stateToUse});
+            
+            if (!currentProduct && lineNumber > 0 && lineNumber <= cartItems.length) {
+              currentProduct = cartItems[lineNumber - 1];
             }
+            
+            if (!currentProduct || typeof currentProduct !== 'object') {
+              console.error('[CRITICAL] Could not find cart item!', {
+                cartItems, 
+                variantId, 
+                line: lineNumber, 
+                stateToUse,
+                availableIds: cartItems.map(item => ({ id: item?.id, variant_id: item?.variant_id }))
+              });
+            }
+            
             console.log('[DEBUG] currentProduct:', currentProduct);
+            
             const currentQuantity = parseInt(quantityElement?.value || '0', 10);
-            const updatedValue = currentProduct ? currentProduct.quantity : undefined;
-
-            if (cartItems.length === stateToUse.items?.length &&
-                typeof updatedValue === 'number' &&
-                updatedValue !== currentQuantity) {
-              message = window.cartStrings.quantityError.replace('[quantity]', updatedValue);
-            } else if (typeof updatedValue === 'undefined') {
-              message = window.cartStrings.error;
+            const updatedValue = currentProduct?.quantity;
+            
+            if (currentProduct && typeof updatedValue === 'number') {
+              if (cartItems.length === stateToUse.items?.length && updatedValue !== currentQuantity) {
+                message = window.cartStrings?.quantityError?.replace('[quantity]', updatedValue) || 
+                         `Quantity updated to ${updatedValue}`;
+              }
+            } else if (!currentProduct) {
+              message = window.cartStrings?.itemRemoved || 'Item removed from cart';
+            } else {
+              message = window.cartStrings?.error || 'An error occurred';
             }
+            
           } catch (error) {
             console.error('Error processing quantity update:', error);
-            message = window.cartStrings.error;
+            message = window.cartStrings?.error || 'An error occurred updating your cart';
           }
 
-          this.updateLiveRegions(line, message);
+          this.updateLiveRegions(lineNumber, message);
 
-          // Handle focus management
-          const lineItem = document.getElementById(`CartItem-${line}`) || document.getElementById(`CartDrawer-Item-${line}`);
+          const lineItem = document.getElementById(`CartItem-${lineNumber}`) || document.getElementById(`CartDrawer-Item-${lineNumber}`);
           if (lineItem && lineItem.querySelector(`[name="${name}"]`)) {
             cartDrawerWrapper ? trapFocus(cartDrawerWrapper, lineItem.querySelector(`[name="${name}"]`)) : lineItem.querySelector(`[name="${name}"]`).focus();
           } else if (stateToUse.item_count === 0 && cartDrawerWrapper) {
@@ -192,6 +255,10 @@ class CartItems extends HTMLElement {
               parsedState.items = fullCart.items;
               parsedState.item_count = fullCart.item_count;
               proceedWithState.call(this, parsedState);
+            })
+            .catch(fallbackError => {
+              console.error('Fallback cart fetch failed:', fallbackError);
+              proceedWithState.call(this, parsedState);
             });
         } else {
           proceedWithState.call(this, parsedState);
@@ -200,25 +267,36 @@ class CartItems extends HTMLElement {
         console.error('Cart update error:', error);
         this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
         const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
-        errors.textContent = window.cartStrings.error;
+        if (errors) {
+          errors.textContent = window.cartStrings?.error || 'An error occurred';
+        }
       })
       .finally(() => {
-        this.disableLoading(line);
+        this.currentRequests.delete(lineNumber);
+        this.disableLoading(lineNumber);
       });
   }
 
   updateLiveRegions(line, message) {
     const lineItemError = document.getElementById(`Line-item-error-${line}`) || document.getElementById(`CartDrawer-LineItemError-${line}`);
-    if (lineItemError) lineItemError.querySelector('.cart-item__error-text').innerHTML = message;
+    if (lineItemError) {
+      const errorText = lineItemError.querySelector('.cart-item__error-text');
+      if (errorText) {
+        errorText.innerHTML = message;
+      }
+    }
 
-    this.lineItemStatusElement.setAttribute('aria-hidden', true);
+    if (this.lineItemStatusElement) {
+      this.lineItemStatusElement.setAttribute('aria-hidden', true);
+    }
 
     const cartStatus = document.getElementById('cart-live-region-text') || document.getElementById('CartDrawer-LiveRegionText');
-    cartStatus.setAttribute('aria-hidden', false);
-
-    setTimeout(() => {
-      cartStatus.setAttribute('aria-hidden', true);
-    }, 1000);
+    if (cartStatus) {
+      cartStatus.setAttribute('aria-hidden', false);
+      setTimeout(() => {
+        cartStatus.setAttribute('aria-hidden', true);
+      }, 1000);
+    }
   }
 
   getSectionInnerHTML(html, selector) {
@@ -229,26 +307,34 @@ class CartItems extends HTMLElement {
 
   enableLoading(line) {
     const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
-    mainCartItems.classList.add('cart__items--disabled');
+    if (mainCartItems) {
+      mainCartItems.classList.add('cart__items--disabled');
+    }
 
     const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading-overlay`);
     const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading-overlay`);
 
     [...cartItemElements, ...cartDrawerItemElements].forEach((overlay) => overlay.classList.remove('hidden'));
 
-    document.activeElement.blur();
-    this.lineItemStatusElement.setAttribute('aria-hidden', false);
+    if (document.activeElement) {
+      document.activeElement.blur();
+    }
+    
+    if (this.lineItemStatusElement) {
+      this.lineItemStatusElement.setAttribute('aria-hidden', false);
+    }
   }
 
   disableLoading(line) {
     const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
-    mainCartItems.classList.remove('cart__items--disabled');
+    if (mainCartItems) {
+      mainCartItems.classList.remove('cart__items--disabled');
+    }
 
     const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading-overlay`);
     const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading-overlay`);
 
-    cartItemElements.forEach((overlay) => overlay.classList.add('hidden'));
-    cartDrawerItemElements.forEach((overlay) => overlay.classList.add('hidden'));
+    [...cartItemElements, ...cartDrawerItemElements].forEach((overlay) => overlay.classList.add('hidden'));
   }
 }
 
@@ -256,13 +342,30 @@ customElements.define('cart-items', CartItems);
 
 if (!customElements.get('cart-note')) {
   customElements.define('cart-note', class CartNote extends HTMLElement {
-      constructor() {
-        super();
+    constructor() {
+      super();
 
       this.addEventListener('change', debounce((event) => {
-            const body = JSON.stringify({ note: event.target.value });
-            fetch(`${routes.cart_update_url}`, { ...fetchConfig(), ...{ body } });
+        const body = JSON.stringify({ note: event.target.value });
+        fetch(`${routes.cart_update_url}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json',
+            'X-Requested-With': 'XMLHttpRequest'
+          },
+          body
+        })
+        .then(response => {
+          if (!response.ok) {
+            throw new Error('Failed to update cart note');
+          }
+          return response.json();
+        })
+        .catch(error => {
+          console.error('Cart note update failed:', error);
+        });
       }, ON_CHANGE_DEBOUNCE_TIMER))
-      }
+    }
   });
 };
