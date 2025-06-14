@@ -115,19 +115,37 @@ class CartItems extends HTMLElement {
         if (cartFooter) cartFooter.classList.toggle('is-empty', parsedState.item_count === 0);
         if (cartDrawerWrapper) cartDrawerWrapper.classList.toggle('is-empty', parsedState.item_count === 0);
 
-        this.getSectionsToRender().forEach((section => {
-          const elementToReplace = 
-            document.getElementById(section.id)?.querySelector(section.selector) || document.getElementById(section.id);
-          if (elementToReplace && parsedState.sections && parsedState.sections[section.section]) {
-            elementToReplace.innerHTML = 
-              this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
-          }
-        }));
+        if (parsedState.sections) {
+          this.getSectionsToRender().forEach((section) => {
+            const elementToReplace = document.getElementById(section.id);
+            if (!elementToReplace) return;
 
-        const currentProduct = parsedState.items?.[line - 1];
-        const updatedValue = currentProduct?.quantity;
+            const sectionContent = parsedState.sections[section.section];
+            if (!sectionContent) return;
+
+            const selector = section.selector;
+            const element = elementToReplace.querySelector(selector) || elementToReplace;
+            if (!element) return;
+
+            try {
+              element.innerHTML = this.getSectionInnerHTML(sectionContent, selector);
+            } catch (error) {
+              console.error('Error updating section:', error);
+            }
+          });
+        }
+
+        let updatedValue;
+        try {
+          const currentProduct = parsedState.items?.[line - 1];
+          updatedValue = currentProduct?.quantity;
+        } catch (error) {
+          console.error('Error getting product quantity:', error);
+          updatedValue = undefined;
+        }
+
         let message = '';
-        if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
+        if (items.length === parsedState.items?.length && updatedValue !== parseInt(quantityElement.value)) {
           if (typeof updatedValue === 'undefined') {
             message = window.cartStrings.error;
           } else {
@@ -145,7 +163,8 @@ class CartItems extends HTMLElement {
           trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'))
         }
         publish(PUB_SUB_EVENTS.cartUpdate, {source: 'cart-items'});
-      }).catch(() => {
+      }).catch((error) => {
+        console.error('Cart update error:', error);
         this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
         const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
         errors.textContent = window.cartStrings.error;
