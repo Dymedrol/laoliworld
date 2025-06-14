@@ -30,7 +30,6 @@
 
     <script src="{{ 'constants.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'pubsub.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'global.js' | asset_url }}" defer="defer"></script>
     {{ content_for_header }}
 
@@ -125,7 +124,7 @@
     {{ 'bundel.js' | asset_url | script_tag }}
 
     <script type="text/javascript">
-      window.products = [
+      const products = [
         {% assign collection_handle = 'all' %}
         {% for product in collections[collection_handle].products %}
           {% for variant in product.variants %}
@@ -135,7 +134,7 @@
             },
           {% endfor %}
         {% endfor %}
-      ];
+      ]
     </script>
  <script defer src="https://static.shopmy.us/Affiliates/sms_aff_clicktrack.js"></script>
   </body>
