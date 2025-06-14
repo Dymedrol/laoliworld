@@ -142,13 +142,19 @@ class CartItems extends HTMLElement {
           let message = '';
           try {
             const cartItems = Array.isArray(stateToUse.items) ? stateToUse.items : [];
+            console.log('[DEBUG] CartItems:', cartItems);
+            console.log('[DEBUG] variantId:', variantId, 'line:', line);
+            console.log('[DEBUG] stateToUse:', stateToUse);
             let currentProduct = null;
             if (variantId) {
               currentProduct = cartItems.find(item => String(item.id) === String(variantId));
             } else {
               currentProduct = cartItems[line - 1];
             }
-            console.log('USING STATE:', stateToUse, 'line:', line, 'variantId:', variantId, 'currentProduct:', currentProduct);
+            if (!currentProduct) {
+              console.error('[CRITICAL] Could not find cart item!', {cartItems, variantId, line, stateToUse});
+            }
+            console.log('[DEBUG] currentProduct:', currentProduct);
             const currentQuantity = parseInt(quantityElement?.value || '0', 10);
             const updatedValue = currentProduct ? currentProduct.quantity : undefined;
 
