@@ -51,12 +51,10 @@ class CartItems extends HTMLElement {
       .then((responseText) => {
         const html = new DOMParser().parseFromString(responseText, 'text/html');
         const sourceQty = html.querySelector('cart-items');
-        if (sourceQty) {
-          this.innerHTML = sourceQty.innerHTML;
-        }
+        this.innerHTML = sourceQty.innerHTML;
       })
       .catch(e => {
-        console.error('Error updating cart:', e);
+        console.error(e);
       });
   }
 
@@ -64,7 +62,7 @@ class CartItems extends HTMLElement {
     return [
       {
         id: 'main-cart-items',
-        section: document.getElementById('main-cart-items')?.dataset.id,
+        section: document.getElementById('main-cart-items').dataset.id,
         selector: '.js-contents'
       },
       {
@@ -79,18 +77,13 @@ class CartItems extends HTMLElement {
       },
       {
         id: 'main-cart-footer',
-        section: document.getElementById('main-cart-footer')?.dataset.id,
+        section: document.getElementById('main-cart-footer').dataset.id,
         selector: '.js-contents'
       }
-    ].filter(section => section.section); // Filter out undefined sections
+    ];
   }
 
   updateQuantity(line, quantity, name) {
-    if (!line || !quantity) {
-      console.error('Invalid line or quantity');
-      return;
-    }
-
     this.enableLoading(line);
 
     const body = JSON.stringify({
@@ -102,24 +95,15 @@ class CartItems extends HTMLElement {
 
     fetch(`${routes.cart_change_url}`, { ...fetchConfig(), ...{ body } })
       .then((response) => {
-        if (!response.ok) {
-          throw new Error('Network response was not ok');
-        }
         return response.text();
       })
       .then((state) => {
         const parsedState = JSON.parse(state);
-        if (!parsedState || typeof parsedState !== 'object') {
-          throw new Error('Invalid cart state');
-        }
-
         const quantityElement = document.getElementById(`Quantity-${line}`) || document.getElementById(`Drawer-quantity-${line}`);
         const items = document.querySelectorAll('.cart-item');
 
         if (parsedState.errors) {
-          if (quantityElement) {
-            quantityElement.value = quantityElement.getAttribute('value');
-          }
+          quantityElement.value = quantityElement.getAttribute('value');
           this.updateLiveRegions(line, parsedState.errors);
           return;
         }
@@ -133,27 +117,13 @@ class CartItems extends HTMLElement {
 
         this.getSectionsToRender().forEach((section => {
           const elementToReplace = 
-            document.getElementById(section.id)?.querySelector(section.selector) || 
-            document.getElementById(section.id);
-          
-          if (!elementToReplace) {
-            console.error(`Element not found: ${section.id}`);
-            return;
-          }
-
-          const sectionContent = this.getSectionInnerHTML(
-            parsedState.sections[section.section],
-            section.selector
-          );
-
-          if (sectionContent) {
-            elementToReplace.innerHTML = sectionContent;
-          }
+            document.getElementById(section.id).querySelector(section.selector) || document.getElementById(section.id);
+          elementToReplace.innerHTML = 
+            this.getSectionInnerHTML(parsedState.sections[section.section], section.selector);
         }));
-
         const updatedValue = parsedState.items[line - 1] ? parsedState.items[line - 1].quantity : undefined;
         let message = '';
-        if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement?.value)) {
+        if (items.length === parsedState.items.length && updatedValue !== parseInt(quantityElement.value)) {
           if (typeof updatedValue === 'undefined') {
             message = window.cartStrings.error;
           } else {
@@ -171,13 +141,10 @@ class CartItems extends HTMLElement {
           trapFocus(cartDrawerWrapper, document.querySelector('.cart-item__name'))
         }
         publish(PUB_SUB_EVENTS.cartUpdate, {source: 'cart-items'});
-      }).catch((error) => {
-        console.error('Error updating cart:', error);
+      }).catch(() => {
         this.querySelectorAll('.loading-overlay').forEach((overlay) => overlay.classList.add('hidden'));
         const errors = document.getElementById('cart-errors') || document.getElementById('CartDrawer-CartErrors');
-        if (errors) {
-          errors.textContent = window.cartStrings.error;
-        }
+        errors.textContent = window.cartStrings.error;
       })
       .finally(() => {
         this.disableLoading(line);
@@ -186,47 +153,27 @@ class CartItems extends HTMLElement {
 
   updateLiveRegions(line, message) {
     const lineItemError = document.getElementById(`Line-item-error-${line}`) || document.getElementById(`CartDrawer-LineItemError-${line}`);
-    if (lineItemError) {
-      const errorText = lineItemError.querySelector('.cart-item__error-text');
-      if (errorText) {
-        errorText.innerHTML = message;
-      }
-    }
+    if (lineItemError) lineItemError.querySelector('.cart-item__error-text').innerHTML = message;
 
-    if (this.lineItemStatusElement) {
-      this.lineItemStatusElement.setAttribute('aria-hidden', true);
-    }
+    this.lineItemStatusElement.setAttribute('aria-hidden', true);
 
     const cartStatus = document.getElementById('cart-live-region-text') || document.getElementById('CartDrawer-LiveRegionText');
-    if (cartStatus) {
-      cartStatus.setAttribute('aria-hidden', false);
-      setTimeout(() => {
-        cartStatus.setAttribute('aria-hidden', true);
-      }, 1000);
-    }
+    cartStatus.setAttribute('aria-hidden', false);
+
+    setTimeout(() => {
+      cartStatus.setAttribute('aria-hidden', true);
+    }, 1000);
   }
 
   getSectionInnerHTML(html, selector) {
-    if (!html || !selector) {
-      console.error('Invalid section data');
-      return '';
-    }
-
-    try {
-      const parsed = new DOMParser().parseFromString(html, 'text/html');
-      const element = parsed.querySelector(selector);
-      return element ? element.innerHTML : '';
-    } catch (e) {
-      console.error('Error parsing section HTML:', e);
-      return '';
-    }
+    return new DOMParser()
+      .parseFromString(html, 'text/html')
+      .querySelector(selector).innerHTML;
   }
 
   enableLoading(line) {
     const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
-    if (mainCartItems) {
-      mainCartItems.classList.add('cart__items--disabled');
-    }
+    mainCartItems.classList.add('cart__items--disabled');
 
     const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading-overlay`);
     const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading-overlay`);
@@ -234,16 +181,12 @@ class CartItems extends HTMLElement {
     [...cartItemElements, ...cartDrawerItemElements].forEach((overlay) => overlay.classList.remove('hidden'));
 
     document.activeElement.blur();
-    if (this.lineItemStatusElement) {
-      this.lineItemStatusElement.setAttribute('aria-hidden', false);
-    }
+    this.lineItemStatusElement.setAttribute('aria-hidden', false);
   }
 
   disableLoading(line) {
     const mainCartItems = document.getElementById('main-cart-items') || document.getElementById('CartDrawer-CartItems');
-    if (mainCartItems) {
-      mainCartItems.classList.remove('cart__items--disabled');
-    }
+    mainCartItems.classList.remove('cart__items--disabled');
 
     const cartItemElements = this.querySelectorAll(`#CartItem-${line} .loading-overlay`);
     const cartDrawerItemElements = this.querySelectorAll(`#CartDrawer-Item-${line} .loading-overlay`);
@@ -257,12 +200,13 @@ customElements.define('cart-items', CartItems);
 
 if (!customElements.get('cart-note')) {
   customElements.define('cart-note', class CartNote extends HTMLElement {
-    constructor() {
-      super();
+      constructor() {
+        super();
+
       this.addEventListener('change', debounce((event) => {
-        const body = JSON.stringify({ note: event.target.value });
-        fetch(`${routes.cart_update_url}`, { ...fetchConfig(), ...{ body } });
+            const body = JSON.stringify({ note: event.target.value });
+            fetch(`${routes.cart_update_url}`, { ...fetchConfig(), ...{ body } });
       }, ON_CHANGE_DEBOUNCE_TIMER))
-    }
+      }
   });
-}
+};
