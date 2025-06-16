@@ -75,14 +75,22 @@ export const openCart = () => {
 
             const items = result.items;
 
+            console.log(items)
+
             items.forEach(function(item) {
                 item.currency = currency;
                 const currentProduct = products.find((product) => product.id == item.id);
-                item.inventory_quantity = currentProduct.quantity;
+                console.log('products', products)
+                console.log('currentProduct', currentProduct)
 
-                if (item.inventory_quantity < 1) {
-                    duration.removeClass('hidden');
+                if (currentProduct) {
+                    item.inventory_quantity = currentProduct.quantity;
+
+                    if (item.inventory_quantity < 1) {
+                        duration.removeClass('hidden');
+                    }
                 }
+
             });
 
             itemsWrapper.html(items.map(cartItem).join(''));
@@ -171,6 +179,7 @@ export const openCart = () => {
             })
 
             itemsWrapper.find('.js-cart-minus').click(function() {
+                console.log('aaaaaaaaaa!!!!!')
                 const item = $(this).closest('.laoli-cart-item');
                 const id = item.attr('data-id');
                 const quantity =  Number(item.find('.js-cart-quantity').text()) - 1;
@@ -265,7 +274,6 @@ export const openCart = () => {
     })
 
     showCart();
-
 }
 
 
