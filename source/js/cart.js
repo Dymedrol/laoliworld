@@ -85,6 +85,8 @@ export const openCart = () => {
                     if (item.inventory_quantity < 1) {
                         duration.removeClass('hidden');
                     }
+                } else {
+                    item.inventory_quantity = 1;
                 }
 
             });
