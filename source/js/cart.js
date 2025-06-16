@@ -75,13 +75,9 @@ export const openCart = () => {
 
             const items = result.items;
 
-            console.log(items)
-
             items.forEach(function(item) {
                 item.currency = currency;
                 const currentProduct = products.find((product) => product.id == item.id);
-                console.log('products', products)
-                console.log('currentProduct', currentProduct)
 
                 if (currentProduct) {
                     item.inventory_quantity = currentProduct.quantity;
@@ -160,7 +156,6 @@ export const openCart = () => {
                   return response.json();
                 })
                 .then(result => {
-                    console.log('result', result)
                     item.find('.js-cart-quantity').text(quantity);
                     totalPrice.text(currency + ' ' + getPrice(result.total_price));
 
@@ -179,7 +174,6 @@ export const openCart = () => {
             })
 
             itemsWrapper.find('.js-cart-minus').click(function() {
-                console.log('aaaaaaaaaa!!!!!')
                 const item = $(this).closest('.laoli-cart-item');
                 const id = item.attr('data-id');
                 const quantity =  Number(item.find('.js-cart-quantity').text()) - 1;
