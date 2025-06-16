@@ -23,22 +23,23 @@
     </div>
 
     <div class="laoli-grid-items">
+        {% paginate collection.products by 1000 %}
+            {%- for product in collection.products -%}
 
-        {%- for product in collection.products -%}
+                {% assign is_available = false %}
 
-            {% assign is_available = false %}
+                {%- for variant in product.variants -%}
+                    {% if variant.inventory_quantity > 0 %}
+                      {% assign is_available = true %}
+                    {% endif %}
+                {%- endfor -%}
 
-            {%- for variant in product.variants -%}
-                {% if variant.inventory_quantity > 0 %}
-                  {% assign is_available = true %}
-                {% endif %}
+                {% render 'card-product',
+                  card_product: product,
+                  available: is_available
+                %}
             {%- endfor -%}
-
-            {% render 'card-product',
-              card_product: product,
-              available: is_available
-            %}
-        {%- endfor -%}
+        {% endpaginate %}
         <div class="laoli-grid-item-dummy"></div>
         <div class="laoli-grid-item-dummy"></div>
         <div class="laoli-grid-item-dummy"></div>

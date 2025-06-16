@@ -126,14 +126,17 @@
     <script type="text/javascript">
       const products = [
         {% assign collection_handle = 'all' %}
-        {% for product in collections[collection_handle].products %}
-          {% for variant in product.variants %}
-            {
-              id: {{variant.id}},
-              quantity: {{variant.inventory_quantity}},
-            },
+
+        {% paginate collections[collection_handle].products by 1000 %}
+          {% for product in collections[collection_handle].products %}
+            {% for variant in product.variants %}
+              {
+                id: {{variant.id}},
+                quantity: {{variant.inventory_quantity}},
+              },
+            {% endfor %}
           {% endfor %}
-        {% endfor %}
+        {% endpaginate %}
       ]
     </script>
  <script defer src="https://static.shopmy.us/Affiliates/sms_aff_clicktrack.js"></script>
