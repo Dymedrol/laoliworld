@@ -646,7 +646,7 @@ a {
   content: '';
   width: 50%;
   height: 40px;
-  background: url('./button-red-brown.svg');
+  background: url('https://cdn.shopify.com/s/files/1/0596/7403/4314/files/button-red-black.svg?v=1732618658');
   z-index: -1;
 }
 .button-red:after {
@@ -657,7 +657,7 @@ a {
   content: '';
   width: 51%;
   height: 40px;
-  background: url('./button-red-brown.svg');
+  background: url('https://cdn.shopify.com/s/files/1/0596/7403/4314/files/button-red-black.svg?v=1732618658');
   z-index: -1;
   background-position-x: right;
 }
@@ -701,7 +701,7 @@ a {
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
-  color: #764F39;
+  color: #B82C36;
   border: none;
   background: transparent;
   z-index: 1;
@@ -715,7 +715,7 @@ a {
   content: '';
   width: 50%;
   height: 40px;
-  background: url('./button-white-brown.svg');
+  background: url('./button-white.svg');
   z-index: -1;
 }
 .button-white:after {
@@ -726,7 +726,7 @@ a {
   content: '';
   width: 51%;
   height: 40px;
-  background: url('./button-white-brown.svg');
+  background: url('./button-white.svg');
   z-index: -1;
   background-position-x: right;
 }
@@ -741,7 +741,7 @@ a {
   content: '';
   width: 50%;
   height: 40px;
-  background: url('./button-red-brown.svg');
+  background: url('./button-red.svg');
   z-index: -1;
 }
 .button-white:hover:after {
@@ -752,7 +752,7 @@ a {
   content: '';
   width: 51%;
   height: 40px;
-  background: url('./button-red-brown.svg');
+  background: url('./button-red.svg');
   z-index: -1;
   background-position-x: right;
 }
@@ -1334,7 +1334,7 @@ a {
     width: 100%;
     z-index: 3;
     height: 56px;
-    background: #764f39;
+    background: #000000;
   }
 }
 @media (min-width: 960px) {
@@ -2157,7 +2157,7 @@ a {
 }
 .laoli-pdp-mobile-info-buttons-sizes-value {
   display: inline-block;
- /* width: 17px;*/
+  width: 17px;
   text-align: right;
 }
 .laoli-pdp-mobile-info-buttons-sizes-menu {
@@ -2867,7 +2867,7 @@ a {
   font-size: 30px;
   line-height: 40px;
   text-transform: uppercase;
-  color: #764f39;
+  color: #494540;
   padding: 0 20px;
   margin-bottom: 65px;
 }
@@ -2900,7 +2900,7 @@ a {
   font-size: 30px;
   line-height: 40px;
   text-transform: uppercase;
-  color: #764f39;
+  color: #B82C36;
 }
 .laoli-cart-empty-button {
   margin: auto auto 0 auto;
@@ -3753,18 +3753,5 @@ a {
 }
 .laoli-cart-item-info-quantity span {
   line-height: 17.5px !important;
-}
-
-/* Fullscreen mode styles */
-.laoli-home-jumbo--fullscreen {
-  width: 100vw;
-  margin-left: calc(50% - 50vw);
-  border-radius: 0 !important;
-}
-
-.laoli-home-jumbo--fullscreen .laoli-home-jumbo-pic,
-.laoli-home-jumbo--fullscreen .laoli-home-jumbo-pic img {
-  border-radius: 0 !important;
-  width: 100%;
 }
 
