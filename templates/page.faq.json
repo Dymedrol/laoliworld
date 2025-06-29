@@ -75,13 +75,6 @@
             "question_answer": "We’re committed to reducing our impact on the planet and are always looking for ways to become more responsible across the supply chain; that starts with the materials we use. At LAOLI, the majority of our jewelry is made with 14k recycled gold as the metal base. When using diamonds, we work with conflict-free lab grown diamonds that are identical to mined diamonds, just more ethical and transparent. All the other precious stones that we use, such as our freshwater pearls, come from ethically vetted or RJC certified suppliers."
           }
         },
-        "question_QdTd93": {
-          "type": "question",
-          "settings": {
-            "question_title": "",
-            "question_answer": ""
-          }
-        },
         "2389ee51-971a-4cb5-83d2-2d42766fe0bb": {
           "type": "question",
           "settings": {
@@ -127,7 +120,6 @@
       },
       "block_order": [
         "d2868cdc-855c-4491-aee9-0be348a1280e",
-        "question_QdTd93",
         "2389ee51-971a-4cb5-83d2-2d42766fe0bb",
         "42899e89-4bb6-44c7-b009-7ec9b71edea6",
         "08889cff-3672-4bc2-aec3-597ff556e2aa",
