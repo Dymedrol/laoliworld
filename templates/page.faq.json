@@ -75,6 +75,13 @@
             "question_answer": "We’re committed to reducing our impact on the planet and are always looking for ways to become more responsible across the supply chain; that starts with the materials we use. At LAOLI, the majority of our jewelry is made with 14k recycled gold as the metal base. When using diamonds, we work with conflict-free lab grown diamonds that are identical to mined diamonds, just more ethical and transparent. All the other precious stones that we use, such as our freshwater pearls, come from ethically vetted or RJC certified suppliers."
           }
         },
+        "question_QdTd93": {
+          "type": "question",
+          "settings": {
+            "question_title": "",
+            "question_answer": ""
+          }
+        },
         "2389ee51-971a-4cb5-83d2-2d42766fe0bb": {
           "type": "question",
           "settings": {
@@ -114,12 +121,13 @@
           "type": "question",
           "settings": {
             "question_title": "What happens if my piece is faulty or needs repair?",
-            "question_answer": "All items purchased on LAOLWORLD.com have a 2 year warranty from the date of your purchase. During this time frame, all repairs or replacements will be free of charge provided that the deterioration is related to a manufacturing defect. After this 2 year warranty period or repairs on non faulty items, we can still help repair your piece but there will be a cost for our services. If you find that your item is defective, please contact us at <a href=\"mailto:hello@laoliworld.com\" style=\"color: rgb(136, 136, 136); border-bottom-width: 1px; border-bottom-style: solid; border-bottom-color: rgb(136, 136, 136); box-shadow: none; text-decoration: none;\">hello@laoliworld.com</a> with your invoice, description of defect and images of your piece."
+            "question_answer": "All items purchased on LAOLIWORLD.com come with a 1-year warranty from the date of purchase. During this time, any repairs or replacements due to manufacturing defects will be provided free of charge. After the 1-year warranty period—or for repairs not related to manufacturing issues—we’re still happy to assist with repairs, though a service fee may apply.\n\nPlease note:\nDue to the delicate nature of the materials we use—especially pearls, shells, and gemstones—we do not repair or replace stones that have been chipped, cracked, or broken due to impact. These types of damage are not considered manufacturing faults. If your jewelry has been dropped, hit against a hard surface, or damaged during wear, it will not be eligible for a repair or replacement. \n\nTo prevent this kind of damage, we recommend always handling your jewelry with care, avoiding rough surfaces, extreme temperatures, chemicals, and any impact or pressure on delicate elements.\n\nIf you believe your item has a manufacturing fault, please email hello@laoliworld.com with your order invoice, a description of the issue, and clear images of the piece. We’ll assess the situation and let you know how we can help.\n\nTo keep your jewelry looking its best, please follow our care guide. If you find that your item is defective, please contact us at hello@laoliworld.com with your invoice, description of defect and images of your piece."
           }
         }
       },
       "block_order": [
         "d2868cdc-855c-4491-aee9-0be348a1280e",
+        "question_QdTd93",
         "2389ee51-971a-4cb5-83d2-2d42766fe0bb",
         "42899e89-4bb6-44c7-b009-7ec9b71edea6",
         "08889cff-3672-4bc2-aec3-597ff556e2aa",
