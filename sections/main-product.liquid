@@ -52,7 +52,24 @@
                 <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-soldout }}" disabled>
             {% endif %}
         </div>
-      </form>
+      <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const variantSelector = document.querySelector('select[name="id"]');
+    const addToCartBtn = document.querySelector('button[name="add"]');
+
+    function updateAddToCartState() {
+      if (!variantSelector || !addToCartBtn) return;
+      const selectedText = variantSelector.options[variantSelector.selectedIndex].text.toLowerCase();
+      const isPlaceholder = selectedText.includes('select');
+      addToCartBtn.disabled = isPlaceholder;
+    }
+
+    // Run on load + when changed
+    updateAddToCartState();
+    variantSelector.addEventListener('change', updateAddToCartState);
+  });
+</script>
+</form>
     </div>
 </div>
 
