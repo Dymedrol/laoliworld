@@ -52,6 +52,28 @@
                 <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-soldout }}" disabled>
             {% endif %}
         </div>
+        <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const addToCartBtn = document.querySelector('button[name="add"]');
+    const variantInput = document.querySelector('input[name="id"]');
+
+    const placeholderVariantId = '55438740160856'; // replace with your actual "Select" variant ID
+
+    function disableIfPlaceholderSelected() {
+      const currentVariantId = variantInput?.value;
+      if (!addToCartBtn || !currentVariantId) return;
+
+      const isPlaceholder = currentVariantId === placeholderVariantId;
+      addToCartBtn.disabled = isPlaceholder;
+    }
+
+    // Initial check
+    disableIfPlaceholderSelected();
+
+    // Update when variant changes
+    document.body.addEventListener('change', disableIfPlaceholderSelected);
+  });
+</script>
 </form>
     </div>
 </div>
