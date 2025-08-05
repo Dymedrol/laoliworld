@@ -52,21 +52,25 @@
                 <input type="submit" name="add" class="laoli-pdp-mobile-info-buttons-add js-add" value="{{ section.settings.pdp-soldout }}" disabled>
             {% endif %}
         </div>
-      <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const variantSelector = document.querySelector('select[name="id"]');
+     <script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const variantSelect = document.querySelector('select[name="id"]');
     const addToCartBtn = document.querySelector('button[name="add"]');
 
-    function updateAddToCartState() {
-      if (!variantSelector || !addToCartBtn) return;
-      const selectedText = variantSelector.options[variantSelector.selectedIndex].text.toLowerCase();
-      const isPlaceholder = selectedText.includes('select');
-      addToCartBtn.disabled = isPlaceholder;
+    function disableAddToCartIfSelect() {
+      if (!variantSelect || !addToCartBtn) return;
+
+      const selectedOptionText = variantSelect.options[variantSelect.selectedIndex].textContent.trim().toLowerCase();
+      const isSelectOption = selectedOptionText === 'select';
+
+      addToCartBtn.disabled = isSelectOption;
     }
 
-    // Run on load + when changed
-    updateAddToCartState();
-    variantSelector.addEventListener('change', updateAddToCartState);
+    // Initial check
+    disableAddToCartIfSelect();
+
+    // Re-check every time the variant is changed
+    variantSelect?.addEventListener('change', disableAddToCartIfSelect);
   });
 </script>
 </form>
